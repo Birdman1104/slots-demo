@@ -1,13 +1,21 @@
 import { BackIn, BackOut, lp } from './Utils';
 
 export const CHANCE_TO_WIN = 80;
+export const MIN_BET = 10;
+export const MAX_BET = 10;
+
+export const WIDTH = 128;
+export const HEIGHT = 128;
+export const SPEED = 1.3;
+export const SLOT_OFFSET = -8;
+
+export const SPIN_EASING = BackIn;
+export const STOP_EASING = BackOut;
 
 export function getSlotMachineConfig() {
     return lp(
         {
-            slotOffset: -8,
             clickable: true,
-            speed: 1.3,
             bet: { step: 50, max: 900, min: 500 },
             prizeFactor: { regular: 10, big: 20, mega: 50 },
             combinations: {
@@ -35,8 +43,6 @@ export function getSlotMachineConfig() {
                 { x: 570, y: 540 },
                 { x: 20, y: 540 },
             ],
-            spinEasing: BackIn,
-            stopEasing: BackOut,
             reelsSpinDelay: 100,
             reelsStopDelay: 100,
             reels: [
@@ -66,9 +72,7 @@ export function getSlotMachineConfig() {
             ],
         },
         {
-            slotOffset: -8,
             clickable: true,
-            speed: 1.3,
             bet: { step: 50, max: 900, min: 500 },
             prizeFactor: { regular: 10, big: 20, mega: 50 },
             combinations: {
@@ -96,8 +100,6 @@ export function getSlotMachineConfig() {
                 { x: 570, y: 540 },
                 { x: 20, y: 540 },
             ],
-            spinEasing: BackIn,
-            stopEasing: BackOut,
             reelsSpinDelay: 100,
             reelsStopDelay: 100,
             reels: [

@@ -1,9 +1,23 @@
 export const WindowEvent = {
-  Resize: "WindowEventResize",
-  FocusChange: "WindowEventFocusChange",
+    Resize: 'WindowEventResize',
+    FocusChange: 'WindowEventFocusChange',
 };
 
 export const MainGameEvents = {
-  Resize: "MainGameEventsResize",
-  MainViewReady: "MainGameEventsMainViewReady",
+    Resize: 'MainGameEventsResize',
+    MainViewReady: 'MainGameEventsMainViewReady',
+};
+
+export const ReelViewEvents = {
+    SlowDownComplete: 'ReelViewEventsSlowDownComplete',
+    SpeedUpComplete: 'ReelViewEventsSpeedUpComplete',
+};
+
+export const SlotMachineViewEvents = {
+    Spin: 'ReelViewEventsSpin',
+};
+
+export const SlotMachineEffectsEvents = {
+    SpinResultAnimationStart: 'SlotMachineEffectsEventsSpinResultAnimationStart',
+    SpinResultAnimationComplete: 'SlotMachineEffectsEventsSpinResultAnimationComplete',
 };

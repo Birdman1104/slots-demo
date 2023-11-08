@@ -1,8 +1,32 @@
 {
   "frames": {
-    "counter-bkg.png": {
+    "slot-bg.jpg": {
       "frame": {
         "x": 3,
+        "y": 3,
+        "w": 1200,
+        "h": 1200
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 1200,
+        "h": 1200
+      },
+      "sourceSize": {
+        "w": 1200,
+        "h": 1200
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "counter-bkg.png": {
+      "frame": {
+        "x": 1209,
         "y": 3,
         "w": 400,
         "h": 117
@@ -26,7 +50,7 @@
     },
     "bkg.png": {
       "frame": {
-        "x": 3,
+        "x": 1209,
         "y": 126,
         "w": 330,
         "h": 330
@@ -55,8 +79,8 @@
     "image": "game-ui.png",
     "format": "RGBA8888",
     "size": {
-      "w": 406,
-      "h": 459
+      "w": 1612,
+      "h": 1206
     },
     "scale": 1
   }

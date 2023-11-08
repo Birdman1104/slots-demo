@@ -19,6 +19,14 @@ class HeadModel extends ObservableModel {
         return this._gameModel;
     }
 
+    set playerModel(value) {
+        this._playerModel = value;
+    }
+
+    get playerModel() {
+        return this._playerModel;
+    }
+
     public init(): void {
         //
     }

@@ -39,9 +39,8 @@
         "@armathai/lego": "^5.0.9",
         "@armathai/lego-logger": "^4.0.0",
         "@armathai/pixi-grid": "^6.0.1",
-        "@pixi/core": "^7.2.4",
+        "@pixi/core": "^7.3.2",
         "howler": "^2.2.3",
-        "pixi-spine": "^4.0.4",
-        "pixi.js": "^7.2.4"
+        "pixi.js": "^7.3.2"
     }
 }

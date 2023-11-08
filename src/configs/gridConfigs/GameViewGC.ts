@@ -17,6 +17,10 @@ const getGameViewGridLandscapeConfig = () => {
                 scale: CellScale.fit,
                 bounds: { x: 0, y: 0.15, width: 1, height: 0.7 },
             },
+            {
+                name: 'slot_machine',
+                bounds: { x: 0.2, y: 0.14, width: 0.6, height: 0.64 },
+            },
         ],
     };
 };
@@ -32,6 +36,10 @@ const getGameViewGridPortraitConfig = () => {
                 name: 'game',
                 scale: CellScale.fit,
                 bounds: { x: 0, y: 0.15, width: 1, height: 0.7 },
+            },
+            {
+                name: 'slot_machine',
+                bounds: { x: 0.05, y: 0.15, width: 0.9, height: 0.7 },
             },
         ],
     };

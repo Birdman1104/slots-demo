@@ -3,17 +3,17 @@ export const lp = (l, p) => {
     return w > h ? l : p;
 };
 
-export function BackOut(k) {
+export const BackOut = (k: number): number => {
     // const s = 1.70158; | default
     const s = 0.7;
     return --k * k * ((s + 1) * k + s) + 1;
-}
+};
 
-export function BackIn(k) {
+export const BackIn = (k: number): number => {
     // const s = 1.70158; | default
     const s = 0.7;
     return k * k * ((s + 1) * k - s);
-}
+};
 
 export const last = (arr: any[]): any => {
     return arr.slice(-1)[0];
@@ -36,6 +36,17 @@ export const shuffle = (arr) => {
         arr[i] = arr[j];
         arr[j] = temp;
     }
+};
+
+export const getTweenPoints = (time: number, ease: EaseFunction, from: number, to: number): number[] => {
+    const dt = 60; // TODO check fps
+    const points: number[] = [];
+    const framesCount = Math.round(((1 / time) * 1000) / dt);
+    for (let i = 1; i <= framesCount; i += 1) {
+        points.push(Math.round(from + ease(i / framesCount) * to));
+    }
+
+    return points;
 };
 
 export const fitDimension = (
@@ -63,7 +74,7 @@ export const fitDimension = (
     return dim;
 };
 
-export const delayRunnable = (delay, context, runnable, ...args) => {
+export const delayRunnable = (delay, runnable, context?, ...args) => {
     let delayMS = delay * 1000;
     const delayWrapper = () => {
         delayMS -= window.game.ticker.deltaMS;
@@ -75,3 +86,6 @@ export const delayRunnable = (delay, context, runnable, ...args) => {
     window.game.ticker.add(delayWrapper);
     return delayWrapper;
 };
+
+// TODO check if runnables work correctly
+export const removeRunnable = (runnable) => window.game.ticker.remove(runnable);

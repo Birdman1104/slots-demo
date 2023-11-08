@@ -27,3 +27,5 @@ declare namespace GlobalMixins {
         click: [string];
     }
 }
+
+type EaseFunction = (k: number) => number;

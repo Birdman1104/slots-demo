@@ -1,8 +1,6 @@
-import { CHANCE_TO_WIN } from '../Config';
-import { delayRunnable, last, sample, shuffle } from '../Utils';
+import { last, sample } from '../Utils';
 import { ObservableModel } from './ObservableModel';
 import { ReelModel, ReelState } from './ReelModel';
-import { SpinButtonModel } from './SpinButtonModel';
 
 export enum SlotMachineState {
     Unknown,
@@ -24,10 +22,10 @@ export class SlotMachineModel extends ObservableModel {
     private _config: any = {};
     private _reels: ReelModel[] = [];
     private _state: SlotMachineState;
-    private _spinResult: any = null;
-    private _spinsCount = 0;
-    private _spinButton: SpinButtonModel | null = null;
-    private _autoSpinTimer: any;
+    // private _spinResult: any = null;
+    // private _spinsCount = 0;
+    // private _spinButton: SpinButtonModel | null = null;
+    // private _autoSpinTimer: any;
 
     public constructor(config: any) {
         super('SlotMachineModel');
@@ -62,32 +60,32 @@ export class SlotMachineModel extends ObservableModel {
         this._reels = value;
     }
 
-    get spinResult() {
-        return this._spinResult;
-    }
+    // get spinResult() {
+    //     return this._spinResult;
+    // }
 
-    set spinResult(value) {
-        this._spinResult = value;
-    }
+    // set spinResult(value) {
+    //     this._spinResult = value;
+    // }
 
-    get spinsCount() {
-        return this._spinsCount;
-    }
+    // get spinsCount() {
+    //     return this._spinsCount;
+    // }
 
-    set spinsCount(value) {
-        this._spinsCount = value;
-    }
+    // set spinsCount(value) {
+    //     this._spinsCount = value;
+    // }
 
-    get spinButton() {
-        return this._spinButton;
-    }
+    // get spinButton() {
+    //     return this._spinButton;
+    // }
 
-    set spinButton(value) {
-        this._spinButton = value;
-    }
+    // set spinButton(value) {
+    //     this._spinButton = value;
+    // }
 
     public init(): void {
-        this._spinButton = new SpinButtonModel();
+        // this._spinButton = new SpinButtonModel();
     }
 
     public destroy(): void {
@@ -113,20 +111,22 @@ export class SlotMachineModel extends ObservableModel {
     public spin(): void {
         this._state = SlotMachineState.Spin;
 
-        this._reels.forEach((r, index) =>
-            delayRunnable(index * this._config.reelsSpinDelay, r.setState, r, ReelState.Spin),
+        this._reels.forEach(
+            (r, index) => r.setState(ReelState.Spin),
+            // delayRunnable(index * this._config.reelsSpinDelay, r.setState, r, ReelState.Spin),
         );
 
-        this.stopAutoSpinTimer();
-        this._spinsCount = this._spinsCount + 1;
-        this._spinResult = null;
+        // this.stopAutoSpinTimer();
+        // this._spinsCount = this._spinsCount + 1;
+        // this._spinResult = null;
     }
 
     public stop(): void {
         this._state = SlotMachineState.Stop;
 
-        this._reels.forEach((r, index) =>
-            delayRunnable(index * this._config.reelsStopDelay, r.setState, r, ReelState.Stop),
+        this._reels.forEach(
+            (r, index) => r.setState(ReelState.Stop),
+            // delayRunnable(index * this._config.reelsStopDelay, r.setState, r, ReelState.Stop),
         );
     }
 
@@ -140,7 +140,7 @@ export class SlotMachineModel extends ObservableModel {
         reels.forEach(({ slots }, i) => {
             const reelModel = this._reels[i];
             const slotTypes = [...slots];
-            shuffleAfterReset && shuffle(slotTypes);
+            // shuffleAfterReset && shuffle(slotTypes);
             slotTypes.forEach((s, j) => (reelModel.slots[j].type = s));
         });
     }
@@ -155,17 +155,17 @@ export class SlotMachineModel extends ObservableModel {
     }
 
     public setSpinResult(bet: number) {
-        this._spinResult = this.generateSpinResult(bet);
-        this._spinResult.reels.forEach((r, i) => r.forEach((s) => this._reels[i].setSlotTypeByIndex(s.index, s.type)));
+        // this._spinResult = this.generateSpinResult(bet);
+        // this._spinResult.reels.forEach((r, i) => r.forEach((s) => this._reels[i].setSlotTypeByIndex(s.index, s.type)));
     }
 
-    public getWinType(): SpinResultType {
-        const rnd = Math.random();
-        if (rnd * 100 > CHANCE_TO_WIN) {
-            return SpinResultType.Lose;
-        }
-
-        return this._spinsCount > 1 ? SpinResultType.Big : SpinResultType.Regular;
+    public getWinType(): void {
+        // public getWinType(): SpinResultType {
+        // const rnd = Math.random();
+        // if (rnd * 100 > CHANCE_TO_WIN) {
+        //     return SpinResultType.Lose;
+        // }
+        // return this._spinsCount > 1 ? SpinResultType.Big : SpinResultType.Regular;
     }
 
     public getPrize(winType: SpinResultType, bet: number): number {
@@ -178,12 +178,11 @@ export class SlotMachineModel extends ObservableModel {
     }
 
     private generateSpinResult(bet: number) {
-        const type = this.getWinType();
-        const prize = this.getPrize(type, bet);
-        const pattern = this.getResultPattern(type);
-        const reels = this.getReelsResultPattern(pattern);
-
-        return { type, prize, pattern, reels };
+        // const type = this.getWinType();
+        // const prize = this.getPrize(type, bet);
+        // const pattern = this.getResultPattern(type);
+        // const reels = this.getReelsResultPattern(pattern);
+        // return { type, prize, pattern, reels };
     }
 
     // TODO fix return and argument type

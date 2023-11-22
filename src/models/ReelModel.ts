@@ -23,7 +23,8 @@ export class ReelModel extends ObservableModel {
     public constructor(config: any) {
         super('ReelModel');
         this._state = ReelState.Spin;
-        this._config = extendConfig(config);
+        this._config = config;
+        // this._config = extendConfig(config);
         this._slots = this.generateSlots();
 
         this.makeObservable('_state');

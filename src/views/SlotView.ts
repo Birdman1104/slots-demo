@@ -1,4 +1,4 @@
-import { Container, Sprite } from 'pixi.js';
+import { Container, Rectangle, Sprite } from 'pixi.js';
 import { HEIGHT, WIDTH } from '../Config';
 import { SlotModel } from '../models/SlotModel';
 
@@ -14,6 +14,7 @@ export class SlotView extends Container {
         this._uuid = config.uuid;
         this._type = config.type;
 
+        this.updateDimensions();
         this.buildSlot();
     }
 
@@ -26,32 +27,40 @@ export class SlotView extends Container {
     }
 
     get top() {
-        return this.y - this.height * this.slot.anchor.y;
+        console.warn('slot top', this.y - this.height);
+        return this.y - this.height;
     }
 
     get bottom() {
-        return this.y + this.height * this.slot.anchor.y;
+        console.warn('slot bottom', this.y, this.height);
+
+        return this.y + this.height;
+    }
+
+    public getBounds(skipUpdate?: boolean | undefined, rect?: Rectangle | undefined): Rectangle {
+        return new Rectangle(0, 0, WIDTH, HEIGHT);
     }
 
     public setY(value: number): void {
-        this.y = value + this.height * this.slot.anchor.y;
+        console.warn('y', this.y, 'value', value);
+        this.y = value + this.height;
     }
 
-    blur() {
+    public blur(): void {
         console.warn('blur slot ', this.uuid);
         // this._blur = true;
         // const texture = searchAtlasByFrame(`slot/symbol_blur_${this._type + 1}.png`);
         // this._slot.loadTexture(texture.key, texture.frame);
     }
 
-    unBlur() {
+    public unBlur(): void {
         console.warn('unblur slot ', this.uuid);
         // this._blur = false;
         // const texture = searchAtlasByFrame(`slot/symbol_${this._type + 1}.png`);
         // this._slot.loadTexture(texture.key, texture.frame);
     }
 
-    public loopHandler() {
+    public loopHandler(): void {
         this.emit(`onSlotLoop`, this.uuid);
     }
 

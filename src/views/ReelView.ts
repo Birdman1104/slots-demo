@@ -1,8 +1,6 @@
 import { lego } from '@armathai/lego';
 import { Container } from 'pixi.js';
-import { SLOT_OFFSET, SPEED, SPIN_EASING, STOP_EASING } from '../Config';
-import { getTweenPoints, removeRunnable } from '../Utils';
-import { ReelViewEvents } from '../events/MainEvents';
+// import { SLOT_OFFSET, SPEED, SPIN_EASING, STOP_EASING } from '../Config';
 import { SlotModelEvents } from '../events/ModelEvents';
 import { ReelModel } from '../models/ReelModel';
 import { SlotModel } from '../models/SlotModel';
@@ -10,12 +8,12 @@ import { SlotView } from './SlotView';
 
 export class ReelView extends Container {
     private _uuid: String;
-    private offset = SLOT_OFFSET;
-    private speed = SPEED;
-    private loopRunnable: any; // TODO fix types
-    private spinRunnable: any;
-    private stopRunnable: any;
-    private loopStep: number;
+    // private offset = SLOT_OFFSET;
+    // private speed = SPEED;
+    // private loopRunnable: any; // TODO fix types
+    // private spinRunnable: any;
+    // private stopRunnable: any;
+    // private loopStep: number;
     private _slots: SlotView[];
     private _tileY = 0;
     private rHeight = 0;
@@ -30,19 +28,19 @@ export class ReelView extends Container {
     }
 
     get uuid() {
-        return this.uuid;
+        return this._uuid;
     }
 
     get slots() {
-        return this.slots;
+        return this._slots;
     }
 
     get tileY() {
-        return this.tileY;
+        return this._tileY;
     }
 
     set tileY(value) {
-        this.tileY = value;
+        this._tileY = value;
         this.updateSlotsPositions();
     }
 
@@ -63,39 +61,37 @@ export class ReelView extends Container {
     }
 
     public stop(): void {
-        removeRunnable(this.loopRunnable);
-        this.unBlur();
-        const diff = this._height - (this._tileY % this._height);
-        const points = getTweenPoints(this.speed, STOP_EASING, this._tileY, diff + this._height);
-        this.stopRunnable = this.loopRunnable(0, () => {
-            this.tileY = points.shift();
-            if (!points.length) {
-                removeRunnable(this.stopRunnable);
-                lego.event.emit(ReelViewEvents.SlowDownComplete, this._uuid);
-            }
-        });
+        // removeRunnable(this.loopRunnable);
+        // this.unBlur();
+        // const diff = this._height - (this._tileY % this._height);
+        // const points = getTweenPoints(this.speed, STOP_EASING, this._tileY, diff + this._height);
+        // this.stopRunnable = this.loopRunnable(0, () => {
+        //     this._tileY = points.shift() as number;
+        //     if (!points.length) {
+        //         removeRunnable(this.stopRunnable);
+        //         lego.event.emit(ReelViewEvents.SlowDownComplete, this._uuid);
+        //     }
+        // });
     }
 
     public spin(): void {
-        const points = getTweenPoints(this.speed, SPIN_EASING, this._tileY, this._height);
-
-        const lastPoints = points.slice(points.length - 2);
-        this.loopStep = lastPoints[1] - lastPoints[0];
-        this.spinRunnable = this.loopRunnable(0, () => {
-            this.tileY = points.shift();
-
-            if (!points.length) {
-                removeRunnable(this.spinRunnable);
-                this.loop();
-                lego.event.emit(ReelViewEvents.SpeedUpComplete, this._uuid);
-            }
-        });
+        // const points = getTweenPoints(this.speed, SPIN_EASING, this._tileY, this._height);
+        // const lastPoints = points.slice(points.length - 2);
+        // this.loopStep = lastPoints[1] - lastPoints[0];
+        // this.spinRunnable = this.loopRunnable(0, () => {
+        //     this.tileY = points.shift() as number;
+        //     if (!points.length) {
+        //         removeRunnable(this.spinRunnable);
+        //         this.loop();
+        //         lego.event.emit(ReelViewEvents.SpeedUpComplete, this._uuid);
+        //     }
+        // });
     }
 
     public destroy(): void {
-        removeRunnable(this.spinRunnable);
-        removeRunnable(this.stopRunnable);
-        removeRunnable(this.loopRunnable);
+        // removeRunnable(this.spinRunnable);
+        // removeRunnable(this.stopRunnable);
+        // removeRunnable(this.loopRunnable);
 
         super.destroy();
     }
@@ -115,6 +111,7 @@ export class ReelView extends Container {
     private build(slots: SlotModel[]): void {
         this.buildSlots(slots);
         this.rHeight = this.calculateHeight();
+        this.updateSlotsPositions();
     }
 
     private buildSlots(slots: SlotModel[]): void {
@@ -131,11 +128,12 @@ export class ReelView extends Container {
     }
 
     private calculateHeight(): number {
-        return this._slots.reduce((acc, cur) => acc + cur.height + this.offset, 0);
+        return this._slots.reduce((acc, cur) => acc + cur.height, 0);
+        // return this._slots.reduce((acc, cur) => acc + cur.height + this.offset, 0);
     }
 
     private loop(): void {
-        this.loopRunnable = this.loopRunnable(0, () => (this.tileY += this.loopStep));
+        // this.loopRunnable = this.loopRunnable(0, () => (this.tileY += this.loopStep));
     }
 
     private updateSlotsPositions(): void {
@@ -143,10 +141,15 @@ export class ReelView extends Container {
             const slot = this._slots[i];
 
             if (i === 0) {
-                slot.setY((this._tileY % this.rHeight) + this.offset);
+                console.warn(1);
+
+                slot.setY(this._tileY % this.rHeight);
+                // slot.setY((this._tileY % this.rHeight) + this.offset);
             } else {
+                console.warn(2);
                 const previews = this._slots[i - 1];
-                slot.setY(previews.bottom + this.offset);
+                slot.setY(previews.bottom);
+                // slot.setY(previews.bottom + this.offset);
             }
 
             this.checkForLimits(slot);
@@ -154,10 +157,14 @@ export class ReelView extends Container {
     }
 
     private checkForLimits(slot: SlotView): void {
+        console.warn(`b, rh`, slot.bottom, this.rHeight);
+
         if (slot.bottom > this.rHeight) {
             slot.loopHandler();
+            console.warn(3);
             slot.setY(slot.top - this.rHeight);
         } else if (slot.bottom < 0) {
+            console.warn(4);
             slot.loopHandler();
             slot.setY(slot.top + this.rHeight);
         }

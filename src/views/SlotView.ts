@@ -27,24 +27,21 @@ export class SlotView extends Container {
     }
 
     get top() {
-        console.warn('slot top', this.y - this.height);
         return this.y - this.height;
     }
 
     get bottom() {
-        console.warn('slot bottom', this.y, this.height);
-
-        return this.y + this.height;
+        return this.y + this.height / 2;
     }
 
     public getBounds(skipUpdate?: boolean | undefined, rect?: Rectangle | undefined): Rectangle {
         return new Rectangle(0, 0, WIDTH, HEIGHT);
     }
 
-    public setY(value: number): void {
-        console.warn('y', this.y, 'value', value);
-        this.y = value + this.height;
-    }
+    // public setY(value: number): void {
+    //     console.warn('y', this.y, 'value', value);
+    //     this.y = value + this.height;
+    // }
 
     public blur(): void {
         console.warn('blur slot ', this.uuid);

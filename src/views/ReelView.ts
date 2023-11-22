@@ -1,6 +1,8 @@
 import { lego } from '@armathai/lego';
-import { Container } from 'pixi.js';
+import { Container, Graphics, Rectangle } from 'pixi.js';
 // import { SLOT_OFFSET, SPEED, SPIN_EASING, STOP_EASING } from '../Config';
+import { OFFSET_Y, WIDTH } from '../Config';
+import { last } from '../Utils';
 import { SlotModelEvents } from '../events/ModelEvents';
 import { ReelModel } from '../models/ReelModel';
 import { SlotModel } from '../models/SlotModel';
@@ -42,6 +44,10 @@ export class ReelView extends Container {
     set tileY(value) {
         this._tileY = value;
         this.updateSlotsPositions();
+    }
+
+    public getBounds(skipUpdate?: boolean | undefined, rect?: Rectangle | undefined): Rectangle {
+        return new Rectangle(0, 0, WIDTH, this.calculateHeight());
     }
 
     public getSlotByUUID(uuid: string): SlotView | undefined {
@@ -112,6 +118,12 @@ export class ReelView extends Container {
         this.buildSlots(slots);
         this.rHeight = this.calculateHeight();
         this.updateSlotsPositions();
+
+        const gr = new Graphics();
+        gr.beginFill(0xff0000, 0.5);
+        gr.drawRect(0, 0, this.width, this.height);
+        gr.endFill();
+        this.addChild(gr);
     }
 
     private buildSlots(slots: SlotModel[]): void {
@@ -128,7 +140,10 @@ export class ReelView extends Container {
     }
 
     private calculateHeight(): number {
-        return this._slots.reduce((acc, cur) => acc + cur.height, 0);
+        console.warn(last(this.slots).bottom);
+        // console.warn(this.height);
+
+        return this._slots.reduce((acc, cur) => acc + cur.height + OFFSET_Y, 0) - OFFSET_Y;
         // return this._slots.reduce((acc, cur) => acc + cur.height + this.offset, 0);
     }
 
@@ -141,32 +156,31 @@ export class ReelView extends Container {
             const slot = this._slots[i];
 
             if (i === 0) {
-                console.warn(1);
-
-                slot.setY(this._tileY % this.rHeight);
+                slot.y = slot.height / 2;
+                slot.x = slot.width / 2;
+                // slot.setY();
                 // slot.setY((this._tileY % this.rHeight) + this.offset);
             } else {
-                console.warn(2);
                 const previews = this._slots[i - 1];
-                slot.setY(previews.bottom);
-                // slot.setY(previews.bottom + this.offset);
+                slot.y = previews.bottom + slot.height / 2 + OFFSET_Y;
+                slot.x = slot.width / 2;
             }
 
-            this.checkForLimits(slot);
+            // this.checkForLimits(slot);
         }
     }
 
     private checkForLimits(slot: SlotView): void {
-        console.warn(`b, rh`, slot.bottom, this.rHeight);
+        console.warn(`check for limits`);
 
         if (slot.bottom > this.rHeight) {
             slot.loopHandler();
-            console.warn(3);
-            slot.setY(slot.top - this.rHeight);
+            slot.y = slot.top - this.rHeight + slot.height;
+            // slot.setY(slot.top - this.rHeight);
         } else if (slot.bottom < 0) {
-            console.warn(4);
             slot.loopHandler();
-            slot.setY(slot.top + this.rHeight);
+            slot.y = slot.top + this.rHeight + slot.height;
+            // slot.setY(slot.top + this.rHeight);
         }
     }
 }

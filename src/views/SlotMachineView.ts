@@ -1,6 +1,5 @@
 import { lego } from '@armathai/lego';
 import { Container, Graphics, Rectangle, Sprite } from 'pixi.js';
-import { HEIGHT } from '../Config';
 import { ReelModelEvents, SlotMachineModelEvents } from '../events/ModelEvents';
 import { ReelState } from '../models/ReelModel';
 import { SlotMachineModel, SlotMachineState } from '../models/SlotMachineModel';
@@ -78,9 +77,12 @@ export class SlotMachineView extends Container {
         this.reelsContainer = new Container();
         this._reels = reels.map((model) => {
             // const { offset } = model.config;
+            console.warn(model);
+
             const offset = { x: 0, y: 0 };
             const reel = new ReelView(model);
-            reel.position.set(this.reelsContainer.width + offset.x, HEIGHT / 2 + offset.y);
+            // reel.position.set(this.reelsContainer.width + offset.x, HEIGHT / 2 + offset.y);
+            reel.position.set(0, 0);
             this.reelsContainer.addChild(reel);
             return reel;
         });

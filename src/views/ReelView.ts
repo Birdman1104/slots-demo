@@ -2,7 +2,6 @@ import { lego } from '@armathai/lego';
 import { Container, Graphics, Rectangle } from 'pixi.js';
 // import { SLOT_OFFSET, SPEED, SPIN_EASING, STOP_EASING } from '../Config';
 import { OFFSET_Y, WIDTH } from '../Config';
-import { last } from '../Utils';
 import { SlotModelEvents } from '../events/ModelEvents';
 import { ReelModel } from '../models/ReelModel';
 import { SlotModel } from '../models/SlotModel';
@@ -140,11 +139,7 @@ export class ReelView extends Container {
     }
 
     private calculateHeight(): number {
-        console.warn(last(this.slots).bottom);
-        // console.warn(this.height);
-
         return this._slots.reduce((acc, cur) => acc + cur.height + OFFSET_Y, 0) - OFFSET_Y;
-        // return this._slots.reduce((acc, cur) => acc + cur.height + this.offset, 0);
     }
 
     private loop(): void {
@@ -158,8 +153,6 @@ export class ReelView extends Container {
             if (i === 0) {
                 slot.y = slot.height / 2;
                 slot.x = slot.width / 2;
-                // slot.setY();
-                // slot.setY((this._tileY % this.rHeight) + this.offset);
             } else {
                 const previews = this._slots[i - 1];
                 slot.y = previews.bottom + slot.height / 2 + OFFSET_Y;

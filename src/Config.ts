@@ -5,6 +5,7 @@ export const MAX_BET = 10;
 export const WIDTH = 128;
 export const HEIGHT = 128;
 export const OFFSET_Y = 30;
+export const OFFSET_X = 30;
 // export const SPEED = 1.3;
 // export const SLOT_OFFSET = -8;
 
@@ -15,21 +16,20 @@ export function getSlotMachineConfig() {
     return {
         reels: [
             {
-                // offset: { x: 0, y: 4 },
                 slots: [1, 0, 1, 2, 0, 4],
             },
-            // {
-            //     // offset: { x: 12, y: 4 },
-            //     slots: [1, 0, 1, 2, 0, 4],
-            // },
-            // {
-            //     // offset: { x: 12, y: 4 },
-            //     slots: [1, 0, 1, 2, 0, 4],
-            // },
-            // {
-            //     // offset: { x: 12, y: 4 },
-            //     slots: [1, 0, 1, 2, 0, 4],
-            // },
+            {
+                slots: [1, 0, 1, 2, 0, 4],
+            },
+            {
+                slots: [1, 0, 1, 2, 0, 4],
+            },
+            {
+                slots: [1, 0, 1, 2, 0, 4],
+            },
+            {
+                slots: [1, 0, 1, 2, 0, 4],
+            },
         ],
         // },
         // return lp(

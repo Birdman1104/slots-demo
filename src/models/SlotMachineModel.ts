@@ -111,9 +111,11 @@ export class SlotMachineModel extends ObservableModel {
     public spin(): void {
         this._state = SlotMachineState.Spin;
 
-        this._reels.forEach(
-            (r, index) => r.setState(ReelState.Spin),
-            // delayRunnable(index * this._config.reelsSpinDelay, r.setState, r, ReelState.Spin),
+        this.reels.forEach(
+            (r, i) => {
+                r.setState(ReelState.Spin);
+            },
+            // delayRunnable(i * this._config.reelsSpinDelay, r.setState, r, ReelState.Spin),
         );
 
         // this.stopAutoSpinTimer();
@@ -124,10 +126,10 @@ export class SlotMachineModel extends ObservableModel {
     public stop(): void {
         this._state = SlotMachineState.Stop;
 
-        this._reels.forEach(
-            (r, index) => r.setState(ReelState.Stop),
-            // delayRunnable(index * this._config.reelsStopDelay, r.setState, r, ReelState.Stop),
-        );
+        this._reels.forEach((r, i) => {
+            r.state = ReelState.Stop;
+            // delayRunnable(i * this._config.reelsStopDelay, r.setState, r, ReelState.Stop),
+        });
     }
 
     public idle(): void {

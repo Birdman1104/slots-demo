@@ -12,8 +12,8 @@ const getUIGridLandscapeConfig = () => {
         bounds,
         cells: [
             {
-                name: 'score',
-                bounds: { x: 0, y: 0, width: 0.11, height: 0.11 },
+                name: 'button',
+                bounds: { x: 0, y: 0, width: 0.22, height: 0.22 },
             },
         ],
     };
@@ -27,8 +27,8 @@ const getUIGridPortraitConfig = () => {
         bounds,
         cells: [
             {
-                name: 'score',
-                bounds: { x: 0, y: 0, width: 0.11, height: 0.11 },
+                name: 'button',
+                bounds: { x: 0, y: 0, width: 0.22, height: 0.22 },
             },
         ],
     };

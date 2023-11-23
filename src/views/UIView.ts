@@ -1,5 +1,8 @@
+import { lego } from '@armathai/lego';
 import { ICellConfig, PixiGrid } from '@armathai/pixi-grid';
+import { Sprite } from 'pixi.js';
 import { getUIGridConfig } from '../configs/gridConfigs/UIViewGC';
+import { UIEvents } from '../events/MainEvents';
 
 export class UIView extends PixiGrid {
     constructor() {
@@ -16,6 +19,9 @@ export class UIView extends PixiGrid {
     }
 
     private build(): void {
-        //
+        const button = Sprite.from('bkg.png');
+        button.eventMode = 'static';
+        button.on('pointerdown', () => lego.event.emit(UIEvents.SpinButtonClick));
+        this.setChild('button', button);
     }
 }

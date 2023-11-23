@@ -1,6 +1,6 @@
 import { lego } from '@armathai/lego';
 import { MIN_BET } from '../Config';
-import { MainGameEvents } from '../events/MainEvents';
+import { MainGameEvents, UIEvents } from '../events/MainEvents';
 import { GameModel } from '../models/GameModel';
 import Head from '../models/HeadModel';
 import { PlayerModel } from '../models/PlayerModel';
@@ -31,9 +31,17 @@ const initModelsCommand = (): void => {
     (Head.gameModel as GameModel).idleSlotMachine();
 };
 
+const spinButtonClickCommand = (): void => {
+    Head.gameModel?.slotMachine?.spin();
+};
+
 const eventCommandPairs = Object.freeze([
     {
         event: MainGameEvents.MainViewReady,
         command: initModelsCommand,
+    },
+    {
+        event: UIEvents.SpinButtonClick,
+        command: spinButtonClickCommand,
     },
 ]);

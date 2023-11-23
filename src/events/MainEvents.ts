@@ -21,3 +21,7 @@ export const SlotMachineEffectsEvents = {
     SpinResultAnimationStart: 'SlotMachineEffectsEventsSpinResultAnimationStart',
     SpinResultAnimationComplete: 'SlotMachineEffectsEventsSpinResultAnimationComplete',
 };
+
+export const UIEvents = {
+    SpinButtonClick: 'UIEventsSpinButtonClick',
+};

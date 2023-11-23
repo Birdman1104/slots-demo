@@ -1,13 +1,6 @@
 import { ObservableModel } from './ObservableModel';
 import { SlotModel, SlotState } from './SlotModel';
 
-function extendConfig(config: any): any {
-    const { offset } = config;
-    config.offset = { x: offset.x || 0, y: offset.y || 0 };
-
-    return config;
-}
-
 export enum ReelState {
     Idle,
     Spin,
@@ -22,12 +15,12 @@ export class ReelModel extends ObservableModel {
 
     public constructor(config: any) {
         super('ReelModel');
-        this._state = ReelState.Spin;
+        this._state = ReelState.Idle;
         this._config = config;
         // this._config = extendConfig(config);
         this._slots = this.generateSlots();
 
-        this.makeObservable('_state');
+        this.makeObservable();
     }
 
     get state() {

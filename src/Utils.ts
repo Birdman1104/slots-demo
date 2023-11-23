@@ -89,3 +89,10 @@ export const delayRunnable = (delay, runnable, context?, ...args) => {
 
 // TODO check if runnables work correctly
 export const removeRunnable = (runnable) => window.game.ticker.remove(runnable);
+
+export const extendConfig = (config: any): any => {
+    const { offset } = config;
+    config.offset = { x: offset.x || 0, y: offset.y || 0 };
+
+    return config;
+};

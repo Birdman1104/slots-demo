@@ -78,7 +78,6 @@ export class SlotMachineView extends Container {
         this.reelsContainer = new Container();
         this._reels = reels.map((model, i) => {
             // const { offset } = model.config;
-            console.warn(model);
 
             const reel = new ReelView(model);
             reel.position.set(this.reelsContainer.width + (i !== 0 ? OFFSET_X : 0), 0);
@@ -110,13 +109,13 @@ export class SlotMachineView extends Container {
 
     private onReelStateUpdate(newState: ReelState, oldState: ReelState, uuid: string): void {
         // this.switchInputs(false);
-
+        const reel = this.getReelByUUID(uuid);
         switch (newState) {
             case ReelState.Spin:
-                this.getReelByUUID(uuid).spin();
+                reel.spin();
                 break;
             case ReelState.MaxSpeed:
-                this.getReelByUUID(uuid).blur();
+                reel.blur();
                 break;
             default:
         }

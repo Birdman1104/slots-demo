@@ -1,21 +1,21 @@
 import { Container, Rectangle, Sprite } from 'pixi.js';
 import { HEIGHT, WIDTH } from '../Config';
-import { SlotModel } from '../models/SlotModel';
+import { ElementModel } from '../models/ElementModel';
 
-export class SlotView extends Container {
+export class ElementView extends Container {
     private _uuid: string;
     private _type: number;
-    private slot: Sprite;
+    private element: Sprite;
     private blurEnabled: boolean = false;
 
-    constructor(config: SlotModel) {
+    constructor(config: ElementModel) {
         super();
 
         this._uuid = config.uuid;
         this._type = config.type;
 
         this.updateDimensions();
-        this.buildSlot();
+        this.buildElement();
     }
 
     get uuid() {
@@ -44,36 +44,36 @@ export class SlotView extends Container {
     // }
 
     public blur(): void {
-        console.warn('blur slot ', this.uuid);
+        console.warn('blur element ', this.uuid);
         // this._blur = true;
-        // const texture = searchAtlasByFrame(`slot/symbol_blur_${this._type + 1}.png`);
-        // this._slot.loadTexture(texture.key, texture.frame);
+        // const texture = searchAtlasByFrame(`element/symbol_blur_${this._type + 1}.png`);
+        // this._element.loadTexture(texture.key, texture.frame);
     }
 
     public unBlur(): void {
-        console.warn('unblur slot ', this.uuid);
+        console.warn('unblur element ', this.uuid);
         // this._blur = false;
-        // const texture = searchAtlasByFrame(`slot/symbol_${this._type + 1}.png`);
-        // this._slot.loadTexture(texture.key, texture.frame);
+        // const texture = searchAtlasByFrame(`element/symbol_${this._type + 1}.png`);
+        // this._element.loadTexture(texture.key, texture.frame);
     }
 
     public loopHandler(): void {
-        this.emit(`onSlotLoop`, this.uuid);
+        this.emit(`onElementLoop`, this.uuid);
     }
 
     public setType(value: number): void {
         this._type = value;
 
-        this.buildSlot();
+        this.buildElement();
         this.updateDimensions();
     }
 
-    private buildSlot(): void {
-        this.slot && this.slot.destroy();
+    private buildElement(): void {
+        this.element && this.element.destroy();
 
-        this.slot = Sprite.from(`item_${this._type}.png`);
-        this.slot.anchor.set(0.5);
-        this.addChild(this.slot);
+        this.element = Sprite.from(`item_${this._type}.png`);
+        this.element.anchor.set(0.5);
+        this.addChild(this.element);
     }
 
     private updateDimensions(): void {

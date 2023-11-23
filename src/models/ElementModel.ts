@@ -1,17 +1,17 @@
 import { ObservableModel } from './ObservableModel';
 
-export enum SlotState {
+export enum ElementState {
     Idle,
     Animation,
 }
 
-export class SlotModel extends ObservableModel {
-    private _state: SlotState;
+export class ElementModel extends ObservableModel {
+    private _state: ElementState;
     private _type: number;
 
     public constructor(type: number) {
-        super('SlotModel');
-        this._state = SlotState.Idle;
+        super('ElementModel');
+        this._state = ElementState.Idle;
         this._type = type;
 
         this.makeObservable();

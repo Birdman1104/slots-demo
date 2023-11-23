@@ -2,10 +2,10 @@ import { lego } from '@armathai/lego';
 import { Container, Graphics, Rectangle } from 'pixi.js';
 // import { SLOT_OFFSET, SPEED, SPIN_EASING, STOP_EASING } from '../Config';
 import { OFFSET_Y, WIDTH } from '../Config';
-import { SlotModelEvents } from '../events/ModelEvents';
+import { ElementModelEvents } from '../events/ModelEvents';
+import { ElementModel } from '../models/ElementModel';
 import { ReelModel } from '../models/ReelModel';
-import { SlotModel } from '../models/SlotModel';
-import { SlotView } from './SlotView';
+import { ElementView } from './ElementView';
 
 export class ReelView extends Container {
     private _uuid: String;
@@ -15,25 +15,25 @@ export class ReelView extends Container {
     // private spinRunnable: any;
     // private stopRunnable: any;
     // private loopStep: number;
-    private _slots: SlotView[];
+    private _elements: ElementView[];
     private _tileY = 0;
     private rHeight = 0;
 
     constructor(model: ReelModel) {
         super();
-        const { slots, uuid } = model;
+        const { elements, uuid } = model;
         this._uuid = uuid;
 
-        this.build(slots);
-        lego.event.on(SlotModelEvents.TypeUpdate, this.onSlotTypeUpdate, this);
+        this.build(elements);
+        lego.event.on(ElementModelEvents.TypeUpdate, this.Element, this);
     }
 
     get uuid() {
         return this._uuid;
     }
 
-    get slots() {
-        return this._slots;
+    get elements() {
+        return this._elements;
     }
 
     get tileY() {
@@ -42,27 +42,27 @@ export class ReelView extends Container {
 
     set tileY(value) {
         this._tileY = value;
-        this.updateSlotsPositions();
+        this.updateElementsPositions();
     }
 
     public getBounds(skipUpdate?: boolean | undefined, rect?: Rectangle | undefined): Rectangle {
         return new Rectangle(0, 0, WIDTH, this.calculateHeight());
     }
 
-    public getSlotByUUID(uuid: string): SlotView | undefined {
-        return this._slots.find((slot) => slot.uuid === uuid);
+    public getElementByUUID(uuid: string): ElementView | undefined {
+        return this._elements.find((el) => el.uuid === uuid);
     }
 
-    public getSlotByIndex(index: number): SlotView {
-        return this.slots[index];
+    public getElementByIndex(index: number): ElementView {
+        return this.elements[index];
     }
 
     public blur(): void {
-        this._slots.forEach((s) => s.blur());
+        this._elements.forEach((s) => s.blur());
     }
 
     public unBlur(): void {
-        this._slots.forEach((s) => s.unBlur());
+        this._elements.forEach((s) => s.unBlur());
     }
 
     public stop(): void {
@@ -101,22 +101,22 @@ export class ReelView extends Container {
         super.destroy();
     }
 
-    private onSlotTypeUpdate(newType: number, oldType: number, uuid: string): void {
-        const slotView = this.getSlotByUUID(uuid);
-        if (!slotView) {
+    private Element(newType: number, oldType: number, uuid: string): void {
+        const elView = this.getElementByUUID(uuid);
+        if (!elView) {
             return;
         }
 
-        slotView.once('onSlotLoop', () => {
-            slotView.setType(newType);
+        elView.once('onElementLoop', () => {
+            elView.setType(newType);
             this._height = this.calculateHeight();
         });
     }
 
-    private build(slots: SlotModel[]): void {
-        this.buildSlots(slots);
+    private build(elements: ElementModel[]): void {
+        this.buildElements(elements);
         this.rHeight = this.calculateHeight();
-        this.updateSlotsPositions();
+        this.updateElementsPositions();
 
         const gr = new Graphics();
         gr.beginFill(0xff0000, 0.5);
@@ -125,55 +125,55 @@ export class ReelView extends Container {
         this.addChild(gr);
     }
 
-    private buildSlots(slots: SlotModel[]): void {
-        this._slots = slots.map((config) => {
-            const slot = new SlotView(config);
-            slot.on('onSlotLoop', this.onSlotLoop, this);
-            this.addChild(slot);
-            return slot;
+    private buildElements(elements: ElementModel[]): void {
+        this._elements = elements.map((config) => {
+            const element = new ElementView(config);
+            element.on('onElementLoop', this.onElementLoop, this);
+            this.addChild(element);
+            return element;
         });
     }
 
-    private onSlotLoop(uuid: string): void {
-        this.slots[0].uuid === uuid && this.emit('onReelLoop', this.uuid);
+    private onElementLoop(uuid: string): void {
+        this.elements[0].uuid === uuid && this.emit('onReelLoop', this.uuid);
     }
 
     private calculateHeight(): number {
-        return this._slots.reduce((acc, cur) => acc + cur.height + OFFSET_Y, 0) - OFFSET_Y;
+        return this._elements.reduce((acc, cur) => acc + cur.height + OFFSET_Y, 0) - OFFSET_Y;
     }
 
     private loop(): void {
         // this.loopRunnable = this.loopRunnable(0, () => (this.tileY += this.loopStep));
     }
 
-    private updateSlotsPositions(): void {
-        for (let i = 0; i < this._slots.length; i += 1) {
-            const slot = this._slots[i];
+    private updateElementsPositions(): void {
+        for (let i = 0; i < this._elements.length; i += 1) {
+            const element = this._elements[i];
 
             if (i === 0) {
-                slot.y = slot.height / 2;
-                slot.x = slot.width / 2;
+                element.y = element.height / 2;
+                element.x = element.width / 2;
             } else {
-                const previews = this._slots[i - 1];
-                slot.y = previews.bottom + slot.height / 2 + OFFSET_Y;
-                slot.x = slot.width / 2;
+                const previews = this._elements[i - 1];
+                element.y = previews.bottom + element.height / 2 + OFFSET_Y;
+                element.x = element.width / 2;
             }
 
-            // this.checkForLimits(slot);
+            // this.checkForLimits(element);
         }
     }
 
-    private checkForLimits(slot: SlotView): void {
+    private checkForLimits(element: ElementView): void {
         console.warn(`check for limits`);
 
-        if (slot.bottom > this.rHeight) {
-            slot.loopHandler();
-            slot.y = slot.top - this.rHeight + slot.height;
-            // slot.setY(slot.top - this.rHeight);
-        } else if (slot.bottom < 0) {
-            slot.loopHandler();
-            slot.y = slot.top + this.rHeight + slot.height;
-            // slot.setY(slot.top + this.rHeight);
+        if (element.bottom > this.rHeight) {
+            element.loopHandler();
+            element.y = element.top - this.rHeight + element.height;
+            // element.setY(element.top - this.rHeight);
+        } else if (element.bottom < 0) {
+            element.loopHandler();
+            element.y = element.top + this.rHeight + element.height;
+            // element.setY(element.top + this.rHeight);
         }
     }
 }

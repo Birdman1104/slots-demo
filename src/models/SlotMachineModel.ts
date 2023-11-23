@@ -136,14 +136,14 @@ export class SlotMachineModel extends ObservableModel {
         this.state = SlotMachineState.Idle;
     }
 
-    public resetSlots(shuffleAfterReset: boolean): void {
+    public resetElements(shuffleAfterReset: boolean): void {
         const { reels } = this.config;
 
-        reels.forEach(({ slots }, i) => {
+        reels.forEach(({ elements }, i) => {
             const reelModel = this._reels[i];
-            const slotTypes = [...slots];
-            // shuffleAfterReset && shuffle(slotTypes);
-            slotTypes.forEach((s, j) => (reelModel.slots[j].type = s));
+            const elTypes = [...elements];
+            // shuffleAfterReset && shuffle(elTypes);
+            elTypes.forEach((t, j) => (reelModel.elements[j].type = t));
         });
     }
 
@@ -192,7 +192,7 @@ export class SlotMachineModel extends ObservableModel {
         const winType = sample([0, 1, 2, 4]);
 
         return pattern.map((reelPattern, _reelIndex) =>
-            reelPattern.map((slotIndex) => ({ index: slotIndex, type: winType })),
+            reelPattern.map((elIndex) => ({ index: elIndex, type: winType })),
         );
     }
 }

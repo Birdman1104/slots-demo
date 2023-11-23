@@ -1,3 +1,5 @@
+export const ElementModelEvents = { StateUpdate: 'ElementModelStateUpdate', TypeUpdate: 'ElementModelTypeUpdate' };
+
 export const GameModelEvents = { StateUpdate: 'GameModelStateUpdate', SlotMachineUpdate: 'GameModelSlotMachineUpdate' };
 
 export const HeadModelEvents = {
@@ -17,8 +19,6 @@ export const SlotMachineModelEvents = {
     SpinsCountUpdate: 'SlotMachineModelSpinsCountUpdate',
     SpinButtonUpdate: 'SlotMachineModelSpinButtonUpdate',
 };
-
-export const SlotModelEvents = { StateUpdate: 'SlotModelStateUpdate', TypeUpdate: 'SlotModelTypeUpdate' };
 
 export const SpinButtonModelEvents = {
     StateUpdate: 'SpinButtonModelStateUpdate',

@@ -4,7 +4,7 @@ import { ElementModel } from '../models/ElementModel';
 
 export class ElementView extends Container {
     private _uuid: string;
-    private _type: number;
+    private _type: string;
     private element: Sprite;
     private blurEnabled: boolean = false;
 
@@ -61,7 +61,7 @@ export class ElementView extends Container {
         this.emit(`onElementLoop`, this.uuid);
     }
 
-    public setType(value: number): void {
+    public setType(value: string): void {
         this._type = value;
 
         this.buildElement();
@@ -71,7 +71,7 @@ export class ElementView extends Container {
     private buildElement(): void {
         this.element && this.element.destroy();
 
-        this.element = Sprite.from(`item_${this._type}.png`);
+        this.element = Sprite.from(`${this._type}.png`);
         this.element.anchor.set(0.5);
         this.addChild(this.element);
     }

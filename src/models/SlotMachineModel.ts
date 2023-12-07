@@ -110,17 +110,7 @@ export class SlotMachineModel extends ObservableModel {
 
     public spin(): void {
         this._state = SlotMachineState.Spin;
-
-        this.reels.forEach(
-            (r, i) => {
-                r.setState(ReelState.Spin);
-            },
-            // delayRunnable(i * this._config.reelsSpinDelay, r.setState, r, ReelState.Spin),
-        );
-
-        // this.stopAutoSpinTimer();
-        // this._spinsCount = this._spinsCount + 1;
-        // this._spinResult = null;
+        // await
     }
 
     public stop(): void {

@@ -25,7 +25,7 @@ export class ReelView extends Container {
         this._uuid = uuid;
 
         this.build(elements);
-        lego.event.on(ElementModelEvents.TypeUpdate, this.Element, this);
+        lego.event.on(ElementModelEvents.TypeUpdate, this.elementTypeUpdate, this);
     }
 
     get uuid() {
@@ -80,6 +80,9 @@ export class ReelView extends Container {
     }
 
     public spin(): void {
+        this._elements.forEach((el) => {
+            // el.tw;
+        });
         // const points = getTweenPoints(this.speed, SPIN_EASING, this._tileY, this._height);
         // const lastPoints = points.slice(points.length - 2);
         // this.loopStep = lastPoints[1] - lastPoints[0];
@@ -101,7 +104,7 @@ export class ReelView extends Container {
         super.destroy();
     }
 
-    private Element(newType: number, oldType: number, uuid: string): void {
+    private elementTypeUpdate(newType: string, oldType: number, uuid: string): void {
         const elView = this.getElementByUUID(uuid);
         if (!elView) {
             return;

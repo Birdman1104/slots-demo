@@ -7,9 +7,9 @@ export enum ElementState {
 
 export class ElementModel extends ObservableModel {
     private _state: ElementState;
-    private _type: number;
+    private _type: string;
 
-    public constructor(type: number) {
+    public constructor(type: string) {
         super('ElementModel');
         this._state = ElementState.Idle;
         this._type = type;

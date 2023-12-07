@@ -16,19 +16,19 @@ export function getSlotMachineConfig() {
     return {
         reels: [
             {
-                elements: [1, 0, 1, 2, 0, 4],
+                elements: ['fb', 'br', 'ig', 'br', 'sn'],
             },
             {
-                elements: [1, 0, 1, 2, 0, 4],
+                elements: ['fb', 'br', 'ig', 'br', 'sn'],
             },
             {
-                elements: [1, 0, 1, 2, 0, 4],
+                elements: ['fb', 'br', 'ig', 'br', 'sn'],
             },
             {
-                elements: [1, 0, 1, 2, 0, 4],
+                elements: ['fb', 'br', 'ig', 'br', 'sn'],
             },
             {
-                elements: [1, 0, 1, 2, 0, 4],
+                elements: ['fb', 'br', 'ig', 'br', 'sn'],
             },
         ],
     };

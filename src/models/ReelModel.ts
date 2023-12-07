@@ -61,14 +61,14 @@ export class ReelModel extends ObservableModel {
         }
     }
 
-    public setElementTypeByIndex(elIndex: number, type: number): void {
+    public setElementTypeByIndex(elIndex: number, type: string): void {
         const el = this._elements[elIndex];
         if (el) {
             el.type = type;
         }
     }
 
-    public setElementTypeByUUID(uuid: string, type: number): void {
+    public setElementTypeByUUID(uuid: string, type: string): void {
         const el = this.getElementByUUID(uuid);
         if (el) {
             el.type = type;

@@ -1,6 +1,6 @@
 {
   "frames": {
-    "item_0.png": {
+    "br.png": {
       "frame": {
         "x": 3,
         "y": 3,
@@ -24,10 +24,58 @@
         "y": 0.5
       }
     },
-    "item_2.png": {
+    "fb.png": {
       "frame": {
         "x": 137,
         "y": 3,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "pi.png": {
+      "frame": {
+        "x": 3,
+        "y": 137,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "tw.png": {
+      "frame": {
+        "x": 137,
+        "y": 137,
         "w": 128,
         "h": 108
       },
@@ -48,34 +96,10 @@
         "y": 0.5
       }
     },
-    "item_3.png": {
+    "ig.png": {
       "frame": {
-        "x": 137,
-        "y": 117,
-        "w": 128,
-        "h": 128
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 128,
-        "h": 128
-      },
-      "sourceSize": {
-        "w": 128,
-        "h": 128
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "item_1.png": {
-      "frame": {
-        "x": 3,
-        "y": 137,
+        "x": 271,
+        "y": 3,
         "w": 126,
         "h": 126
       },
@@ -96,10 +120,10 @@
         "y": 0.5
       }
     },
-    "item_6.png": {
+    "yt.png": {
       "frame": {
         "x": 271,
-        "y": 3,
+        "y": 135,
         "w": 124,
         "h": 88
       },
@@ -120,10 +144,10 @@
         "y": 0.5
       }
     },
-    "item_5.png": {
+    "sn.png": {
       "frame": {
-        "x": 271,
-        "y": 97,
+        "x": 3,
+        "y": 271,
         "w": 122,
         "h": 122
       },
@@ -144,10 +168,10 @@
         "y": 0.5
       }
     },
-    "item_4.png": {
+    "ti.png": {
       "frame": {
-        "x": 3,
-        "y": 269,
+        "x": 131,
+        "y": 271,
         "w": 102,
         "h": 120
       },
@@ -175,8 +199,8 @@
     "image": "items.png",
     "format": "RGBA8888",
     "size": {
-      "w": 398,
-      "h": 392
+      "w": 400,
+      "h": 396
     },
     "scale": 1
   }

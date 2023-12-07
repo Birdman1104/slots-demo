@@ -1,5 +1,5 @@
 import { lego } from '@armathai/lego';
-import { Container, Graphics, Rectangle } from 'pixi.js';
+import { Container, Rectangle } from 'pixi.js';
 // import { SLOT_OFFSET, SPEED, SPIN_EASING, STOP_EASING } from '../Config';
 import { OFFSET_Y, WIDTH } from '../Config';
 import { ElementModelEvents } from '../events/ModelEvents';
@@ -121,11 +121,11 @@ export class ReelView extends Container {
         this.rHeight = this.calculateHeight();
         this.updateElementsPositions();
 
-        const gr = new Graphics();
-        gr.beginFill(0xff0000, 0.5);
-        gr.drawRect(0, 0, this.width, this.height);
-        gr.endFill();
-        this.addChild(gr);
+        // const gr = new Graphics();
+        // gr.beginFill(0xff0000, 0.5);
+        // gr.drawRect(0, 0, this.width, this.height);
+        // gr.endFill();
+        // this.addChild(gr);
     }
 
     private buildElements(elements: ElementModel[]): void {

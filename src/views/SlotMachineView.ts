@@ -60,12 +60,11 @@ export class SlotMachineView extends Container {
     }
 
     private buildBg(): void {
-        const gr = new Graphics();
-        gr.beginFill(0x0000ff, 0.5);
-        gr.drawRect(0, 0, this.width, this.height);
-        gr.endFill();
-        this.addChild(gr);
-
+        // const gr = new Graphics();
+        // gr.beginFill(0x0000ff, 0.5);
+        // gr.drawRect(0, 0, this.width, this.height);
+        // gr.endFill();
+        // this.addChild(gr);
         // this.bg = Sprite.from('slot-bg.jpg');
         // this.bg.scale.set(0.5);
         // this.bg.eventMode = 'dynamic';
@@ -109,6 +108,8 @@ export class SlotMachineView extends Container {
 
     private onReelStateUpdate(newState: ReelState, oldState: ReelState, uuid: string): void {
         // this.switchInputs(false);
+        console.warn(ReelState[newState]);
+
         const reel = this.getReelByUUID(uuid);
         switch (newState) {
             case ReelState.Spin:

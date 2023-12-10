@@ -76,6 +76,6 @@ export class ReelModel extends ObservableModel {
     }
 
     private generateElements(): ElementModel[] {
-        return this._config.elements.map((elType) => new ElementModel(elType));
+        return this._config.map((elType) => new ElementModel(elType));
     }
 }

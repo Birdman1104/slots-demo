@@ -1,3 +1,6 @@
+const REELS_AMOUNT = 5;
+const COLUMNS_AMOUNT = 5;
+
 const ELEMENT_ID = Object.freeze({
     BR: 'br',
     FB: 'fb',
@@ -65,15 +68,15 @@ const LINES = [
     [4, 3, 2, 1, 0],
 ];
 
-export const getRatioData = (itemsConfig) => {
+const getRatioData = (itemsConfig): ElementWeightRatio[] => {
     const totalCount = itemsConfig.reduce((acc, { weight }) => weight + acc, 0);
-    const ratioData = getRatios(totalCount, itemsConfig);
+    const ratioData: ElementWeightRatio[] = getRatios(totalCount, itemsConfig);
     return ratioData;
 };
 
-const getRatios = (total: number, itemsConfig) => {
+const getRatios = (total: number, itemsConfig): ElementWeightRatio[] => {
     let prev = 0;
-    const data = itemsConfig.map(({ id, weight }) => {
+    const data: ElementWeightRatio[] = itemsConfig.map(({ id, weight }) => {
         const obj = {
             id,
             from: prev,
@@ -85,54 +88,37 @@ const getRatios = (total: number, itemsConfig) => {
     return data;
 };
 
-export const getRandomElementsByCount = (count: number) => {
+const getReelResult = (count: number): ReelResult => {
     const ratioDataConfig = ELEMENTS_CONFIG.map((el) => {
         return { id: el.id, weight: el.weight };
     });
     const ratioData = getRatioData(ratioDataConfig);
-    const elements: any[] = [];
+    const elements: ReelResult = [];
 
     for (let i = 0; i < count; i++) {
         const r = Math.random();
-        const elementID = ratioData.find((el) => r > el.from && r < el.to).id;
+        const elementID = (ratioData.find((el) => r > el.from && r < el.to) as ElementWeightRatio).id;
         elements.push(elementID);
     }
 
     return elements;
 };
 
-export const getReelElements = (bet) => {
-    const reelCount = 5;
-    const columns = 5;
-    const reelData: any[] = [];
-    for (let i = 0; i < reelCount; i++) {
-        reelData.push(getRandomElementsByCount(columns));
+const getReelsData = (): ReelsResult => {
+    const reels: ReelsResult = [];
+    for (let i = 0; i < REELS_AMOUNT; i++) {
+        reels.push(getReelResult(COLUMNS_AMOUNT));
     }
-    const winningLines = checkWinnings(reelData);
-
-    const winningInfo = winningLines.map(({ elementType: id, count }) => {
-        const coefficient = ELEMENTS_CONFIG.find((el) => el.id === id)?.coefficient[count - 1] ?? 0;
-        return {
-            coefficient,
-            id,
-            count,
-            winAmount: coefficient * bet,
-        };
-    });
-
-    return {
-        reelData,
-        winningInfo,
-    };
+    return reels;
 };
 
-const checkWinnings = (reelData) => {
+const checkWinnings = (reelData: ReelsResult): WinningItemsCount[] => {
     const lines = LINES.map((line) => line.map((r, c) => reelData[c][r]));
     const linesInfo = lines.map((l) => winningItemsCount(l));
     return linesInfo.filter((l) => l.count >= 3);
 };
 
-const winningItemsCount = (elements: string[]): { count: number; elementType: string } => {
+const winningItemsCount = (elements: string[]): WinningItemsCount => {
     let count = 1;
     const elementType = elements[0];
     for (let i = 1; i < elements.length; i++) {
@@ -146,7 +132,25 @@ const winningItemsCount = (elements: string[]): { count: number; elementType: st
     return { count, elementType };
 };
 
-export const getSpinResult = () => {
-    // const reel1 =
-    // const percentages = [5, 10, 10, 10, 10, 10, 10, 35];
+export const getSpinResult = async (bet: number): Promise<SpinResult> => {
+    const reels = getReelsData();
+    const winningLines = checkWinnings(reels);
+
+    const winningInfo: WinningInfo[] = winningLines.map(({ elementType: id, count }) => {
+        const coefficient = ELEMENTS_CONFIG.find((el) => el.id === id)?.coefficient[count - 1] ?? 0;
+        return {
+            coefficient,
+            id,
+            count,
+            winAmount: coefficient * bet,
+        };
+    });
+    return new Promise((resolve) =>
+        setTimeout(() => {
+            resolve({
+                reels,
+                winningInfo,
+            });
+        }, 1000),
+    );
 };

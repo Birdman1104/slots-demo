@@ -29,3 +29,29 @@ declare namespace GlobalMixins {
 }
 
 type EaseFunction = (k: number) => number;
+
+type WinningInfo = {
+    coefficient: number;
+    count: number;
+    id: string;
+    winAmount: numbers;
+};
+
+type ReelsResult = ReelResult[];
+type ReelResult = string[];
+
+type SpinResult = {
+    reels: ReelsResult;
+    winningInfo: WinningInfo[];
+};
+
+type ElementWeightRatio = {
+    id: string;
+    from: number;
+    to: number;
+};
+
+type WinningItemsCount = {
+    count: number;
+    elementType: string;
+};

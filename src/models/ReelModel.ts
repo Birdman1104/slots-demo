@@ -12,14 +12,15 @@ export class ReelModel extends ObservableModel {
     private _state: ReelState;
     private _config: any;
     private _elements: ElementModel[];
+    private _index: number;
 
-    public constructor(config: any) {
+    public constructor(config: any, index: number) {
         super('ReelModel');
         this._state = ReelState.Idle;
         this._config = config;
-        // this._config = extendConfig(config);
+        this._index = index;
         this._elements = this.generateElements();
-
+        this.setCustomID(`ReelModel${this._index}`);
         this.makeObservable();
     }
 
@@ -76,6 +77,6 @@ export class ReelModel extends ObservableModel {
     }
 
     private generateElements(): ElementModel[] {
-        return this._config.map((elType) => new ElementModel(elType));
+        return this._config.map((elType, elementIndex) => new ElementModel(elType, `${this._index}${elementIndex}`));
     }
 }

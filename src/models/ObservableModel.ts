@@ -7,7 +7,7 @@ const getUUID = (() => {
 
 export class ObservableModel {
     protected __name__: string;
-    private id: string;
+    protected id: string;
 
     constructor(name) {
         this.__name__ = name;
@@ -18,23 +18,27 @@ export class ObservableModel {
         return this.id;
     }
 
-    makeObservable(...props) {
+    protected setCustomID(id: string): void {
+        this.id = id;
+    }
+
+    protected makeObservable(...props): void {
         lego.observe.makeObservable(this, ...props);
     }
 
-    createObservable(property, value) {
+    protected createObservable(property, value): void {
         lego.observe.createObservable(this, property, value);
     }
 
-    removeObservable(...properties) {
+    protected removeObservable(...properties): void {
         lego.observe.removeObservable(this, ...properties);
     }
 
-    init(...args) {
+    public init(...args): void {
         void args;
     }
 
-    destroy() {
+    public destroy(): void {
         //
     }
 }

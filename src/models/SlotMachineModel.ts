@@ -1,4 +1,5 @@
-import { last, sample } from '../Utils';
+import { last } from '../Utils';
+import { getSpinResult } from '../slotLogic';
 import { ObservableModel } from './ObservableModel';
 import { ReelModel, ReelState } from './ReelModel';
 
@@ -22,7 +23,14 @@ export class SlotMachineModel extends ObservableModel {
     private _config: any = {};
     private _reels: ReelModel[] = [];
     private _state: SlotMachineState;
-    // private _spinResult: any = null;
+    private _spinResult: WinningInfo[] = [
+        {
+            coefficient: 0,
+            count: 0,
+            id: '',
+            winAmount: 0,
+        },
+    ];
     // private _spinsCount = 0;
     // private _spinButton: SpinButtonModel | null = null;
     // private _autoSpinTimer: any;
@@ -60,13 +68,13 @@ export class SlotMachineModel extends ObservableModel {
         this._reels = value;
     }
 
-    // get spinResult() {
-    //     return this._spinResult;
-    // }
+    get spinResult() {
+        return this._spinResult;
+    }
 
-    // set spinResult(value) {
-    //     this._spinResult = value;
-    // }
+    set spinResult(value) {
+        this._spinResult = value;
+    }
 
     // get spinsCount() {
     //     return this._spinsCount;
@@ -93,7 +101,7 @@ export class SlotMachineModel extends ObservableModel {
     }
 
     private generateReels(): ReelModel[] {
-        return this._config.reels.map((reelConfig) => new ReelModel(reelConfig));
+        return this._config.reels.map((reelConfig, index) => new ReelModel(reelConfig, index));
     }
 
     public isLastReel(uuid: string): boolean {
@@ -108,9 +116,13 @@ export class SlotMachineModel extends ObservableModel {
         return this._reels.find((r) => r.uuid === uuid);
     }
 
-    public spin(): void {
+    public async spin(): Promise<void> {
         this._state = SlotMachineState.Spin;
-        // await
+        console.warn(`click`);
+        const result = await getSpinResult(10);
+        console.warn(result);
+        this.setResult(result);
+        this._reels = this.generateReels();
     }
 
     public stop(): void {
@@ -126,63 +138,8 @@ export class SlotMachineModel extends ObservableModel {
         this.state = SlotMachineState.Idle;
     }
 
-    public resetElements(shuffleAfterReset: boolean): void {
-        const { reels } = this.config;
-
-        reels.forEach(({ elements }, i) => {
-            const reelModel = this._reels[i];
-            const elTypes = [...elements];
-            // shuffleAfterReset && shuffle(elTypes);
-            elTypes.forEach((t, j) => (reelModel.elements[j].type = t));
-        });
-    }
-
-    public startAutoSpinTimer(): void {
-        // TODO ?
-        // this._autoSpinTimer = delayRunnable(100, this.spin, this);
-    }
-
-    public stopAutoSpinTimer(): void {
-        // removeRunnable(this._autoSpinTimer);
-    }
-
-    public setSpinResult(bet: number) {
-        // this._spinResult = this.generateSpinResult(bet);
-        // this._spinResult.reels.forEach((r, i) => r.forEach((s) => this._reels[i].setSlotTypeByIndex(s.index, s.type)));
-    }
-
-    public getWinType(): void {
-        // public getWinType(): SpinResultType {
-        // const rnd = Math.random();
-        // if (rnd * 100 > CHANCE_TO_WIN) {
-        //     return SpinResultType.Lose;
-        // }
-        // return this._spinsCount > 1 ? SpinResultType.Big : SpinResultType.Regular;
-    }
-
-    public getPrize(winType: SpinResultType, bet: number): number {
-        return winType === SpinResultType.Lose ? 0 : this._config.prizeFactor[winType] * bet;
-    }
-
-    // TODO fix return type
-    public getResultPattern(winType: SpinResultType): any {
-        return sample(this._config.combinations[winType]);
-    }
-
-    private generateSpinResult(bet: number) {
-        // const type = this.getWinType();
-        // const prize = this.getPrize(type, bet);
-        // const pattern = this.getResultPattern(type);
-        // const reels = this.getReelsResultPattern(pattern);
-        // return { type, prize, pattern, reels };
-    }
-
-    // TODO fix return and argument type
-    private getReelsResultPattern(pattern: any): any {
-        const winType = sample([0, 1, 2, 4]);
-
-        return pattern.map((reelPattern, _reelIndex) =>
-            reelPattern.map((elIndex) => ({ index: elIndex, type: winType })),
-        );
+    public setResult({ winningInfo, reels }: SpinResult): void {
+        this._spinResult = winningInfo;
+        this._config = { reels };
     }
 }

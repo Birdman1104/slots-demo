@@ -34,7 +34,7 @@ type WinningInfo = {
     coefficient: number;
     count: number;
     id: string;
-    winAmount: numbers;
+    winAmount: number;
 };
 
 type ReelsResult = ReelResult[];

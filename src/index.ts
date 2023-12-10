@@ -3,6 +3,7 @@ import App from './App';
 // @ts-ignore
 window.addEventListener('load', () => {
     window.game = new App();
+    globalThis.__PIXI_APP__ = window.game;
     window.game.init();
 
     window.addEventListener('resize', () => window.game.appResize());

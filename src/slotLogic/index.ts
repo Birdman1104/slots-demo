@@ -1,5 +1,5 @@
 const REELS_AMOUNT = 5;
-const COLUMNS_AMOUNT = 5;
+const ROWS_AMOUNT = 3;
 
 const ELEMENT_ID = Object.freeze({
     BR: 'br',
@@ -60,12 +60,10 @@ const LINES = [
     [0, 0, 0, 0, 0],
     [1, 1, 1, 1, 1],
     [2, 2, 2, 2, 2],
-    [3, 3, 3, 3, 3],
-    [4, 4, 4, 4, 4],
 
     // DIAGONAL
-    [0, 1, 2, 3, 4],
-    [4, 3, 2, 1, 0],
+    [0, 1, 2, 1, 0],
+    [2, 1, 0, 1, 2],
 ];
 
 const getRatioData = (itemsConfig): ElementWeightRatio[] => {
@@ -107,7 +105,7 @@ const getReelResult = (count: number): ReelResult => {
 const getReelsData = (): ReelsResult => {
     const reels: ReelsResult = [];
     for (let i = 0; i < REELS_AMOUNT; i++) {
-        reels.push(getReelResult(COLUMNS_AMOUNT));
+        reels.push(getReelResult(ROWS_AMOUNT));
     }
     return reels;
 };
@@ -151,6 +149,6 @@ export const getSpinResult = async (bet: number): Promise<SpinResult> => {
                 reels,
                 winningInfo,
             });
-        }, 1000),
+        }, 100),
     );
 };

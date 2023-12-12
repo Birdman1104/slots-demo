@@ -15,11 +15,11 @@ export const OFFSET_X = 30;
 export function getSlotMachineConfig() {
     return {
         reels: [
-            ['fb', 'fb', 'fb', 'fb'],
-            ['tw', 'tw', 'tw', 'tw'],
-            ['br', 'br', 'br', 'br'],
-            ['yt', 'yt', 'yt', 'yt'],
-            ['ti', 'ti', 'ti', 'ti'],
+            ['fb', 'fb', 'fb'],
+            ['tw', 'tw', 'tw'],
+            ['br', 'br', 'br'],
+            ['yt', 'yt', 'yt'],
+            ['ti', 'ti', 'ti'],
         ],
     };
 }

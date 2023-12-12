@@ -54,4 +54,5 @@ type ElementWeightRatio = {
 type WinningItemsCount = {
     count: number;
     elementType: string;
+    line: number[];
 };

@@ -111,36 +111,44 @@ const getReelsData = (): ReelsResult => {
 };
 
 const checkWinnings = (reelData: ReelsResult): WinningItemsCount[] => {
-    const lines = LINES.map((line) => line.map((r, c) => reelData[c][r]));
+    const lines = LINES.map((line) => {
+        return {
+            elements: line.map((r, c) => reelData[c][r]),
+            line,
+        };
+    });
+    console.log(`lines -`, lines);
     const linesInfo = lines.map((l) => winningItemsCount(l));
+    console.log(`linesInfo -`, linesInfo);
     return linesInfo.filter((l) => l.count >= 3);
 };
 
-const winningItemsCount = (elements: string[]): WinningItemsCount => {
+const winningItemsCount = (data: { elements: string[]; line: number[] }): WinningItemsCount => {
     let count = 1;
-    const elementType = elements[0];
-    for (let i = 1; i < elements.length; i++) {
-        const e = elements[i];
+    const elementType = data.elements[0];
+    for (let i = 1; i < data.elements.length; i++) {
+        const e = data.elements[i];
         if (e === elementType) {
             count++;
         } else {
             break;
         }
     }
-    return { count, elementType };
+    return { count, elementType, line: data.line };
 };
 
 export const getSpinResult = async (bet: number): Promise<SpinResult> => {
     const reels = getReelsData();
     const winningLines = checkWinnings(reels);
 
-    const winningInfo: WinningInfo[] = winningLines.map(({ elementType: id, count }) => {
+    const winningInfo: WinningInfo[] = winningLines.map(({ elementType: id, count, line }) => {
         const coefficient = ELEMENTS_CONFIG.find((el) => el.id === id)?.coefficient[count - 1] ?? 0;
         return {
             coefficient,
             id,
             count,
             winAmount: coefficient * bet,
+            line,
         };
     });
     return new Promise((resolve) =>
@@ -151,4 +159,17 @@ export const getSpinResult = async (bet: number): Promise<SpinResult> => {
             });
         }, 100),
     );
+};
+
+export const getDefaultReelsConfig = (): SpinResult => {
+    return {
+        reels: [
+            ['fb', 'fb', 'fb'],
+            ['tw', 'tw', 'tw'],
+            ['br', 'br', 'br'],
+            ['yt', 'yt', 'yt'],
+            ['ti', 'ti', 'ti'],
+        ],
+        winningInfo: [],
+    };
 };

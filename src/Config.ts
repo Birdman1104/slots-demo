@@ -1,3 +1,5 @@
+import { getDefaultReelsConfig } from './slotLogic';
+
 export const CHANCE_TO_WIN = 80;
 export const MIN_BET = 10;
 export const MAX_BET = 10;
@@ -13,13 +15,6 @@ export const OFFSET_X = 30;
 // export const STOP_EASING = BackOut;
 
 export function getSlotMachineConfig() {
-    return {
-        reels: [
-            ['fb', 'fb', 'fb'],
-            ['tw', 'tw', 'tw'],
-            ['br', 'br', 'br'],
-            ['yt', 'yt', 'yt'],
-            ['ti', 'ti', 'ti'],
-        ],
-    };
+    const { reels } = getDefaultReelsConfig();
+    return { reels };
 }

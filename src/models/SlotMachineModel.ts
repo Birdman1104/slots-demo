@@ -29,6 +29,7 @@ export class SlotMachineModel extends ObservableModel {
             count: 0,
             id: '',
             winAmount: 0,
+            line: [],
         },
     ];
     // private _spinsCount = 0;
@@ -100,8 +101,8 @@ export class SlotMachineModel extends ObservableModel {
         //
     }
 
-    private generateReels(): ReelModel[] {
-        return this._config.reels.map((reelConfig, index) => new ReelModel(reelConfig, index));
+    private generateReels(config = this._config): ReelModel[] {
+        return config.reels.map((reelConfig, index) => new ReelModel(reelConfig, index));
     }
 
     public isLastReel(uuid: string): boolean {
@@ -118,11 +119,10 @@ export class SlotMachineModel extends ObservableModel {
 
     public async spin(): Promise<void> {
         this._state = SlotMachineState.Spin;
-        console.warn(`click`);
         const result = await getSpinResult(10);
-        console.warn(result);
+        result.winningInfo.forEach((w) => console.warn(w));
+        this._reels = this.generateReels(result);
         this.setResult(result);
-        this._reels = this.generateReels();
     }
 
     public stop(): void {

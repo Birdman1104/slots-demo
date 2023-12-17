@@ -31,8 +31,6 @@ export class GameView extends PixiGrid {
     }
 
     private onSlotMachineUpdate(slotMachine: SlotMachineModel | null): void {
-        console.warn(slotMachine);
-
         slotMachine ? this.buildSlotMachine(slotMachine) : this.destroySlotMachine();
     }
 

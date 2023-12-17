@@ -35,10 +35,12 @@ type WinningInfo = {
     count: number;
     id: string;
     winAmount: number;
+    line: WinningLine;
 };
 
 type ReelsResult = ReelResult[];
 type ReelResult = string[];
+type WinningLine = number[];
 
 type SpinResult = {
     reels: ReelsResult;

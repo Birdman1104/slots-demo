@@ -4,26 +4,8 @@ import { OFFSET_X } from '../Config';
 import { ReelModelEvents, SlotMachineModelEvents } from '../events/ModelEvents';
 import { ReelState } from '../models/ReelModel';
 import { SlotMachineModel, SlotMachineState } from '../models/SlotMachineModel';
+import { ElementView } from './ElementView';
 import { ReelView } from './ReelView';
-
-function getMaskGraphics(config = { alpha: 1, color: 0x0 }) {
-    const { alpha, color } = config;
-    const mask: { x: number; y: number }[] = [
-        { x: 20, y: 20 },
-        { x: 570, y: 20 },
-        { x: 570, y: 540 },
-        { x: 20, y: 540 },
-    ];
-
-    const gr = new Graphics();
-    gr.beginFill(color, 1);
-    gr.drawPolygon(mask);
-    gr.endFill();
-
-    gr.alpha = alpha;
-
-    return gr;
-}
 
 export class SlotMachineView extends Container {
     private bg: Sprite;
@@ -37,8 +19,8 @@ export class SlotMachineView extends Container {
 
         lego.event.on(SlotMachineModelEvents.StateUpdate, this.onStateUpdate, this);
         lego.event.on(ReelModelEvents.StateUpdate, this.onReelStateUpdate, this);
-        // lego.event.on(SlotMachineEffectsEvents.SpinResultAnimationStart, this.onSpinResultAnimationStart, this);
-        // lego.event.on(SlotMachineEffectsEvents.SpinResultAnimationComplete, this.onSpinResultAnimationComplete, this);
+        lego.event.on(SlotMachineModelEvents.ReelsUpdate, this.onReelsUpdate, this);
+        lego.event.on(SlotMachineModelEvents.SpinResultUpdate, this.onSpinResultUpdate, this);
     }
 
     get reels() {
@@ -56,31 +38,18 @@ export class SlotMachineView extends Container {
     private build(): void {
         this.buildBg();
         this.buildReels();
-        // this.buildBlocker();
     }
 
     private buildBg(): void {
-        // const gr = new Graphics();
-        // gr.beginFill(0x0000ff, 0.5);
-        // gr.drawRect(0, 0, this.width, this.height);
-        // gr.endFill();
-        // this.addChild(gr);
-        // this.bg = Sprite.from('slot-bg.jpg');
-        // this.bg.scale.set(0.5);
-        // this.bg.eventMode = 'dynamic';
-        // this.bg.on('pointerdown', this.onBgClick, this);
-        // this.addChild(this.bg);
+        //
     }
 
     private buildReels(): void {
         const { reels } = this.config;
         this.reelsContainer = new Container();
         this._reels = reels.map((model, i) => {
-            // const { offset } = model.config;
-
             const reel = new ReelView(model);
             reel.position.set(this.reelsContainer.width + (i !== 0 ? OFFSET_X : 0), 0);
-            // reel.position.set(0, 0);
             this.reelsContainer.addChild(reel);
             return reel;
         });
@@ -88,13 +57,7 @@ export class SlotMachineView extends Container {
         this.addChild(this.reelsContainer);
     }
 
-    // private buildBlocker() {
-    //     this.blocker = this.addChild(getMaskGraphics({ alpha: 0.5, color: 0xff0000 }));
-    // }
-
     private onStateUpdate(newState: SlotMachineState): void {
-        // this.switchInputs(false);
-
         switch (newState) {
             case SlotMachineState.Idle:
                 // this.switchInputs(true);
@@ -107,9 +70,6 @@ export class SlotMachineView extends Container {
     }
 
     private onReelStateUpdate(newState: ReelState, oldState: ReelState, uuid: string): void {
-        // this.switchInputs(false);
-        console.warn(ReelState[newState]);
-
         const reel = this.getReelByUUID(uuid);
         switch (newState) {
             case ReelState.Spin:
@@ -122,40 +82,54 @@ export class SlotMachineView extends Container {
         }
     }
 
-    // private onSpinResultAnimationStart(): void {
-    //     // TODO add blocker tween
-    //     this.blocker.alpha = 0.8;
-    //     // this.game.add.tween(this._blocker).to({ alpha: 0.4 }, 200, null, true);
-    // }
+    private onSpinResultUpdate(result: WinningInfo[]): void {
+        if (result.length === 0) return;
 
-    // private onSpinResultAnimationComplete(): void {
-    //     this.blocker.alpha = 0;
-    //     // TODO add blocker tween
-    //     // this.game.add.tween(this._blocker).to({ alpha: 0.4 }, 200, null, true);
-    // }
-
-    private stop(): void {
-        // this.setReelStopListener(0);
+        const linesData: { line: WinningLine; winningItemType: string }[] = result.map((r) => {
+            return { line: r.line, winningItemType: r.id };
+        });
+        this.animateLines(linesData);
     }
 
-    // private setReelStopListener(reelIndex: number): void {
-    //     delayRunnable(reelIndex * 10, () => {
-    //         const reel = this.reels[reelIndex];
-    //         reel.on('onReelLoop', () => {
-    //             reel.stop();
+    private onReelsUpdate(newReels: any, b, c): void {
+        if (this._reels.length !== 0) {
+            this._reels.forEach((r) => r.destroy());
+            this._reels = [];
+        }
 
-    //             if (reelIndex < this.reels.length - 1) {
-    //                 this.setReelStopListener(reelIndex + 1);
-    //             }
-    //         });
-    //     });
-    // }
+        this._reels = newReels.map((model, i) => {
+            const reel = new ReelView(model);
+            reel.position.set(this.reelsContainer.width + (i !== 0 ? OFFSET_X : 0), 0);
+            this.reelsContainer.addChild(reel);
+            return reel;
+        });
+    }
 
-    // private switchInputs(value: boolean): void {
-    //     // this.bg.eventMode = value ? 'dynamic' : 'none';
-    // }
+    private stop(): void {
+        //
+    }
 
-    // private onBgClick(): void {
-    //     lego.event.emit(SlotMachineViewEvents.Spin);
-    // }
+    private animateLines(lines: { line: WinningLine; winningItemType: string }[]): void {
+        const getElements = (line) => line.map((pos, i) => this.reels[i].getElementByIndex(pos));
+        const animationConfig: { elements: ElementView[]; winningItemType: string }[] = lines.map(
+            ({ line, winningItemType }) => {
+                return { elements: getElements(line), winningItemType };
+            },
+        );
+
+        animationConfig.forEach(({ elements, winningItemType }, i) => {
+            setTimeout(() => {
+                this.reels.forEach((r) => r.dimElements());
+                this.reels.forEach((r) => r.resetAnimations());
+                elements.forEach((el) => el.animate(winningItemType));
+            }, i * 3000 + 1000);
+
+            if (i === animationConfig.length - 1) {
+                setTimeout(() => {
+                    this.reels.forEach((r) => r.dimElements());
+                    this.reels.forEach((r) => r.resetAnimations());
+                }, (i + 1) * 3000 + 1000);
+            }
+        });
+    }
 }

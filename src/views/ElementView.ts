@@ -38,23 +38,31 @@ export class ElementView extends Container {
         return new Rectangle(0, 0, WIDTH, HEIGHT);
     }
 
-    // public setY(value: number): void {
-    //     console.warn('y', this.y, 'value', value);
-    //     this.y = value + this.height;
-    // }
-
     public blur(): void {
         console.warn('blur element ', this.uuid);
-        // this._blur = true;
-        // const texture = searchAtlasByFrame(`element/symbol_blur_${this._type + 1}.png`);
-        // this._element.loadTexture(texture.key, texture.frame);
     }
 
     public unBlur(): void {
         console.warn('unblur element ', this.uuid);
-        // this._blur = false;
-        // const texture = searchAtlasByFrame(`element/symbol_${this._type + 1}.png`);
-        // this._element.loadTexture(texture.key, texture.frame);
+    }
+
+    public reset(): void {
+        this.scale.set(1);
+        this.alpha = 1;
+    }
+
+    public animate(winingItemType: string): void {
+        this.clearDim();
+        this.alpha = this.type === winingItemType ? 1 : 0.6;
+        this.scale.set(1.3);
+    }
+
+    public dim(): void {
+        this.element.tint = 0xababab;
+    }
+
+    public clearDim(): void {
+        this.element.tint = 0xffffff;
     }
 
     public loopHandler(): void {

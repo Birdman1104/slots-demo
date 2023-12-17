@@ -1,6 +1,5 @@
 import { lego } from '@armathai/lego';
 import { Container, Rectangle } from 'pixi.js';
-// import { SLOT_OFFSET, SPEED, SPIN_EASING, STOP_EASING } from '../Config';
 import { OFFSET_Y, WIDTH } from '../Config';
 import { ElementModelEvents } from '../events/ModelEvents';
 import { ElementModel } from '../models/ElementModel';
@@ -9,12 +8,6 @@ import { ElementView } from './ElementView';
 
 export class ReelView extends Container {
     private _uuid: String;
-    // private offset = SLOT_OFFSET;
-    // private speed = SPEED;
-    // private loopRunnable: any; // TODO fix types
-    // private spinRunnable: any;
-    // private stopRunnable: any;
-    // private loopStep: number;
     private _elements: ElementView[];
     private _tileY = 0;
     private rHeight = 0;
@@ -57,6 +50,19 @@ export class ReelView extends Container {
         return this.elements[index];
     }
 
+    public animateElement(index: number): void {
+        const element = this.getElementByIndex(index);
+        element.scale.set(1.25);
+    }
+
+    public dimElements(): void {
+        this.elements.forEach((e) => e.dim());
+    }
+
+    public resetAnimations(): void {
+        this.elements.forEach((e) => e.reset());
+    }
+
     public blur(): void {
         this._elements.forEach((s) => s.blur());
     }
@@ -66,41 +72,16 @@ export class ReelView extends Container {
     }
 
     public stop(): void {
-        // removeRunnable(this.loopRunnable);
-        // this.unBlur();
-        // const diff = this._height - (this._tileY % this._height);
-        // const points = getTweenPoints(this.speed, STOP_EASING, this._tileY, diff + this._height);
-        // this.stopRunnable = this.loopRunnable(0, () => {
-        //     this._tileY = points.shift() as number;
-        //     if (!points.length) {
-        //         removeRunnable(this.stopRunnable);
-        //         lego.event.emit(ReelViewEvents.SlowDownComplete, this._uuid);
-        //     }
-        // });
+        //
     }
 
     public spin(): void {
         this._elements.forEach((el) => {
             // el.tw;
         });
-        // const points = getTweenPoints(this.speed, SPIN_EASING, this._tileY, this._height);
-        // const lastPoints = points.slice(points.length - 2);
-        // this.loopStep = lastPoints[1] - lastPoints[0];
-        // this.spinRunnable = this.loopRunnable(0, () => {
-        //     this.tileY = points.shift() as number;
-        //     if (!points.length) {
-        //         removeRunnable(this.spinRunnable);
-        //         this.loop();
-        //         lego.event.emit(ReelViewEvents.SpeedUpComplete, this._uuid);
-        //     }
-        // });
     }
 
     public destroy(): void {
-        // removeRunnable(this.spinRunnable);
-        // removeRunnable(this.stopRunnable);
-        // removeRunnable(this.loopRunnable);
-
         super.destroy();
     }
 
@@ -120,12 +101,6 @@ export class ReelView extends Container {
         this.buildElements(elements);
         this.rHeight = this.calculateHeight();
         this.updateElementsPositions();
-
-        // const gr = new Graphics();
-        // gr.beginFill(0xff0000, 0.5);
-        // gr.drawRect(0, 0, this.width, this.height);
-        // gr.endFill();
-        // this.addChild(gr);
     }
 
     private buildElements(elements: ElementModel[]): void {
@@ -145,10 +120,6 @@ export class ReelView extends Container {
         return this._elements.reduce((acc, cur) => acc + cur.height + OFFSET_Y, 0) - OFFSET_Y;
     }
 
-    private loop(): void {
-        // this.loopRunnable = this.loopRunnable(0, () => (this.tileY += this.loopStep));
-    }
-
     private updateElementsPositions(): void {
         for (let i = 0; i < this._elements.length; i += 1) {
             const element = this._elements[i];
@@ -161,14 +132,10 @@ export class ReelView extends Container {
                 element.y = previews.bottom + element.height / 2 + OFFSET_Y;
                 element.x = element.width / 2;
             }
-
-            // this.checkForLimits(element);
         }
     }
 
     private checkForLimits(element: ElementView): void {
-        console.warn(`check for limits`);
-
         if (element.bottom > this.rHeight) {
             element.loopHandler();
             element.y = element.top - this.rHeight + element.height;

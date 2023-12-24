@@ -1,4 +1,4 @@
-import { lp } from '../../Utils';
+import { lp } from '../../utils/Utils';
 
 export const getForegroundGridConfig = () => {
     return lp(getForegroundGridLandscapeConfig, getForegroundGridPortraitConfig).call(null);

@@ -1,5 +1,5 @@
-import { last } from '../Utils';
 import { getSpinResult } from '../slotLogic';
+import { last } from '../utils/Utils';
 import { ObservableModel } from './ObservableModel';
 import { ReelModel, ReelState } from './ReelModel';
 

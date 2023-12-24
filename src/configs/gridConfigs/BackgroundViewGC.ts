@@ -1,5 +1,5 @@
 import { CellScale } from '@armathai/pixi-grid';
-import { lp } from '../../Utils';
+import { lp } from '../../utils/Utils';
 
 export const getBackgroundGridConfig = () => {
     return lp(getBackgroundGridLandscapeConfig, getBackgroundGridPortraitConfig).call(null);

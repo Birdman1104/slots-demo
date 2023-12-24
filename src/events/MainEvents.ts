@@ -24,4 +24,6 @@ export const SlotMachineEffectsEvents = {
 
 export const UIEvents = {
     SpinButtonClick: 'UIEventsSpinButtonClick',
+    PlusButtonClick: 'UIEventsPlusButtonClick',
+    MinusButtonClick: 'UIEventsMinusButtonClick',
 };

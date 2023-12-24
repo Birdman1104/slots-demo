@@ -8,12 +8,12 @@ const getUIGridLandscapeConfig = () => {
     const bounds = { x: 0, y: 0, width: document.body.clientWidth, height: document.body.clientHeight };
     return {
         name: 'ui',
-        // debug: { color: 0xd950ff },
+        debug: { color: 0xd950ff },
         bounds,
         cells: [
             {
-                name: 'button',
-                bounds: { x: 0, y: 0, width: 0.22, height: 0.22 },
+                name: 'controller',
+                bounds: { x: 0, y: 0.8, width: 1, height: 0.2 },
             },
         ],
     };
@@ -23,12 +23,12 @@ const getUIGridPortraitConfig = () => {
     const bounds = { x: 0, y: 0, width: document.body.clientWidth, height: document.body.clientHeight };
     return {
         name: 'ui',
-        // debug: { color: 0xd950ff },
+        debug: { color: 0xd950ff },
         bounds,
         cells: [
             {
-                name: 'button',
-                bounds: { x: 0, y: 0, width: 0.22, height: 0.22 },
+                name: 'controller',
+                bounds: { x: 0, y: 0.8, width: 1, height: 0.2 },
             },
         ],
     };

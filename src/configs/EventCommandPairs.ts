@@ -32,7 +32,15 @@ const initModelsCommand = (): void => {
 };
 
 const spinButtonClickCommand = (): void => {
-    Head.gameModel?.slotMachine?.spin();
+    Head.gameModel?.slotMachine?.spin(Head.playerModel?.bet);
+};
+
+const plusButtonClickCommand = (): void => {
+    Head.playerModel?.increaseBet();
+};
+
+const minusButtonClickCommand = (): void => {
+    Head.playerModel?.decreaseBet();
 };
 
 const eventCommandPairs = Object.freeze([
@@ -43,5 +51,13 @@ const eventCommandPairs = Object.freeze([
     {
         event: UIEvents.SpinButtonClick,
         command: spinButtonClickCommand,
+    },
+    {
+        event: UIEvents.PlusButtonClick,
+        command: plusButtonClickCommand,
+    },
+    {
+        event: UIEvents.MinusButtonClick,
+        command: minusButtonClickCommand,
     },
 ]);

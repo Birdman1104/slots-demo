@@ -126,7 +126,7 @@ export class SlotMachineView extends Container {
 
             if (i === animationConfig.length - 1) {
                 setTimeout(() => {
-                    this.reels.forEach((r) => r.dimElements());
+                    this.reels.forEach((r) => r.clearElementsDim());
                     this.reels.forEach((r) => r.resetAnimations());
                 }, (i + 1) * 3000 + 1000);
             }

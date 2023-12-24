@@ -59,6 +59,10 @@ export class ReelView extends Container {
         this.elements.forEach((e) => e.dim());
     }
 
+    public clearElementsDim(): void {
+        this.elements.forEach((e) => e.clearDim());
+    }
+
     public resetAnimations(): void {
         this.elements.forEach((e) => e.reset());
     }

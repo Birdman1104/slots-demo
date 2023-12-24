@@ -1,6 +1,7 @@
 import { lego } from '@armathai/lego';
 import { Container, Sprite, Text } from 'pixi.js';
 import { UIEvents } from '../events/MainEvents';
+import { PlayerModelEvents } from '../events/ModelEvents';
 
 export class BetControllerView extends Container {
     private _plusButton: Sprite;
@@ -12,7 +13,13 @@ export class BetControllerView extends Container {
     constructor() {
         super();
 
+        lego.event.on(PlayerModelEvents.BetUpdate, this.onPlayerBetUpdate, this);
+
         this.build();
+    }
+
+    private onPlayerBetUpdate(newBet: number): void {
+        this._betAmount.text = `${newBet}`;
     }
 
     private build(): void {

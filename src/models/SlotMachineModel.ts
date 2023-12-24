@@ -117,9 +117,11 @@ export class SlotMachineModel extends ObservableModel {
         return this._reels.find((r) => r.uuid === uuid);
     }
 
-    public async spin(): Promise<void> {
+    public async spin(bet: number | undefined): Promise<void> {
+        // TODO check for NaN values
+        if (isNaN(bet as number)) return;
         this._state = SlotMachineState.Spin;
-        const result = await getSpinResult(10);
+        const result = await getSpinResult(bet as number);
         result.winningInfo.forEach((w) => console.warn(w));
         this._reels = this.generateReels(result);
         this.setResult(result);
@@ -130,7 +132,6 @@ export class SlotMachineModel extends ObservableModel {
 
         this._reels.forEach((r, i) => {
             r.state = ReelState.Stop;
-            // delayRunnable(i * this._config.reelsStopDelay, r.setState, r, ReelState.Stop),
         });
     }
 

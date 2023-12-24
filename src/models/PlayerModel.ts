@@ -1,3 +1,4 @@
+import { BETS } from '../Config';
 import { ObservableModel } from './ObservableModel';
 
 export class PlayerModel extends ObservableModel {
@@ -26,5 +27,17 @@ export class PlayerModel extends ObservableModel {
 
     set bet(value) {
         this._bet = value;
+    }
+
+    public increaseBet(): void {
+        const index = BETS.findIndex((el) => el === this._bet);
+        if (index === BETS.length - 1) return; // TODO disable button
+        this._bet = BETS[index + 1];
+    }
+
+    public decreaseBet(): void {
+        const index = BETS.findIndex((el) => el === this._bet);
+        if (index === 0) return; // TODO disable button
+        this._bet = BETS[index - 1];
     }
 }

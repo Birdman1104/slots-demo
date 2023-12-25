@@ -4,13 +4,18 @@ import { ObservableModel } from './ObservableModel';
 export class PlayerModel extends ObservableModel {
     private _balance: number;
     private _bet: number;
+    private _playerID: number;
 
     public constructor() {
         super('PlayerModel');
-        this._balance = 10000;
+        this._balance = 0;
         this._bet = 0;
 
         this.makeObservable();
+    }
+
+    get playerID() {
+        return this._playerID;
     }
 
     get balance() {
@@ -39,5 +44,15 @@ export class PlayerModel extends ObservableModel {
         const index = BETS.findIndex((el) => el === this._bet);
         if (index === 0) return; // TODO disable button
         this._bet = BETS[index - 1];
+    }
+
+    public setPlayerInfo(playerInfo: any): void {
+        this._bet = playerInfo.bet;
+        this._balance = playerInfo.balance;
+        this._playerID = playerInfo.id;
+    }
+
+    public updateBalance(winning: number): void {
+        this._balance += winning;
     }
 }

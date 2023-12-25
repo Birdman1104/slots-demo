@@ -117,9 +117,7 @@ const checkWinnings = (reelData: ReelsResult): WinningItemsCount[] => {
             line,
         };
     });
-    console.log(`lines -`, lines);
     const linesInfo = lines.map((l) => winningItemsCount(l));
-    console.log(`linesInfo -`, linesInfo);
     return linesInfo.filter((l) => l.count >= 3);
 };
 
@@ -151,11 +149,14 @@ export const getSpinResult = async (bet: number): Promise<SpinResult> => {
             line,
         };
     });
+    const totalWin = winningInfo.reduce((acc, curr) => acc + curr.winAmount, 0);
+
     return new Promise((resolve) =>
         setTimeout(() => {
             resolve({
                 reels,
                 winningInfo,
+                totalWin,
             });
         }, 100),
     );
@@ -171,5 +172,18 @@ export const getDefaultReelsConfig = (): SpinResult => {
             ['ti', 'ti', 'ti'],
         ],
         winningInfo: [],
+        totalWin: 0,
     };
+};
+
+export const getDefaultPlayerInfo = async (): Promise<any> => {
+    return new Promise((resolve) =>
+        setTimeout(() => {
+            resolve({
+                balance: 10000,
+                bet: 10,
+                id: Math.random() * 1000,
+            });
+        }, 100),
+    );
 };

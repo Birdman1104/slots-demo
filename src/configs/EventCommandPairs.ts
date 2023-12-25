@@ -1,9 +1,9 @@
 import { lego } from '@armathai/lego';
-import { MIN_BET } from '../Config';
 import { MainGameEvents, UIEvents } from '../events/MainEvents';
 import { GameModel } from '../models/GameModel';
 import Head from '../models/HeadModel';
 import { PlayerModel } from '../models/PlayerModel';
+import { getDefaultPlayerInfo } from '../slotLogic';
 
 export const mapCommands = (): void => {
     eventCommandPairs.forEach(({ event, command }) => {
@@ -22,13 +22,14 @@ const onMainViewReadyCommand = (): void => {
     Head.initGameModel();
 };
 
-const initModelsCommand = (): void => {
+const initModelsCommand = async (): Promise<void> => {
+    const playerInfo = await getDefaultPlayerInfo();
     Head.init();
     Head.initGameModel();
     Head.initPlayerModel();
 
-    (Head.playerModel as PlayerModel).bet = MIN_BET;
     (Head.gameModel as GameModel).idleSlotMachine();
+    (Head.playerModel as PlayerModel).setPlayerInfo(playerInfo);
 };
 
 const spinButtonClickCommand = (): void => {

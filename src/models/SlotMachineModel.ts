@@ -1,5 +1,6 @@
 import { getSpinResult } from '../slotLogic';
 import { last } from '../utils/Utils';
+import Head from './HeadModel';
 import { ObservableModel } from './ObservableModel';
 import { ReelModel, ReelState } from './ReelModel';
 
@@ -122,8 +123,9 @@ export class SlotMachineModel extends ObservableModel {
         if (isNaN(bet as number)) return;
         this._state = SlotMachineState.Spin;
         const result = await getSpinResult(bet as number);
-        result.winningInfo.forEach((w) => console.warn(w));
+        // result.winningInfo.forEach((w) => console.warn(w));
         this._reels = this.generateReels(result);
+        Head.playerModel?.updateBalance(result.totalWin);
         this.setResult(result);
     }
 

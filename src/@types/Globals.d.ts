@@ -45,6 +45,7 @@ type WinningLine = number[];
 type SpinResult = {
     reels: ReelsResult;
     winningInfo: WinningInfo[];
+    totalWin: number;
 };
 
 type ElementWeightRatio = {

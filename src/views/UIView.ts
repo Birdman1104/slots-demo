@@ -1,8 +1,11 @@
 import { ICellConfig, PixiGrid } from '@armathai/pixi-grid';
 import { getUIGridConfig } from '../configs/gridConfigs/UIViewGC';
+import { BalanceView } from './BalanceView';
 import { BetControllerView } from './BetControllerView';
 
 export class UIView extends PixiGrid {
+    private controller: BetControllerView;
+    private balance: BalanceView;
     constructor() {
         super();
         this.build();
@@ -17,12 +20,17 @@ export class UIView extends PixiGrid {
     }
 
     private build(): void {
-        // const button = Sprite.from('bkg.png');
-        // button.eventMode = 'static';
-        // button.on('pointerdown', () => lego.event.emit(UIEvents.SpinButtonClick));
-        // this.setChild('buttons', button);
+        this.buildController();
+        this.buildBalance();
+    }
 
-        const controller = new BetControllerView();
-        this.setChild('controller', controller);
+    private buildController(): void {
+        this.controller = new BetControllerView();
+        this.setChild('controller', this.controller);
+    }
+
+    private buildBalance(): void {
+        this.balance = new BalanceView();
+        this.setChild('player_info', this.balance);
     }
 }

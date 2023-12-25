@@ -7,7 +7,7 @@ export class PlayerModel extends ObservableModel {
 
     public constructor() {
         super('PlayerModel');
-        this._balance = 18388566;
+        this._balance = 10000;
         this._bet = 0;
 
         this.makeObservable();

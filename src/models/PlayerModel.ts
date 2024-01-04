@@ -34,6 +34,10 @@ export class PlayerModel extends ObservableModel {
         this._bet = value;
     }
 
+    public spin(): void {
+        this._balance -= this._bet;
+    }
+
     public increaseBet(): void {
         const index = BETS.findIndex((el) => el === this._bet);
         if (index === BETS.length - 1) return; // TODO disable button

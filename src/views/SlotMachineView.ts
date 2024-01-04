@@ -122,13 +122,13 @@ export class SlotMachineView extends Container {
                 this.reels.forEach((r) => r.dimElements());
                 this.reels.forEach((r) => r.resetAnimations());
                 elements.forEach((el) => el.animate(winningItemType));
-            }, i * 3000 + 1000);
+            }, i * 500 + 200);
 
             if (i === animationConfig.length - 1) {
                 setTimeout(() => {
                     this.reels.forEach((r) => r.clearElementsDim());
                     this.reels.forEach((r) => r.resetAnimations());
-                }, (i + 1) * 3000 + 1000);
+                }, (i + 1) * 500 + 200);
             }
         });
     }

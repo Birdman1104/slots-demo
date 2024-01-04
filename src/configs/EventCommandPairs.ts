@@ -33,6 +33,7 @@ const initModelsCommand = async (): Promise<void> => {
 };
 
 const spinButtonClickCommand = (): void => {
+    Head.playerModel?.spin();
     Head.gameModel?.slotMachine?.spin(Head.playerModel?.bet);
 };
 

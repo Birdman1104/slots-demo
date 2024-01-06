@@ -1,6 +1,8 @@
 import { lego } from '@armathai/lego';
 import { Container, Sprite, Text } from 'pixi.js';
+import { getRedButtonConfig } from '../configs/buttonsConfig/SpinButton';
 import { PlayerModelEvents } from '../events/ModelEvents';
+import { Button } from '../utils/Button';
 
 export class BalanceView extends Container {
     private balance: Text;
@@ -43,5 +45,8 @@ export class BalanceView extends Container {
         this.addChild(bkg);
         this.addChild((this.balance = balance));
         this.addChild(balanceText);
+
+        const button = new Button(getRedButtonConfig());
+        this.addChild(button);
     }
 }

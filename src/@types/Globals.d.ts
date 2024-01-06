@@ -59,3 +59,33 @@ type WinningItemsCount = {
     elementType: string;
     line: number[];
 };
+
+type ButtonConfig = {
+    states: ButtonStates;
+    hitArea?: ButtonHitAreaConfig;
+};
+
+type ButtonStates = {
+    up: ButtonStateConfig;
+    down?: ButtonStateConfig;
+    over?: ButtonStateConfig;
+    disabled?: ButtonStateConfig;
+};
+
+type ButtonStateConfig = {
+    image: string;
+    tint?: number;
+    textConfig?: TextConfig;
+};
+
+type ButtonHitAreaConfig = {
+    area: any;
+    callback: any;
+};
+
+type TextConfig = {
+    text: string;
+    style: TextStyle;
+    x: number;
+    y: number;
+};

@@ -9,7 +9,7 @@ const textConfig = {
     y: 0,
 };
 
-export const getRedButtonConfig = (): ButtonConfig => {
+export const getSpinButtonConfig = (): ButtonConfig => {
     return {
         states: {
             up: {

@@ -1,12 +1,16 @@
 import { lego } from '@armathai/lego';
 import { Container, Sprite, Text } from 'pixi.js';
+import { getMinusButtonConfig, getPlusButtonConfig } from '../configs/buttonsConfig/BetAmountChangeButtons';
+import { getSpinButtonConfig } from '../configs/buttonsConfig/SpinButtonConfig';
+import { ButtonEvents } from '../enums/Enums';
 import { UIEvents } from '../events/MainEvents';
 import { PlayerModelEvents } from '../events/ModelEvents';
+import { Button } from '../utils/Button';
 
 export class BetControllerView extends Container {
-    private plusButton: Sprite;
-    private minusButton: Sprite;
-    private spinButton: Sprite;
+    private plusButton: Button;
+    private minusButton: Button;
+    private spinButton: Button;
     private balance: Sprite;
     private betAmount: Text;
 
@@ -30,18 +34,8 @@ export class BetControllerView extends Container {
     }
 
     private buildBetButton(): void {
-        const button = Sprite.from('spin_btn_up.png');
-        const text = new Text('SPIN', {
-            fontFamily: 'Arial',
-            fontSize: 24,
-            fill: 0x5555aa,
-            align: 'center',
-        });
-        text.anchor.set(0.5);
-        button.anchor.set(0.5);
-        button.addChild(text);
-        button.eventMode = 'static';
-        button.on('pointerdown', () => lego.event.emit(UIEvents.SpinButtonClick));
+        const button = new Button(getSpinButtonConfig());
+        button.on(ButtonEvents.Up, () => lego.event.emit(UIEvents.SpinButtonClick));
         this.spinButton = button;
         this.addChild(this.spinButton);
     }
@@ -74,21 +68,19 @@ export class BetControllerView extends Container {
     }
 
     private buildBetPlusButton(): void {
-        const button = Sprite.from('bet_plus_btn_up.png');
-        button.anchor.set(1, 0.5);
-        button.position.set(-this.spinButton.width / 2, 0);
-        button.eventMode = 'static';
-        button.on('pointerdown', () => lego.event.emit(UIEvents.PlusButtonClick));
+        const button = new Button(getPlusButtonConfig());
+        button.on(ButtonEvents.Up, () => lego.event.emit(UIEvents.PlusButtonClick));
+        button.position.set(this.spinButton.width / 2 + button.width / 2, 0);
+
         this.plusButton = button;
         this.addChild(this.plusButton);
     }
 
     private buildBetMinusButton(): void {
-        const button = Sprite.from('bet_minus_btn_up.png');
-        button.anchor.set(0, 0.5);
-        button.position.set(this.spinButton.width / 2, 0);
-        button.eventMode = 'static';
-        button.on('pointerdown', () => lego.event.emit(UIEvents.MinusButtonClick));
+        const button = new Button(getMinusButtonConfig());
+        button.on(ButtonEvents.Up, () => lego.event.emit(UIEvents.MinusButtonClick));
+        button.position.set(-this.spinButton.width / 2 - button.width / 2, 0);
+
         this.minusButton = button;
         this.addChild(this.minusButton);
     }

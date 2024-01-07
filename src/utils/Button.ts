@@ -1,5 +1,5 @@
 import { Container, Rectangle } from 'pixi.js';
-import { ButtonStateNames } from '../enums/Enums';
+import { ButtonEvents, ButtonStateNames } from '../enums/Enums';
 import { ButtonState } from './ButtonState';
 
 export class Button extends Container {
@@ -27,6 +27,36 @@ export class Button extends Container {
             return this.states.up.getBounds();
         }
         return this.states.disabled ? this.states.disabled.getBounds() : this.states.up.getBounds();
+    }
+
+    public updateLabel(label: string | number): void {
+        // changes label ON ALL STATES
+        Object.keys(this.states).forEach((el) => {
+            this.states[el]?.updateText(label);
+        });
+    }
+
+    public updateLabelOnState(stateName: ButtonStateNames, label: string | number): void {
+        // changes label ON SPECIFIC STATES
+        Object.keys(this.states).forEach((el) => {
+            if (this.states[el]?.name === stateName) {
+                this.states[el]?.updateText(label);
+            }
+        });
+    }
+
+    public setInteractivity(value: boolean, disableVisually = false): void {
+        // DisableVisually still keeps pointerUp event. But the btn looks disabled
+        // Applies only if the btn is being disabled
+        if (this.canClick === value) return;
+        this.canClick = value;
+        if (value) {
+            this.enableInputs();
+            this.setActiveState(ButtonStateNames.Up);
+        } else {
+            this.disableInputs(disableVisually);
+            this.states.disabled && this.setActiveState(ButtonStateNames.Disabled);
+        }
     }
 
     private build(): void {
@@ -71,25 +101,41 @@ export class Button extends Container {
         this.hitArea = g2;
         this.eventMode = 'static';
 
+        this.enableInputs();
+    }
+
+    private enableInputs(): void {
+        this.disableInputs();
         this.on('pointerdown', this.onPointerDown, this);
         this.on('pointerup', this.onPointerUp, this);
         this.on('pointerover', this.onPointerOver, this);
         this.on('pointerout', this.onPointerOut, this);
     }
 
+    private disableInputs(disableOnlyVisually = false): void {
+        !disableOnlyVisually && this.off('pointerup', this.onPointerUp, this);
+        this.off('pointerdown', this.onPointerDown, this);
+        this.off('pointerover', this.onPointerOver, this);
+        this.off('pointerout', this.onPointerOut, this);
+    }
+
     private onPointerDown(): void {
-        console.warn(`Down`);
+        this.emit(ButtonEvents.Down);
+        this.setActiveState(ButtonStateNames.Down);
     }
 
     private onPointerUp(): void {
-        console.warn(`Up`);
+        this.emit(ButtonEvents.Up);
+        !this.isDisabled && this.setActiveState(ButtonStateNames.Up);
     }
 
     private onPointerOver(): void {
-        console.warn(`Over`);
+        this.emit(ButtonEvents.Over);
+        this.setActiveState(ButtonStateNames.Over);
     }
 
     private onPointerOut(): void {
-        console.warn(`Out`);
+        this.setActiveState(ButtonStateNames.Up);
+        this.emit(ButtonEvents.Out);
     }
 }

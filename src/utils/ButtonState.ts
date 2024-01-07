@@ -34,8 +34,6 @@ export class ButtonState extends Container {
     }
 
     private buildText({ text, style, x, y }: TextConfig): void {
-        console.warn('texxt');
-
         this.text = new Text(text, style);
         this.text.anchor.set(0.5);
         this.text.position.set(x || 0, y || 0);

@@ -1,8 +1,10 @@
 import { lego } from '@armathai/lego';
-import { MainGameEvents, UIEvents } from '../events/MainEvents';
+import { MainGameEvents, SlotMachineViewEvents, UIEvents } from '../events/MainEvents';
+import { SlotMachineModelEvents } from '../events/ModelEvents';
 import { GameModel } from '../models/GameModel';
 import Head from '../models/HeadModel';
 import { PlayerModel } from '../models/PlayerModel';
+import { SlotMachineState } from '../models/SlotMachineModel';
 import { getDefaultPlayerInfo } from '../slotLogic';
 
 export const mapCommands = (): void => {
@@ -45,6 +47,16 @@ const minusButtonClickCommand = (): void => {
     Head.playerModel?.decreaseBet();
 };
 
+const slotMachineDropCompleteCommand = (): void => {
+    Head.gameModel?.slotMachine?.setState(SlotMachineState.WaitingForResult);
+};
+
+const slotMachineStateUpdateCommand = (newState: SlotMachineState, oldState: SlotMachineState): void => {
+    if (newState === SlotMachineState.WaitingForResult) {
+        Head.gameModel?.slotMachine?.checkForResult();
+    }
+};
+
 const eventCommandPairs = Object.freeze([
     {
         event: MainGameEvents.MainViewReady,
@@ -61,5 +73,13 @@ const eventCommandPairs = Object.freeze([
     {
         event: UIEvents.MinusButtonClick,
         command: minusButtonClickCommand,
+    },
+    {
+        event: SlotMachineViewEvents.DropComplete,
+        command: slotMachineDropCompleteCommand,
+    },
+    {
+        event: SlotMachineModelEvents.StateUpdate,
+        command: slotMachineStateUpdateCommand,
     },
 ]);

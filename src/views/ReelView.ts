@@ -1,5 +1,6 @@
 import { lego } from '@armathai/lego';
-import { Container, Rectangle } from 'pixi.js';
+import anime from 'animejs/lib/anime.js';
+import { Container, Graphics, Rectangle } from 'pixi.js';
 import { OFFSET_Y, WIDTH } from '../Config';
 import { ElementModelEvents } from '../events/ModelEvents';
 import { ElementModel } from '../models/ElementModel';
@@ -9,7 +10,6 @@ import { ElementView } from './ElementView';
 export class ReelView extends Container {
     private _uuid: String;
     private _elements: ElementView[];
-    private _tileY = 0;
     private rHeight = 0;
 
     constructor(model: ReelModel) {
@@ -27,15 +27,6 @@ export class ReelView extends Container {
 
     get elements() {
         return this._elements;
-    }
-
-    get tileY() {
-        return this._tileY;
-    }
-
-    set tileY(value) {
-        this._tileY = value;
-        this.updateElementsPositions();
     }
 
     public getBounds(skipUpdate?: boolean | undefined, rect?: Rectangle | undefined): Rectangle {
@@ -67,21 +58,26 @@ export class ReelView extends Container {
         this.elements.forEach((e) => e.reset());
     }
 
-    public blur(): void {
-        this._elements.forEach((s) => s.blur());
-    }
-
-    public unBlur(): void {
-        this._elements.forEach((s) => s.unBlur());
-    }
-
-    public stop(): void {
-        //
-    }
-
-    public spin(): void {
-        this._elements.forEach((el) => {
-            // el.tw;
+    public dropOldElements(delay: number): void {
+        let count = 0;
+        this.elements.forEach((el, i) => {
+            anime({
+                targets: el,
+                y: this.rHeight + el.height / 2,
+                duration: 200 * (this.elements.length - i + 1),
+                delay,
+                easing: 'easeInBack',
+                complete: () => {
+                    el.destroy();
+                    count++;
+                    if (count === this.elements.length) {
+                        this.emit(`dropComplete`, this.uuid);
+                    }
+                },
+                update: (anim) => {
+                    // blur element
+                },
+            });
         });
     }
 
@@ -94,30 +90,26 @@ export class ReelView extends Container {
         if (!elView) {
             return;
         }
-
-        elView.once('onElementLoop', () => {
-            elView.setType(newType);
-            this._height = this.calculateHeight();
-        });
     }
 
     private build(elements: ElementModel[]): void {
         this.buildElements(elements);
         this.rHeight = this.calculateHeight();
         this.updateElementsPositions();
+
+        const gr = new Graphics();
+        gr.beginFill(0xff0000, 0.5);
+        gr.drawRect(0, 0, this.width, this.height);
+        gr.endFill();
+        this.addChild(gr);
     }
 
     private buildElements(elements: ElementModel[]): void {
         this._elements = elements.map((config) => {
             const element = new ElementView(config);
-            element.on('onElementLoop', this.onElementLoop, this);
             this.addChild(element);
             return element;
         });
-    }
-
-    private onElementLoop(uuid: string): void {
-        this.elements[0].uuid === uuid && this.emit('onReelLoop', this.uuid);
     }
 
     private calculateHeight(): number {
@@ -136,18 +128,6 @@ export class ReelView extends Container {
                 element.y = previews.bottom + element.height / 2 + OFFSET_Y;
                 element.x = element.width / 2;
             }
-        }
-    }
-
-    private checkForLimits(element: ElementView): void {
-        if (element.bottom > this.rHeight) {
-            element.loopHandler();
-            element.y = element.top - this.rHeight + element.height;
-            // element.setY(element.top - this.rHeight);
-        } else if (element.bottom < 0) {
-            element.loopHandler();
-            element.y = element.top + this.rHeight + element.height;
-            // element.setY(element.top + this.rHeight);
         }
     }
 }

@@ -1,11 +1,10 @@
-import { ElementModel, ElementState } from './ElementModel';
+import { ElementModel } from './ElementModel';
 import { ObservableModel } from './ObservableModel';
 
 export enum ReelState {
     Idle,
-    Spin,
-    MaxSpeed,
-    Stop,
+    DropOld,
+    DropNew,
 }
 
 export class ReelModel extends ObservableModel {
@@ -48,32 +47,10 @@ export class ReelModel extends ObservableModel {
         return this._elements.find((el) => el.uuid === uuid);
     }
 
-    public setElementStateByIndex(elIndex: number, state: ElementState): void {
-        const el = this._elements[elIndex];
-        if (el) {
-            el.state = state;
-        }
-    }
-
-    public setElementStateByUUID(uuid: string, state: ElementState): void {
-        const el = this.getElementByUUID(uuid);
-        if (el) {
-            el.state = state;
-        }
-    }
-
-    public setElementTypeByIndex(elIndex: number, type: string): void {
-        const el = this._elements[elIndex];
-        if (el) {
-            el.type = type;
-        }
-    }
-
-    public setElementTypeByUUID(uuid: string, type: string): void {
-        const el = this.getElementByUUID(uuid);
-        if (el) {
-            el.type = type;
-        }
+    public setNewElements(config: ReelResult): void {
+        this._elements = config.map(
+            (elType, elementIndex) => new ElementModel(elType, `${this._index}${elementIndex}`),
+        );
     }
 
     private generateElements(): ElementModel[] {

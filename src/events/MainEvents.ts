@@ -9,17 +9,11 @@ export const MainGameEvents = {
 };
 
 export const ReelViewEvents = {
-    SlowDownComplete: 'ReelViewEventsSlowDownComplete',
-    SpeedUpComplete: 'ReelViewEventsSpeedUpComplete',
+    EVENT: 'ReelViewEventsEVENT',
 };
 
 export const SlotMachineViewEvents = {
-    Spin: 'ReelViewEventsSpin',
-};
-
-export const SlotMachineEffectsEvents = {
-    SpinResultAnimationStart: 'SlotMachineEffectsEventsSpinResultAnimationStart',
-    SpinResultAnimationComplete: 'SlotMachineEffectsEventsSpinResultAnimationComplete',
+    DropComplete: 'SlotMachineViewEventsDropComplete',
 };
 
 export const UIEvents = {

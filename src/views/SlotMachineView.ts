@@ -1,6 +1,7 @@
 import { lego } from '@armathai/lego';
 import { Container, Graphics, Rectangle, Sprite } from 'pixi.js';
 import { OFFSET_X } from '../Config';
+import { SlotMachineViewEvents } from '../events/MainEvents';
 import { ReelModelEvents, SlotMachineModelEvents } from '../events/ModelEvents';
 import { ReelState } from '../models/ReelModel';
 import { SlotMachineModel, SlotMachineState } from '../models/SlotMachineModel';
@@ -12,6 +13,7 @@ export class SlotMachineView extends Container {
     private _reels: ReelView[];
     private reelsContainer: Container;
     private blocker: Graphics;
+    private dropCompleteCount = 0;
     constructor(private config: SlotMachineModel) {
         super();
 
@@ -49,6 +51,7 @@ export class SlotMachineView extends Container {
         this.reelsContainer = new Container();
         this._reels = reels.map((model, i) => {
             const reel = new ReelView(model);
+            reel.on(`dropComplete`, this.onReelDropComplete, this);
             reel.position.set(this.reelsContainer.width + (i !== 0 ? OFFSET_X : 0), 0);
             this.reelsContainer.addChild(reel);
             return reel;
@@ -58,28 +61,25 @@ export class SlotMachineView extends Container {
     }
 
     private onStateUpdate(newState: SlotMachineState): void {
+        console.warn(SlotMachineState[newState]);
+
         switch (newState) {
-            case SlotMachineState.Idle:
-                // this.switchInputs(true);
-                break;
-            case SlotMachineState.Stop:
-                this.stop();
+            case SlotMachineState.DropOld:
+                this.dropElements();
                 break;
             default:
         }
     }
 
     private onReelStateUpdate(newState: ReelState, oldState: ReelState, uuid: string): void {
-        const reel = this.getReelByUUID(uuid);
-        switch (newState) {
-            case ReelState.Spin:
-                reel.spin();
-                break;
-            case ReelState.MaxSpeed:
-                reel.blur();
-                break;
-            default:
-        }
+        // const reel = this.getReelByUUID(uuid);
+        // const reelIndex = this.reels.indexOf(reel);
+        // switch (newState) {
+        //     case ReelState.DropOld:
+        //         reel.dropOldElements(reelIndex * 200);
+        //         break;
+        //     default:
+        // }
     }
 
     private onSpinResultUpdate(result: WinningInfo[]): void {
@@ -105,11 +105,23 @@ export class SlotMachineView extends Container {
         });
     }
 
-    private stop(): void {
-        //
+    private dropElements(): void {
+        this.reels.forEach((r, i) => r.dropOldElements(i * 100));
+    }
+
+    private onReelDropComplete(uuid: string): void {
+        const reel = this.getReelByUUID(uuid);
+        const reelIndex = this.reels.indexOf(reel);
+        // this.dropCompleteCount++;
+        if (reelIndex === 0) {
+            lego.event.emit(SlotMachineViewEvents.DropComplete);
+            // this.dropCompleteCount = 0;
+        }
     }
 
     private animateLines(lines: { line: WinningLine; winningItemType: string }[]): void {
+        return;
+        // @ts-ignore
         const getElements = (line) => line.map((pos, i) => this.reels[i].getElementByIndex(pos));
         const animationConfig: { elements: ElementView[]; winningItemType: string }[] = lines.map(
             ({ line, winningItemType }) => {

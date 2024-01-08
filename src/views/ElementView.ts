@@ -6,7 +6,6 @@ export class ElementView extends Container {
     private _uuid: string;
     private _type: string;
     private element: Sprite;
-    private blurEnabled: boolean = false;
 
     constructor(config: ElementModel) {
         super();
@@ -38,14 +37,6 @@ export class ElementView extends Container {
         return new Rectangle(0, 0, WIDTH, HEIGHT);
     }
 
-    public blur(): void {
-        console.warn('blur element ', this.uuid);
-    }
-
-    public unBlur(): void {
-        console.warn('unblur element ', this.uuid);
-    }
-
     public reset(): void {
         this.scale.set(1);
         this.alpha = 1;
@@ -63,10 +54,6 @@ export class ElementView extends Container {
 
     public clearDim(): void {
         this.element.tint = 0xffffff;
-    }
-
-    public loopHandler(): void {
-        this.emit(`onElementLoop`, this.uuid);
     }
 
     public setType(value: string): void {

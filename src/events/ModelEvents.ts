@@ -17,7 +17,6 @@ export const SlotMachineModelEvents = {
     ReelsUpdate: 'SlotMachineModelReelsUpdate',
     SpinResultUpdate: 'SlotMachineModelSpinResultUpdate',
     SpinsCountUpdate: 'SlotMachineModelSpinsCountUpdate',
-    SpinButtonUpdate: 'SlotMachineModelSpinButtonUpdate',
 };
 
 export const SpinButtonModelEvents = {

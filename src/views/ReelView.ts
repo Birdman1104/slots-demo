@@ -41,6 +41,10 @@ export class ReelView extends Container {
         return this.elements[index];
     }
 
+    public getElementIndex(element: ElementView): number {
+        return this.elements.indexOf(element);
+    }
+
     public animateElement(index: number): void {
         const element = this.getElementByIndex(index);
         element.scale.set(1.25);
@@ -81,6 +85,37 @@ export class ReelView extends Container {
         });
     }
 
+    public dropNewElements(delay: number): void {
+        let count = 0;
+
+        this.elements.forEach((el, i) => {
+            const { x: targetX, y: targetY } = this.getElementTargetPosition(el);
+            anime({
+                targets: el,
+                x: targetX,
+                y: targetY,
+                duration: 200 * (this.elements.length - i + 1),
+                delay,
+                easing: 'easeInBack',
+                // complete: () => {
+                //     el.destroy();
+                //     count++;
+                //     if (count === this.elements.length) {
+                //         this.emit(`dropComplete`, this.uuid);
+                //     }
+                // },
+                // update: (anim) => {
+                //     // blur element
+                // },
+            });
+        });
+    }
+
+    public setNewElements(elements: ElementModel[]): void {
+        this._elements = [];
+        this.buildElements(elements);
+    }
+
     public destroy(): void {
         super.destroy();
     }
@@ -107,6 +142,7 @@ export class ReelView extends Container {
     private buildElements(elements: ElementModel[]): void {
         this._elements = elements.map((config) => {
             const element = new ElementView(config);
+            element.position.set(element.width / 2, -element.height / 2);
             this.addChild(element);
             return element;
         });
@@ -129,5 +165,13 @@ export class ReelView extends Container {
                 element.x = element.width / 2;
             }
         }
+    }
+
+    private getElementTargetPosition(element: ElementView): { x: number; y: number } {
+        const index = this.getElementIndex(element);
+        return {
+            x: element.width / 2,
+            y: element.height / 2 + (element.height + OFFSET_Y) * index,
+        };
     }
 }

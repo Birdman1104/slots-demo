@@ -1,4 +1,4 @@
-import { lego, legoLogger } from '@armathai/lego';
+import { lego } from '@armathai/lego';
 import { PixiStatsPlugin } from '@armathai/pixi-stats';
 import { Application, Assets } from 'pixi.js';
 import PixiStage from './MainStage';
@@ -103,7 +103,7 @@ class App extends Application {
     }
 
     private initLego(): void {
-        legoLogger.start(lego, Object.freeze({}));
+        // legoLogger.start(lego, Object.freeze({}));
         // TODO GAMEINITCOMMAND
         // lego.command.execute(onGameInitCommand);
         // lego.event.emit(MainGameEvents.Init);

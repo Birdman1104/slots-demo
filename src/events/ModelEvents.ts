@@ -9,14 +9,13 @@ export const HeadModelEvents = {
 
 export const PlayerModelEvents = { BalanceUpdate: 'PlayerModelBalanceUpdate', BetUpdate: 'PlayerModelBetUpdate' };
 
-export const ReelModelEvents = { StateUpdate: 'ReelModelStateUpdate' };
+export const ReelModelEvents = { StateUpdate: 'ReelModelStateUpdate', ElementsUpdate: 'ReelModelElementsUpdate' };
 
 export const SlotMachineModelEvents = {
     StateUpdate: 'SlotMachineModelStateUpdate',
     ConfigUpdate: 'SlotMachineModelConfigUpdate',
     ReelsUpdate: 'SlotMachineModelReelsUpdate',
     SpinResultUpdate: 'SlotMachineModelSpinResultUpdate',
-    SpinsCountUpdate: 'SlotMachineModelSpinsCountUpdate',
 };
 
 export const SpinButtonModelEvents = {

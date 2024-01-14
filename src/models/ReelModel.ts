@@ -39,6 +39,10 @@ export class ReelModel extends ObservableModel {
         return this._elements;
     }
 
+    set elements(value) {
+        this._elements = value;
+    }
+
     public setState(state: ReelState): void {
         this._state = state;
     }

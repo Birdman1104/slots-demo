@@ -3,6 +3,7 @@ import { Container, Graphics, Rectangle, Sprite } from 'pixi.js';
 import { OFFSET_X } from '../Config';
 import { SlotMachineViewEvents } from '../events/MainEvents';
 import { ReelModelEvents, SlotMachineModelEvents } from '../events/ModelEvents';
+import { ElementModel } from '../models/ElementModel';
 import { ReelState } from '../models/ReelModel';
 import { SlotMachineModel, SlotMachineState } from '../models/SlotMachineModel';
 import { ElementView } from './ElementView';
@@ -20,9 +21,10 @@ export class SlotMachineView extends Container {
         this.build();
 
         lego.event.on(SlotMachineModelEvents.StateUpdate, this.onStateUpdate, this);
-        lego.event.on(ReelModelEvents.StateUpdate, this.onReelStateUpdate, this);
         lego.event.on(SlotMachineModelEvents.ReelsUpdate, this.onReelsUpdate, this);
         lego.event.on(SlotMachineModelEvents.SpinResultUpdate, this.onSpinResultUpdate, this);
+        lego.event.on(ReelModelEvents.StateUpdate, this.onReelStateUpdate, this);
+        lego.event.on(ReelModelEvents.ElementsUpdate, this.onReelElementsUpdate, this);
     }
 
     get reels() {
@@ -65,7 +67,10 @@ export class SlotMachineView extends Container {
 
         switch (newState) {
             case SlotMachineState.DropOld:
-                this.dropElements();
+                this.dropOldElements();
+                break;
+            case SlotMachineState.DropNew:
+                this.dropNewElements();
                 break;
             default:
         }
@@ -80,6 +85,11 @@ export class SlotMachineView extends Container {
         //         break;
         //     default:
         // }
+    }
+
+    private onReelElementsUpdate(newValue: ElementModel[], oldValue: ElementModel[], uuid: string): void {
+        const reel = this.getReelByUUID(uuid);
+        reel.setNewElements(newValue);
     }
 
     private onSpinResultUpdate(result: WinningInfo[]): void {
@@ -105,8 +115,12 @@ export class SlotMachineView extends Container {
         });
     }
 
-    private dropElements(): void {
+    private dropOldElements(): void {
         this.reels.forEach((r, i) => r.dropOldElements(i * 100));
+    }
+
+    private dropNewElements(): void {
+        this.reels.forEach((r, i) => r.dropNewElements(i * 100));
     }
 
     private onReelDropComplete(uuid: string): void {

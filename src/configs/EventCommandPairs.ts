@@ -47,8 +47,12 @@ const minusButtonClickCommand = (): void => {
     Head.playerModel?.decreaseBet();
 };
 
-const slotMachineDropCompleteCommand = (): void => {
+const slotMachineOldElementsDropCompleteCommand = (): void => {
     Head.gameModel?.slotMachine?.setState(SlotMachineState.WaitingForResult);
+};
+
+const slotMachineNewElementsDropCompleteCommand = (): void => {
+    Head.gameModel?.slotMachine?.setState(SlotMachineState.ShowWinLines);
 };
 
 const slotMachineStateUpdateCommand = (newState: SlotMachineState, oldState: SlotMachineState): void => {
@@ -75,11 +79,15 @@ const eventCommandPairs = Object.freeze([
         command: minusButtonClickCommand,
     },
     {
-        event: SlotMachineViewEvents.DropComplete,
-        command: slotMachineDropCompleteCommand,
+        event: SlotMachineViewEvents.OldElementsDropComplete,
+        command: slotMachineOldElementsDropCompleteCommand,
     },
     {
         event: SlotMachineModelEvents.StateUpdate,
         command: slotMachineStateUpdateCommand,
+    },
+    {
+        event: SlotMachineViewEvents.NewElementsDropComplete,
+        command: slotMachineNewElementsDropCompleteCommand,
     },
 ]);

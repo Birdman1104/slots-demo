@@ -9,11 +9,14 @@ export const MainGameEvents = {
 };
 
 export const ReelViewEvents = {
-    EVENT: 'ReelViewEventsEVENT',
+    OldElementsDropComplete: 'ReelViewEventsOldElementsDropComplete',
+    NewElementsDropComplete: 'ReelViewEventsNewElementsDropComplete',
 };
 
 export const SlotMachineViewEvents = {
-    DropComplete: 'SlotMachineViewEventsDropComplete',
+    OldElementsDropComplete: 'SlotMachineViewEventsOldElementsDropComplete',
+    NewElementsDropComplete: 'SlotMachineViewEventsNewElementsDropComplete',
+    WinLinesShowComplete: 'SlotMachineViewEventsWinLinesShowComplete',
 };
 
 export const UIEvents = {

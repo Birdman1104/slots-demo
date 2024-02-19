@@ -254,7 +254,6 @@ async function generateSpines() {
             );
         }
         const file = join(assetsPath, 'assetsNames/spines.ts');
-        console.log(spineFiles);
         const data = `export const spines: SpineFiles[] = ${JSON.stringify(spineFiles)}`;
         await fs.writeFile(file, data);
         await runPrettierOn(file);

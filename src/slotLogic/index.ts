@@ -2,56 +2,50 @@ const REELS_AMOUNT = 5;
 const ROWS_AMOUNT = 3;
 
 const ELEMENT_ID = Object.freeze({
-    BR: 'br',
-    FB: 'fb',
-    IG: 'ig',
-    PI: 'pi',
-    SN: 'sn',
-    TI: 'ti',
-    TW: 'tw',
-    YT: 'yt',
+    BANANA: 'banana',
+    CHERRY: 'cherry',
+    GRAPES: 'grapes',
+    LEMON: 'lemon',
+    ORANGE: 'orange',
+    PLUM: 'plum',
+    WATERMELON: 'watermelon',
 });
 
 const ELEMENTS_CONFIG = Object.freeze([
     {
-        id: ELEMENT_ID.BR,
+        id: ELEMENT_ID.BANANA,
         weight: 5,
         coefficient: [0, 0, 0.1, 0.4, 0.7],
     },
     {
-        id: ELEMENT_ID.FB,
+        id: ELEMENT_ID.CHERRY,
         weight: 10,
         coefficient: [0, 0, 0.2, 0.5, 0.8],
     },
     {
-        id: ELEMENT_ID.IG,
+        id: ELEMENT_ID.GRAPES,
         weight: 15,
         coefficient: [0, 0, 0.3, 0.6, 0.9],
     },
     {
-        id: ELEMENT_ID.PI,
+        id: ELEMENT_ID.LEMON,
         weight: 15,
         coefficient: [0, 0, 0.4, 0.7, 1],
     },
     {
-        id: ELEMENT_ID.SN,
+        id: ELEMENT_ID.ORANGE,
         weight: 10,
         coefficient: [0, 0, 0.5, 0.8, 1.1],
     },
     {
-        id: ELEMENT_ID.TI,
-        weight: 150,
+        id: ELEMENT_ID.PLUM,
+        weight: 1500,
         coefficient: [0, 0, 0.6, 0.9, 1.2],
     },
     {
-        id: ELEMENT_ID.TW,
+        id: ELEMENT_ID.WATERMELON,
         weight: 15,
         coefficient: [0, 0, 0.7, 1, 1.3],
-    },
-    {
-        id: ELEMENT_ID.YT,
-        weight: 15,
-        coefficient: [0, 0, 0.8, 1.1, 1.4],
     },
 ]);
 
@@ -165,11 +159,11 @@ export const getSpinResult = async (bet: number): Promise<SpinResult> => {
 export const getDefaultReelsConfig = (): SpinResult => {
     return {
         reels: [
-            ['fb', 'fb', 'fb'],
-            ['tw', 'tw', 'tw'],
-            ['br', 'br', 'br'],
-            ['yt', 'yt', 'yt'],
-            ['ti', 'ti', 'ti'],
+            [ELEMENT_ID.BANANA, ELEMENT_ID.BANANA, ELEMENT_ID.BANANA],
+            [ELEMENT_ID.CHERRY, ELEMENT_ID.CHERRY, ELEMENT_ID.CHERRY],
+            [ELEMENT_ID.GRAPES, ELEMENT_ID.GRAPES, ELEMENT_ID.GRAPES],
+            [ELEMENT_ID.LEMON, ELEMENT_ID.LEMON, ELEMENT_ID.LEMON],
+            [ELEMENT_ID.ORANGE, ELEMENT_ID.ORANGE, ELEMENT_ID.ORANGE],
         ],
         winningInfo: [],
         totalWin: 0,

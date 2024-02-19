@@ -1,7 +1,8 @@
 import { lego } from '@armathai/lego';
 import anime from 'animejs/lib/anime.js';
-import { Container, Graphics, Rectangle } from 'pixi.js';
+import { Container, Rectangle } from 'pixi.js';
 import { OFFSET_Y, WIDTH } from '../Config';
+import { ReelViewEvents } from '../events/MainEvents';
 import { ElementModelEvents } from '../events/ModelEvents';
 import { ElementModel } from '../models/ElementModel';
 import { ReelModel } from '../models/ReelModel';
@@ -75,7 +76,7 @@ export class ReelView extends Container {
                     el.destroy();
                     count++;
                     if (count === this.elements.length) {
-                        this.emit(`dropComplete`, this.uuid);
+                        this.emit(ReelViewEvents.OldElementsDropComplete, this.uuid);
                     }
                 },
                 update: (anim) => {
@@ -97,13 +98,13 @@ export class ReelView extends Container {
                 duration: 200 * (this.elements.length - i + 1),
                 delay,
                 easing: 'easeInBack',
-                // complete: () => {
-                //     el.destroy();
-                //     count++;
-                //     if (count === this.elements.length) {
-                //         this.emit(`dropComplete`, this.uuid);
-                //     }
-                // },
+                complete: () => {
+                    //     el.destroy();
+                    count++;
+                    if (count === this.elements.length) {
+                        this.emit(ReelViewEvents.NewElementsDropComplete, this.uuid);
+                    }
+                },
                 // update: (anim) => {
                 //     // blur element
                 // },
@@ -132,11 +133,11 @@ export class ReelView extends Container {
         this.rHeight = this.calculateHeight();
         this.updateElementsPositions();
 
-        const gr = new Graphics();
-        gr.beginFill(0xff0000, 0.5);
-        gr.drawRect(0, 0, this.width, this.height);
-        gr.endFill();
-        this.addChild(gr);
+        // const gr = new Graphics();
+        // gr.beginFill(0xff0000, 0.5);
+        // gr.drawRect(0, 0, this.width, this.height);
+        // gr.endFill();
+        // this.addChild(gr);
     }
 
     private buildElements(elements: ElementModel[]): void {

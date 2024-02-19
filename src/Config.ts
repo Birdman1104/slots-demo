@@ -1,14 +1,9 @@
 import { getDefaultReelsConfig } from './slotLogic';
 
-export const WIDTH = 128;
-export const HEIGHT = 128;
+export const WIDTH = 264;
+export const HEIGHT = 264;
 export const OFFSET_Y = 30;
 export const OFFSET_X = 30;
-// export const SPEED = 1.3;
-// export const SLOT_OFFSET = -8;
-
-// export const SPIN_EASING = BackIn;
-// export const STOP_EASING = BackOut;
 
 export function getSlotMachineConfig() {
     const { reels } = getDefaultReelsConfig();

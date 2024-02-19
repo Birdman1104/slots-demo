@@ -22,8 +22,8 @@ class PixiStage extends Container {
     }
 
     public start(): void {
-        this.bgView = new BackgroundView();
-        this.addChild(this.bgView);
+        // this.bgView = new BackgroundView();
+        // this.addChild(this.bgView);
         this.gameView = new GameView();
         this.addChild(this.gameView);
         this.uiView = new UIView();

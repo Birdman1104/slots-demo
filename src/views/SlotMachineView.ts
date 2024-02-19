@@ -68,8 +68,21 @@ export class SlotMachineView extends Container {
             this.reelsContainer.addChild(reel);
             return reel;
         });
-        this.reelsContainer.x = 0;
+        this.reelsContainer.x = 290;
+        this.reelsContainer.y = 105;
         this.addChild(this.reelsContainer);
+
+        const gr = new Graphics();
+        gr.beginFill(0xff0000, 0.5);
+        gr.drawRect(
+            this.reelsContainer.x,
+            this.reelsContainer.y,
+            this.reelsContainer.width,
+            this.reelsContainer.height,
+        );
+        gr.endFill();
+        this.addChild(gr);
+        this.reelsContainer.mask = gr;
     }
 
     private onStateUpdate(newState: SlotMachineState): void {

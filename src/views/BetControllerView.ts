@@ -4,7 +4,8 @@ import { getMinusButtonConfig, getPlusButtonConfig } from '../configs/buttonsCon
 import { getSpinButtonConfig } from '../configs/buttonsConfig/SpinButtonConfig';
 import { ButtonEvents } from '../enums/Enums';
 import { UIEvents } from '../events/MainEvents';
-import { PlayerModelEvents } from '../events/ModelEvents';
+import { PlayerModelEvents, SlotMachineModelEvents } from '../events/ModelEvents';
+import { SlotMachineState } from '../models/SlotMachineModel';
 import { Button } from '../utils/Button';
 
 export class BetControllerView extends Container {
@@ -18,12 +19,19 @@ export class BetControllerView extends Container {
         super();
 
         lego.event.on(PlayerModelEvents.BetUpdate, this.onPlayerBetUpdate, this);
+        lego.event.on(SlotMachineModelEvents.StateUpdate, this.onSlotMachineStateUpdate, this);
 
         this.build();
     }
 
     private onPlayerBetUpdate(newBet: number): void {
         this.betAmount.text = `${newBet}`;
+    }
+
+    private onSlotMachineStateUpdate(newState: SlotMachineState): void {
+        this.spinButton.setInteractivity(newState === SlotMachineState.Idle);
+        this.minusButton.setInteractivity(newState === SlotMachineState.Idle);
+        this.plusButton.setInteractivity(newState === SlotMachineState.Idle);
     }
 
     private build(): void {

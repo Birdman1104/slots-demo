@@ -9,13 +9,15 @@ import { ReelState } from '../models/ReelModel';
 import { SlotMachineModel, SlotMachineState } from '../models/SlotMachineModel';
 import { ElementView } from './ElementView';
 import { ReelView } from './ReelView';
+import { SlotForeground } from './SlotForeground';
 
 export class SlotMachineView extends Container {
     private bg: Sprite;
     private _reels: ReelView[];
     private reelsContainer: Container;
     private blocker: Graphics;
-    private result: WinningInfo[];
+    private result: { winningLines: WinningInfo[]; totalWin: number };
+    private foreground: SlotForeground;
 
     constructor(private config: SlotMachineModel) {
         super();
@@ -50,11 +52,23 @@ export class SlotMachineView extends Container {
     private build(): void {
         this.buildBg();
         this.buildReels();
+
+        this.buildForeground();
     }
 
     private buildBg(): void {
         this.bg = Sprite.from('main_background.jpg');
         this.addChild(this.bg);
+    }
+
+    private buildForeground(): void {
+        this.foreground = new SlotForeground();
+        this.foreground.hideEverything();
+
+        this.foreground.on('winBoardShowComplete', () => {
+            lego.event.emit(SlotMachineViewEvents.WinningsShowComplete);
+        });
+        this.addChild(this.foreground);
     }
 
     private buildReels(): void {
@@ -96,6 +110,9 @@ export class SlotMachineView extends Container {
             case SlotMachineState.ShowWinLines:
                 this.showWinLines();
                 break;
+            case SlotMachineState.ShowWinnings:
+                this.showWinnings();
+                break;
             default:
         }
     }
@@ -116,7 +133,9 @@ export class SlotMachineView extends Container {
         reel.setNewElements(newValue);
     }
 
-    private onSpinResultUpdate(result: WinningInfo[]): void {
+    private onSpinResultUpdate(result: { winningLines: WinningInfo[]; totalWin: number }): void {
+        console.warn(result);
+
         this.result = result;
     }
 
@@ -158,12 +177,21 @@ export class SlotMachineView extends Container {
         }
     }
 
+    private showWinnings() {
+        if (this.result.totalWin === 0) {
+            lego.event.emit(SlotMachineViewEvents.WinningsShowComplete);
+            return;
+        }
+
+        this.foreground.showWin(this.result.totalWin);
+    }
+
     private showWinLines(): void {
-        if (this.result.length === 0) {
+        if (this.result.winningLines.length === 0) {
             lego.event.emit(SlotMachineViewEvents.WinLinesShowComplete);
         }
 
-        const linesData: { line: WinningLine; winningItemType: string }[] = this.result.map((r) => {
+        const linesData: { line: WinningLine; winningItemType: string }[] = this.result.winningLines.map((r) => {
             return { line: r.line, winningItemType: r.id };
         });
 
@@ -180,7 +208,10 @@ export class SlotMachineView extends Container {
         if (animationConfig.length === 0) return;
         const animations: any[] = [];
         const playNextAnimation = (index: number, animations: any[]): void => {
-            if (!animations[index]) return;
+            if (!animations[index]) {
+                lego.event.emit(SlotMachineViewEvents.WinLinesShowComplete);
+                return;
+            }
             animations[index].play();
             animations[index].complete = () => playNextAnimation(index + 1, animations);
         };

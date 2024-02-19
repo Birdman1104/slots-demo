@@ -17,6 +17,7 @@ export const SlotMachineViewEvents = {
     OldElementsDropComplete: 'SlotMachineViewEventsOldElementsDropComplete',
     NewElementsDropComplete: 'SlotMachineViewEventsNewElementsDropComplete',
     WinLinesShowComplete: 'SlotMachineViewEventsWinLinesShowComplete',
+    WinningsShowComplete: 'SlotMachineViewEventsWinningsShowComplete',
 };
 
 export const UIEvents = {

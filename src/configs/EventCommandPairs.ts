@@ -55,6 +55,14 @@ const slotMachineNewElementsDropCompleteCommand = (): void => {
     Head.gameModel?.slotMachine?.setState(SlotMachineState.ShowWinLines);
 };
 
+const winLinesShowCompleteCommand = (): void => {
+    Head.gameModel?.slotMachine?.setState(SlotMachineState.ShowWinnings);
+};
+
+const winningsShowCompleteCommand = (): void => {
+    Head.gameModel?.slotMachine?.setState(SlotMachineState.Idle);
+};
+
 const slotMachineStateUpdateCommand = (newState: SlotMachineState, oldState: SlotMachineState): void => {
     if (newState === SlotMachineState.WaitingForResult) {
         Head.gameModel?.slotMachine?.checkForResult();
@@ -89,5 +97,13 @@ const eventCommandPairs = Object.freeze([
     {
         event: SlotMachineViewEvents.NewElementsDropComplete,
         command: slotMachineNewElementsDropCompleteCommand,
+    },
+    {
+        event: SlotMachineViewEvents.WinLinesShowComplete,
+        command: winLinesShowCompleteCommand,
+    },
+    {
+        event: SlotMachineViewEvents.WinningsShowComplete,
+        command: winningsShowCompleteCommand,
     },
 ]);

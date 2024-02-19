@@ -1,4 +1,4 @@
-import { getSpinResult } from '../slotLogic';
+import { spin } from '../slotLogic';
 import { last } from '../utils/Utils';
 import { ObservableModel } from './ObservableModel';
 import { ReelModel } from './ReelModel';
@@ -10,6 +10,7 @@ export enum SlotMachineState {
     WaitingForResult,
     DropNew,
     ShowWinLines,
+    ShowWinnings,
 }
 
 export class SlotMachineModel extends ObservableModel {
@@ -17,15 +18,18 @@ export class SlotMachineModel extends ObservableModel {
     private _reels: ReelModel[] = [];
     private _state: SlotMachineState;
     private canCheck = false;
-    private _spinResult: WinningInfo[] = [
-        {
-            coefficient: 0,
-            count: 0,
-            id: '',
-            winAmount: 0,
-            line: [],
-        },
-    ];
+    private _spinResult: { winningLines: WinningInfo[]; totalWin: number } = {
+        winningLines: [
+            {
+                coefficient: 0,
+                count: 0,
+                id: '',
+                winAmount: 0,
+                line: [],
+            },
+        ],
+        totalWin: 0,
+    };
     private tempSpinResult: SpinResult;
     private isResultReady = false;
 
@@ -43,7 +47,7 @@ export class SlotMachineModel extends ObservableModel {
     }
 
     set state(value) {
-        // console.warn('********', SlotMachineState[value]);
+        console.warn('********', SlotMachineState[value]);
 
         this._state = value;
     }
@@ -110,7 +114,7 @@ export class SlotMachineModel extends ObservableModel {
             this.setNewElementsToReels(this.tempSpinResult.reels);
             this.setResult(this.tempSpinResult);
             setTimeout(() => {
-                // TODO FIX THIS SHIT
+                // TODO FIX THIS SHIT, needs to skip a frame then seet to new state
                 this.state = SlotMachineState.DropNew;
             }, 0);
         } else {
@@ -120,8 +124,11 @@ export class SlotMachineModel extends ObservableModel {
     public idle(): void {
         this.state = SlotMachineState.Idle;
     }
-    public setResult({ winningInfo, reels }: SpinResult): void {
-        this._spinResult = winningInfo;
+    public setResult({ winningInfo, reels, totalWin }: SpinResult): void {
+        this._spinResult = {
+            winningLines: winningInfo,
+            totalWin,
+        };
         this._config = { reels };
     }
 
@@ -130,7 +137,7 @@ export class SlotMachineModel extends ObservableModel {
     }
 
     private async getSpinResult(bet): Promise<void> {
-        this.tempSpinResult = await getSpinResult(bet as number);
+        this.tempSpinResult = await spin(bet as number);
         this.isResultReady = true;
         this.canCheck && this.checkForResult();
     }

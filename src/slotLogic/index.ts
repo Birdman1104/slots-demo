@@ -39,7 +39,7 @@ const ELEMENTS_CONFIG = Object.freeze([
     },
     {
         id: ELEMENT_ID.PLUM,
-        weight: 1500,
+        weight: 200,
         coefficient: [0, 0, 0.6, 0.9, 1.2],
     },
     {
@@ -129,7 +129,7 @@ const winningItemsCount = (data: { elements: string[]; line: number[] }): Winnin
     return { count, elementType, line: data.line };
 };
 
-export const getSpinResult = async (bet: number): Promise<SpinResult> => {
+export const spin = async (bet: number): Promise<SpinResult> => {
     const reels = getReelsData();
     const winningLines = checkWinnings(reels);
 

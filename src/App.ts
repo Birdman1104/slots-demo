@@ -29,12 +29,15 @@ class App extends Application {
     }
 
     public async init(): Promise<void> {
+        Assets.add('logo', 'assets/logo/logo.png');
+        await Assets.load('logo');
+
         this.stage = new PixiStage();
         // @ts-ignore
         this.view.classList.add('app');
         // @ts-ignore
         document.body.appendChild(this.view);
-
+        this.appResize();
         if (process.env.NODE_ENV !== 'production') {
             this.initStats();
             this.initLego();
@@ -63,27 +66,34 @@ class App extends Application {
     }
 
     private async loadAssets(): Promise<void> {
+        // TODO update loader loading
+        const arr: string[] = [];
+
         for (const asset of assets) {
             const { name, path } = asset;
             Assets.add(name, path);
-            await Assets.load(name);
+            arr.push(name);
+            // await Assets.load(name);
         }
         for (const atlas of atlases) {
             const { name, json } = atlas;
             Assets.add(name, json);
-            await Assets.load(name);
+            arr.push(name);
+
+            // await Assets.load(name);
         }
         for (const font of fonts) {
             const { name, path } = font;
             Assets.add(name, path);
-            await Assets.load(name);
+            arr.push(name);
+
+            // await Assets.load(name);
         }
-        // for (const spine of spines) {
-        //     const { key: name, jsonURL, atlasURL } = spine;
-        //     Assets.add(name, jsonURL);
-        //     await Assets.load(name);
-        // }
+
         SoundController.loadSounds();
+        await Assets.load(arr, (progress: number) => {
+            this.stage.updateLoaderProgress(progress);
+        });
     }
 
     private onLoadComplete(): void {

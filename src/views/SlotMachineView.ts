@@ -16,7 +16,7 @@ export class SlotMachineView extends Container {
     private _reels: ReelView[];
     private reelsContainer: Container;
     private blocker: Graphics;
-    private result: { winningLines: WinningInfo[]; totalWin: number };
+    private result: SpinResult;
     private foreground: SlotForeground;
 
     constructor(private config: SlotMachineModel) {
@@ -133,7 +133,7 @@ export class SlotMachineView extends Container {
         reel.setNewElements(newValue);
     }
 
-    private onSpinResultUpdate(result: { winningLines: WinningInfo[]; totalWin: number }): void {
+    private onSpinResultUpdate(result: SpinResult): void {
         console.warn(result);
 
         this.result = result;
@@ -187,11 +187,11 @@ export class SlotMachineView extends Container {
     }
 
     private showWinLines(): void {
-        if (this.result.winningLines.length === 0) {
+        if (this.result.winningInfo.length === 0) {
             lego.event.emit(SlotMachineViewEvents.WinLinesShowComplete);
         }
 
-        const linesData: { line: WinningLine; winningItemType: string }[] = this.result.winningLines.map((r) => {
+        const linesData: { line: WinningLine; winningItemType: string }[] = this.result.winningInfo.map((r) => {
             return { line: r.line, winningItemType: r.id };
         });
 

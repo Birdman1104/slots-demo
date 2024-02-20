@@ -18,8 +18,8 @@ export class SlotMachineModel extends ObservableModel {
     private _reels: ReelModel[] = [];
     private _state: SlotMachineState;
     private canCheck = false;
-    private _spinResult: { winningLines: WinningInfo[]; totalWin: number } = {
-        winningLines: [
+    private _spinResult: SpinResult = {
+        winningInfo: [
             {
                 coefficient: 0,
                 count: 0,
@@ -29,6 +29,7 @@ export class SlotMachineModel extends ObservableModel {
             },
         ],
         totalWin: 0,
+        reels: [],
     };
     private tempSpinResult: SpinResult;
     private isResultReady = false;
@@ -124,12 +125,9 @@ export class SlotMachineModel extends ObservableModel {
     public idle(): void {
         this.state = SlotMachineState.Idle;
     }
-    public setResult({ winningInfo, reels, totalWin }: SpinResult): void {
-        this._spinResult = {
-            winningLines: winningInfo,
-            totalWin,
-        };
-        this._config = { reels };
+    public setResult(spinResult: SpinResult): void {
+        this._spinResult = spinResult;
+        this._config = { reels: spinResult.reels };
     }
 
     private generateReels(config = this._config): ReelModel[] {

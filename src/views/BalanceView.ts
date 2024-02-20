@@ -1,20 +1,28 @@
 import { lego } from '@armathai/lego';
 import { Container, Sprite, Text } from 'pixi.js';
 import { DEFAULT_FONT } from '../Config';
+import { SlotMachineViewEvents } from '../events/MainEvents';
 import { PlayerModelEvents } from '../events/ModelEvents';
 
 export class BalanceView extends Container {
+    private tempBalance = 0;
     private balance: Text;
 
     constructor() {
         super();
 
-        lego.event.on(PlayerModelEvents.BalanceUpdate, this.balanceUpdate, this);
+        lego.event.on(PlayerModelEvents.BalanceUpdate, this.updateTempBalance, this);
+        lego.event.on(SlotMachineViewEvents.WinningsShowComplete, this.updateBalance, this);
+        lego.event.on(SlotMachineViewEvents.UpdateUIBalance, this.updateBalance, this);
         this.build();
     }
 
-    private balanceUpdate(newBalance: number): void {
-        this.balance.text = newBalance;
+    private updateTempBalance(newBalance: number): void {
+        this.tempBalance = newBalance;
+    }
+
+    private updateBalance(): void {
+        this.balance.text = this.tempBalance;
     }
 
     private build(): void {
@@ -24,7 +32,7 @@ export class BalanceView extends Container {
     private buildBalance(): void {
         const bkg = Sprite.from('spin_btn_up.png');
         bkg.scale.set(1.3, 1);
-        const balance = new Text('0', {
+        this.balance = new Text('0', {
             fontFamily: DEFAULT_FONT,
             fontSize: 18,
             fill: 0x5555aa,
@@ -36,13 +44,11 @@ export class BalanceView extends Container {
             fill: 0x5555aa,
             align: 'center',
         });
-        balance.anchor.set(0.5);
+        this.balance.anchor.set(0.5);
         balanceText.anchor.set(0.5);
         balanceText.position.set(-30, 0);
-        balance.position.set(60, 0);
+        this.balance.position.set(60, 0);
         bkg.anchor.set(0.5);
-        this.addChild(bkg);
-        this.addChild((this.balance = balance));
-        this.addChild(balanceText);
+        this.addChild(bkg, this.balance, balanceText);
     }
 }

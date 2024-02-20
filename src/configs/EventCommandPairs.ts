@@ -32,10 +32,12 @@ const initModelsCommand = async (): Promise<void> => {
 
     (Head.gameModel as GameModel).idleSlotMachine();
     (Head.playerModel as PlayerModel).setPlayerInfo(playerInfo);
+    lego.event.emit(SlotMachineViewEvents.UpdateUIBalance);
 };
 
 const spinButtonClickCommand = (): void => {
     Head.playerModel?.spin();
+    lego.event.emit(SlotMachineViewEvents.UpdateUIBalance);
     Head.gameModel?.slotMachine?.spin(Head.playerModel?.bet);
 };
 
@@ -61,6 +63,10 @@ const winLinesShowCompleteCommand = (): void => {
 
 const winningsShowCompleteCommand = (): void => {
     Head.gameModel?.slotMachine?.setState(SlotMachineState.Idle);
+};
+
+const spinResultUpdateCommand = (result: SpinResult): void => {
+    Head.playerModel?.updateBalance(result.totalWin);
 };
 
 const slotMachineStateUpdateCommand = (newState: SlotMachineState, oldState: SlotMachineState): void => {
@@ -105,5 +111,9 @@ const eventCommandPairs = Object.freeze([
     {
         event: SlotMachineViewEvents.WinningsShowComplete,
         command: winningsShowCompleteCommand,
+    },
+    {
+        event: SlotMachineModelEvents.SpinResultUpdate,
+        command: spinResultUpdateCommand,
     },
 ]);

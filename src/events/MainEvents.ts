@@ -18,6 +18,8 @@ export const SlotMachineViewEvents = {
     NewElementsDropComplete: 'SlotMachineViewEventsNewElementsDropComplete',
     WinLinesShowComplete: 'SlotMachineViewEventsWinLinesShowComplete',
     WinningsShowComplete: 'SlotMachineViewEventsWinningsShowComplete',
+
+    UpdateUIBalance: 'SlotMachineViewEventsUpdateUIBalance',
 };
 
 export const UIEvents = {

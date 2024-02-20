@@ -1,5 +1,6 @@
 import { lego } from '@armathai/lego';
 import { Container, Sprite, Text } from 'pixi.js';
+import { DEFAULT_FONT } from '../Config';
 import { PlayerModelEvents } from '../events/ModelEvents';
 
 export class BalanceView extends Container {
@@ -24,14 +25,14 @@ export class BalanceView extends Container {
         const bkg = Sprite.from('spin_btn_up.png');
         bkg.scale.set(1.3, 1);
         const balance = new Text('0', {
-            fontFamily: 'Arial',
-            fontSize: 24,
+            fontFamily: DEFAULT_FONT,
+            fontSize: 18,
             fill: 0x5555aa,
             align: 'center',
         });
         const balanceText = new Text('BALANCE -', {
-            fontFamily: 'Arial',
-            fontSize: 24,
+            fontFamily: DEFAULT_FONT,
+            fontSize: 18,
             fill: 0x5555aa,
             align: 'center',
         });

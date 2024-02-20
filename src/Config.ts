@@ -1,5 +1,7 @@
 import { getDefaultReelsConfig } from './slotLogic';
 
+export const DEFAULT_FONT = 'SaranaiGame';
+
 export const WIDTH = 264;
 export const HEIGHT = 264;
 export const OFFSET_Y = 0;

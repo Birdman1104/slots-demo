@@ -35,10 +35,22 @@ export class ElementView extends Container {
         return new Rectangle(0, 0, WIDTH, HEIGHT);
     }
 
-    public startAnimation(): void {
+    public startAnimation(isWinningItem: boolean): void {
+        isWinningItem ? this.clearDim() : this.dim();
         this.animatedSprite.visible = true;
         this.animatedSprite.play();
+
         this.element.visible = false;
+    }
+
+    public dim() {
+        this.animatedSprite.tint = 0xa0a0a0;
+        this.element.tint = 0xa0a0a0;
+    }
+
+    public clearDim() {
+        this.animatedSprite.tint = 0xffffff;
+        this.element.tint = 0xffffff;
     }
 
     public endAnimation(): void {

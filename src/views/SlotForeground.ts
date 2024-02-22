@@ -24,7 +24,7 @@ export class SlotForeground extends Container {
             this.winBanner.alpha = 0;
             win.destroy();
             this.emit('winBoardShowComplete');
-        }, 3000);
+        }, 500);
     }
 
     private build(): void {

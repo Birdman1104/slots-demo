@@ -1,6 +1,6 @@
 import { lego } from '@armathai/lego';
 import anime from 'animejs/lib/anime.js';
-import { Container, Graphics, Rectangle, Sprite } from 'pixi.js';
+import { Container, Graphics, Rectangle } from 'pixi.js';
 import { OFFSET_X } from '../Config';
 import { ReelViewEvents, SlotMachineViewEvents } from '../events/MainEvents';
 import { ReelModelEvents, SlotMachineModelEvents } from '../events/ModelEvents';
@@ -8,10 +8,11 @@ import { ElementModel } from '../models/ElementModel';
 import { SlotMachineModel, SlotMachineState } from '../models/SlotMachineModel';
 import { ElementView } from './ElementView';
 import { ReelView } from './ReelView';
+import { SlotBackground } from './SlotBackground';
 import { SlotForeground } from './SlotForeground';
 
 export class SlotMachineView extends Container {
-    private bg: Sprite;
+    private bg: SlotBackground;
     private _reels: ReelView[];
     private reelsContainer: Container;
     private reelsMask: Graphics;
@@ -55,7 +56,7 @@ export class SlotMachineView extends Container {
     }
 
     private buildBg(): void {
-        this.bg = Sprite.from('main_background.jpg');
+        this.bg = new SlotBackground();
         this.addChild(this.bg);
     }
 
@@ -198,12 +199,26 @@ export class SlotMachineView extends Container {
         if (animationConfig.length === 0) return;
         const animations: any[] = [];
         const playNextAnimation = (index: number, animations: any[]): void => {
+            clearDim();
             if (!animations[index]) {
                 lego.event.emit(SlotMachineViewEvents.WinLinesShowComplete);
                 return;
             }
+            setDim();
             animations[index].play();
             animations[index].complete = () => playNextAnimation(index + 1, animations);
+        };
+
+        const clearDim = (): void => {
+            this.reels.forEach((r) => {
+                r.elements.forEach((e) => e.clearDim());
+            });
+        };
+
+        const setDim = (): void => {
+            this.reels.forEach((r) => {
+                r.elements.forEach((e) => e.dim());
+            });
         };
 
         animationConfig.forEach(({ elements, winningItemType }, i) => {
@@ -219,7 +234,7 @@ export class SlotMachineView extends Container {
                         targets: e.scale,
                         x: 1.35,
                         y: 1.35,
-                        begin: () => e.startAnimation(),
+                        begin: () => e.startAnimation(winningItemType === e.type),
                         complete: () => e.endAnimation(),
                     },
                     0,

@@ -1,9 +1,7 @@
-import { lego } from '@armathai/lego';
 import anime from 'animejs/lib/anime.js';
 import { Container, Rectangle } from 'pixi.js';
 import { OFFSET_Y, WIDTH } from '../Config';
 import { ReelViewEvents } from '../events/MainEvents';
-import { ElementModelEvents } from '../events/ModelEvents';
 import { ElementModel } from '../models/ElementModel';
 import { ReelModel } from '../models/ReelModel';
 import { ElementView } from './ElementView';
@@ -19,7 +17,6 @@ export class ReelView extends Container {
         this._uuid = uuid;
 
         this.build(elements);
-        lego.event.on(ElementModelEvents.TypeUpdate, this.elementTypeUpdate, this);
     }
 
     get uuid() {
@@ -44,23 +41,6 @@ export class ReelView extends Container {
 
     public getElementIndex(element: ElementView): number {
         return this.elements.indexOf(element);
-    }
-
-    public animateElement(index: number): void {
-        const element = this.getElementByIndex(index);
-        element.scale.set(1.25);
-    }
-
-    public dimElements(): void {
-        this.elements.forEach((e) => e.dim());
-    }
-
-    public clearElementsDim(): void {
-        this.elements.forEach((e) => e.clearDim());
-    }
-
-    public resetAnimations(): void {
-        this.elements.forEach((e) => e.reset());
     }
 
     public dropOldElements(delay: number): void {
@@ -117,17 +97,6 @@ export class ReelView extends Container {
         this.buildElements(elements);
     }
 
-    public destroy(): void {
-        super.destroy();
-    }
-
-    private elementTypeUpdate(newType: string, oldType: number, uuid: string): void {
-        const elView = this.getElementByUUID(uuid);
-        if (!elView) {
-            return;
-        }
-    }
-
     private build(elements: ElementModel[]): void {
         this.buildElements(elements);
         this.rHeight = this.calculateHeight();
@@ -161,8 +130,8 @@ export class ReelView extends Container {
                 element.y = element.height / 2;
                 element.x = element.width / 2;
             } else {
-                const previews = this._elements[i - 1];
-                element.y = previews.bottom + element.height / 2 + OFFSET_Y;
+                const previousEl = this._elements[i - 1];
+                element.y = previousEl.bottom + element.height / 2 + OFFSET_Y;
                 element.x = element.width / 2;
             }
         }

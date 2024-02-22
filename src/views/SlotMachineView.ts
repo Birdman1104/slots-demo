@@ -5,7 +5,6 @@ import { OFFSET_X } from '../Config';
 import { ReelViewEvents, SlotMachineViewEvents } from '../events/MainEvents';
 import { ReelModelEvents, SlotMachineModelEvents } from '../events/ModelEvents';
 import { ElementModel } from '../models/ElementModel';
-import { ReelState } from '../models/ReelModel';
 import { SlotMachineModel, SlotMachineState } from '../models/SlotMachineModel';
 import { ElementView } from './ElementView';
 import { ReelView } from './ReelView';
@@ -15,7 +14,7 @@ export class SlotMachineView extends Container {
     private bg: Sprite;
     private _reels: ReelView[];
     private reelsContainer: Container;
-    private blocker: Graphics;
+    private reelsMask: Graphics;
     private result: SpinResult;
     private foreground: SlotForeground;
 
@@ -27,7 +26,6 @@ export class SlotMachineView extends Container {
         lego.event.on(SlotMachineModelEvents.StateUpdate, this.onStateUpdate, this);
         lego.event.on(SlotMachineModelEvents.ReelsUpdate, this.onReelsUpdate, this);
         lego.event.on(SlotMachineModelEvents.SpinResultUpdate, this.onSpinResultUpdate, this);
-        lego.event.on(ReelModelEvents.StateUpdate, this.onReelStateUpdate, this);
         lego.event.on(ReelModelEvents.ElementsUpdate, this.onReelElementsUpdate, this);
 
         // const gr = new Graphics();
@@ -86,17 +84,18 @@ export class SlotMachineView extends Container {
         this.reelsContainer.y = 105;
         this.addChild(this.reelsContainer);
 
-        const gr = new Graphics();
-        gr.beginFill(0xff0000, 0.5);
-        gr.drawRect(
+        this.reelsMask = new Graphics();
+        this.reelsMask.beginFill(0xffffff, 0.0001);
+        this.reelsMask.drawRect(
             this.reelsContainer.x,
             this.reelsContainer.y,
             this.reelsContainer.width,
             this.reelsContainer.height,
         );
-        gr.endFill();
-        this.addChild(gr);
-        this.reelsContainer.mask = gr;
+        this.reelsMask.endFill();
+        this.addChild(this.reelsMask);
+
+        this.reelsContainer.mask = this.reelsMask;
     }
 
     private onStateUpdate(newState: SlotMachineState): void {
@@ -108,24 +107,17 @@ export class SlotMachineView extends Container {
                 this.dropNewElements();
                 break;
             case SlotMachineState.ShowWinLines:
+                this.reelsContainer.mask = null;
                 this.showWinLines();
                 break;
             case SlotMachineState.ShowWinnings:
                 this.showWinnings();
                 break;
+            case SlotMachineState.Idle:
+                this.reelsContainer.mask = this.reelsMask;
+                break;
             default:
         }
-    }
-
-    private onReelStateUpdate(newState: ReelState, oldState: ReelState, uuid: string): void {
-        // const reel = this.getReelByUUID(uuid);
-        // const reelIndex = this.reels.indexOf(reel);
-        // switch (newState) {
-        //     case ReelState.DropOld:
-        //         reel.dropOldElements(reelIndex * 200);
-        //         break;
-        //     default:
-        // }
     }
 
     private onReelElementsUpdate(newValue: ElementModel[], oldValue: ElementModel[], uuid: string): void {
@@ -134,8 +126,6 @@ export class SlotMachineView extends Container {
     }
 
     private onSpinResultUpdate(result: SpinResult): void {
-        console.warn(result);
-
         this.result = result;
     }
 
@@ -229,6 +219,8 @@ export class SlotMachineView extends Container {
                         targets: e.scale,
                         x: 1.35,
                         y: 1.35,
+                        begin: () => e.startAnimation(),
+                        complete: () => e.endAnimation(),
                     },
                     0,
                 );

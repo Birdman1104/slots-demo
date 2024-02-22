@@ -14,7 +14,7 @@ const ELEMENT_ID = Object.freeze({
 const ELEMENTS_CONFIG = Object.freeze([
     {
         id: ELEMENT_ID.BANANA,
-        weight: 5,
+        weight: 250,
         coefficient: [0, 0, 0.1, 0.4, 0.7],
     },
     {
@@ -29,17 +29,17 @@ const ELEMENTS_CONFIG = Object.freeze([
     },
     {
         id: ELEMENT_ID.LEMON,
-        weight: 15,
+        weight: 150,
         coefficient: [0, 0, 0.4, 0.7, 1],
     },
     {
         id: ELEMENT_ID.ORANGE,
-        weight: 10,
+        weight: 210,
         coefficient: [0, 0, 0.5, 0.8, 1.1],
     },
     {
         id: ELEMENT_ID.PLUM,
-        weight: 200,
+        weight: 15,
         coefficient: [0, 0, 0.6, 0.9, 1.2],
     },
     {

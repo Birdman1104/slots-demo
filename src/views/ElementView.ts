@@ -1,4 +1,4 @@
-import { Container, Rectangle, Sprite } from 'pixi.js';
+import { AnimatedSprite, Assets, Container, Rectangle, Sprite, Texture } from 'pixi.js';
 import { HEIGHT, WIDTH } from '../Config';
 import { ElementModel } from '../models/ElementModel';
 
@@ -6,6 +6,7 @@ export class ElementView extends Container {
     private _uuid: string;
     private _type: string;
     private element: Sprite;
+    private animatedSprite: AnimatedSprite;
 
     constructor(config: ElementModel) {
         super();
@@ -15,6 +16,7 @@ export class ElementView extends Container {
 
         this.updateDimensions();
         this.buildElement();
+        this.buildAnimatedSprite();
     }
 
     get uuid() {
@@ -25,10 +27,6 @@ export class ElementView extends Container {
         return this._type;
     }
 
-    get top() {
-        return this.y - this.height;
-    }
-
     get bottom() {
         return this.y + this.height / 2;
     }
@@ -37,30 +35,16 @@ export class ElementView extends Container {
         return new Rectangle(0, 0, WIDTH, HEIGHT);
     }
 
-    public reset(): void {
-        this.scale.set(1);
-        this.alpha = 1;
+    public startAnimation(): void {
+        this.animatedSprite.visible = true;
+        this.animatedSprite.play();
+        this.element.visible = false;
     }
 
-    public animate(winingItemType: string): void {
-        this.clearDim();
-        this.alpha = this.type === winingItemType ? 1 : 0.6;
-        this.scale.set(1.3);
-    }
-
-    public dim(): void {
-        this.element.tint = 0xababab;
-    }
-
-    public clearDim(): void {
-        this.element.tint = 0xffffff;
-    }
-
-    public setType(value: string): void {
-        this._type = value;
-
-        this.buildElement();
-        this.updateDimensions();
+    public endAnimation(): void {
+        this.element.visible = true;
+        this.animatedSprite.visible = false;
+        this.animatedSprite.stop();
     }
 
     private buildElement(): void {
@@ -71,9 +55,38 @@ export class ElementView extends Container {
         this.addChild(this.element);
     }
 
+    private buildAnimatedSprite() {
+        const spriteSheet = Assets.cache.get(`${this.type}_animation`);
+
+        const textures: Texture[] = [];
+
+        for (const keys in spriteSheet.textures) {
+            textures.push(spriteSheet.textures[keys]);
+        }
+        sortTextures(textures);
+
+        this.animatedSprite = new AnimatedSprite(textures);
+        this.animatedSprite.position.set(-this.element.width / 2, -this.element.height / 2);
+        this.addChild(this.animatedSprite);
+        this.animatedSprite.animationSpeed = 1 / 2; // 30 FPS
+
+        this.animatedSprite.visible = false;
+    }
+
     private updateDimensions(): void {
         // TODO Fix this config
         this.width = WIDTH;
         this.height = HEIGHT;
     }
+}
+
+function sortTextures(textures: Texture[]): void {
+    const extractNumberFromTextureName = (name): number =>
+        +name.slice(name.lastIndexOf('_') + 1, name.lastIndexOf('.'));
+
+    textures.sort((textureA: Texture, textureB: Texture) => {
+        const a = extractNumberFromTextureName(textureA.textureCacheIds[0]);
+        const b = extractNumberFromTextureName(textureB.textureCacheIds[0]);
+        return a - b;
+    });
 }

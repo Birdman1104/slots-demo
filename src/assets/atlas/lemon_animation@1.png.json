@@ -1,0 +1,1071 @@
+{
+  "frames": {
+    "lemon_00000.png": {
+      "frame": {
+        "x": 3,
+        "y": 3,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00001.png": {
+      "frame": {
+        "x": 264,
+        "y": 3,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00002.png": {
+      "frame": {
+        "x": 3,
+        "y": 265,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00003.png": {
+      "frame": {
+        "x": 264,
+        "y": 265,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00004.png": {
+      "frame": {
+        "x": 525,
+        "y": 3,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00005.png": {
+      "frame": {
+        "x": 525,
+        "y": 265,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00006.png": {
+      "frame": {
+        "x": 3,
+        "y": 527,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00007.png": {
+      "frame": {
+        "x": 264,
+        "y": 527,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00008.png": {
+      "frame": {
+        "x": 525,
+        "y": 527,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00009.png": {
+      "frame": {
+        "x": 786,
+        "y": 3,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00010.png": {
+      "frame": {
+        "x": 786,
+        "y": 265,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00011.png": {
+      "frame": {
+        "x": 786,
+        "y": 527,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00012.png": {
+      "frame": {
+        "x": 3,
+        "y": 789,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00013.png": {
+      "frame": {
+        "x": 264,
+        "y": 789,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00014.png": {
+      "frame": {
+        "x": 525,
+        "y": 789,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00015.png": {
+      "frame": {
+        "x": 786,
+        "y": 789,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00016.png": {
+      "frame": {
+        "x": 1047,
+        "y": 3,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00017.png": {
+      "frame": {
+        "x": 1047,
+        "y": 265,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00018.png": {
+      "frame": {
+        "x": 1047,
+        "y": 527,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00019.png": {
+      "frame": {
+        "x": 1047,
+        "y": 789,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00020.png": {
+      "frame": {
+        "x": 3,
+        "y": 1051,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00021.png": {
+      "frame": {
+        "x": 264,
+        "y": 1051,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00022.png": {
+      "frame": {
+        "x": 525,
+        "y": 1051,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00023.png": {
+      "frame": {
+        "x": 786,
+        "y": 1051,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00024.png": {
+      "frame": {
+        "x": 1047,
+        "y": 1051,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00025.png": {
+      "frame": {
+        "x": 1308,
+        "y": 3,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00026.png": {
+      "frame": {
+        "x": 1308,
+        "y": 265,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00027.png": {
+      "frame": {
+        "x": 1308,
+        "y": 527,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00028.png": {
+      "frame": {
+        "x": 1308,
+        "y": 789,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00029.png": {
+      "frame": {
+        "x": 1308,
+        "y": 1051,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00030.png": {
+      "frame": {
+        "x": 3,
+        "y": 1313,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00031.png": {
+      "frame": {
+        "x": 264,
+        "y": 1313,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00032.png": {
+      "frame": {
+        "x": 525,
+        "y": 1313,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00033.png": {
+      "frame": {
+        "x": 786,
+        "y": 1313,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00034.png": {
+      "frame": {
+        "x": 1047,
+        "y": 1313,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00035.png": {
+      "frame": {
+        "x": 1308,
+        "y": 1313,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00036.png": {
+      "frame": {
+        "x": 1569,
+        "y": 3,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00037.png": {
+      "frame": {
+        "x": 1569,
+        "y": 265,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00038.png": {
+      "frame": {
+        "x": 1569,
+        "y": 527,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00039.png": {
+      "frame": {
+        "x": 1569,
+        "y": 789,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00040.png": {
+      "frame": {
+        "x": 1569,
+        "y": 1051,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00041.png": {
+      "frame": {
+        "x": 1569,
+        "y": 1313,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00042.png": {
+      "frame": {
+        "x": 3,
+        "y": 1575,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "lemon_00043.png": {
+      "frame": {
+        "x": 264,
+        "y": 1575,
+        "w": 255,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 255,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
+  "meta": {
+    "app": "http://github.com/odrick/free-tex-packer-core",
+    "version": "0.3.4",
+    "image": "lemon_animation.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1827,
+      "h": 1834
+    },
+    "scale": 1
+  }
+}

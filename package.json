@@ -1,7 +1,7 @@
 {
-    "name": "pixi-ts-grid",
+    "name": "pixi-slots-demo",
     "version": "1.0.0",
-    "description": "Pixi Grid template on TS",
+    "description": "Pixi Slots Demo",
     "main": "index.js",
     "scripts": {
         "start": "npm run generateAssets && npm run generateEventNames && webpack serve --config webpack/webpack.dev.js",

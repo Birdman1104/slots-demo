@@ -1,0 +1,1071 @@
+{
+  "frames": {
+    "plum_00028.png": {
+      "frame": {
+        "x": 3,
+        "y": 3,
+        "w": 248,
+        "h": 254
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 3,
+        "w": 248,
+        "h": 254
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00005.png": {
+      "frame": {
+        "x": 257,
+        "y": 3,
+        "w": 248,
+        "h": 253
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 5,
+        "w": 248,
+        "h": 253
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00039.png": {
+      "frame": {
+        "x": 3,
+        "y": 263,
+        "w": 252,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 252,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00027.png": {
+      "frame": {
+        "x": 511,
+        "y": 3,
+        "w": 248,
+        "h": 251
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 5,
+        "w": 248,
+        "h": 251
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00016.png": {
+      "frame": {
+        "x": 261,
+        "y": 262,
+        "w": 250,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 250,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00029.png": {
+      "frame": {
+        "x": 3,
+        "y": 517,
+        "w": 248,
+        "h": 250
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 6,
+        "w": 248,
+        "h": 250
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00026.png": {
+      "frame": {
+        "x": 257,
+        "y": 517,
+        "w": 248,
+        "h": 249
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 7,
+        "w": 248,
+        "h": 249
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00038.png": {
+      "frame": {
+        "x": 765,
+        "y": 3,
+        "w": 249,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 249,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00040.png": {
+      "frame": {
+        "x": 765,
+        "y": 257,
+        "w": 249,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 249,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00000.png": {
+      "frame": {
+        "x": 511,
+        "y": 516,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00001.png": {
+      "frame": {
+        "x": 765,
+        "y": 511,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00002.png": {
+      "frame": {
+        "x": 3,
+        "y": 773,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00003.png": {
+      "frame": {
+        "x": 257,
+        "y": 772,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00004.png": {
+      "frame": {
+        "x": 765,
+        "y": 765,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00006.png": {
+      "frame": {
+        "x": 511,
+        "y": 770,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00007.png": {
+      "frame": {
+        "x": 1020,
+        "y": 3,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00008.png": {
+      "frame": {
+        "x": 1020,
+        "y": 257,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00009.png": {
+      "frame": {
+        "x": 1019,
+        "y": 511,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00010.png": {
+      "frame": {
+        "x": 1019,
+        "y": 765,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00011.png": {
+      "frame": {
+        "x": 3,
+        "y": 1027,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00012.png": {
+      "frame": {
+        "x": 257,
+        "y": 1026,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00013.png": {
+      "frame": {
+        "x": 511,
+        "y": 1024,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00014.png": {
+      "frame": {
+        "x": 765,
+        "y": 1019,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00015.png": {
+      "frame": {
+        "x": 1019,
+        "y": 1019,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00017.png": {
+      "frame": {
+        "x": 1274,
+        "y": 3,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00018.png": {
+      "frame": {
+        "x": 1274,
+        "y": 257,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00019.png": {
+      "frame": {
+        "x": 1273,
+        "y": 511,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00020.png": {
+      "frame": {
+        "x": 1273,
+        "y": 765,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00021.png": {
+      "frame": {
+        "x": 1273,
+        "y": 1019,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00022.png": {
+      "frame": {
+        "x": 3,
+        "y": 1281,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00023.png": {
+      "frame": {
+        "x": 257,
+        "y": 1280,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00024.png": {
+      "frame": {
+        "x": 511,
+        "y": 1278,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00025.png": {
+      "frame": {
+        "x": 765,
+        "y": 1273,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00030.png": {
+      "frame": {
+        "x": 1019,
+        "y": 1273,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00031.png": {
+      "frame": {
+        "x": 1273,
+        "y": 1273,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00032.png": {
+      "frame": {
+        "x": 1528,
+        "y": 3,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00033.png": {
+      "frame": {
+        "x": 1528,
+        "y": 257,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00034.png": {
+      "frame": {
+        "x": 1527,
+        "y": 511,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00035.png": {
+      "frame": {
+        "x": 1527,
+        "y": 765,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00036.png": {
+      "frame": {
+        "x": 1527,
+        "y": 1019,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00037.png": {
+      "frame": {
+        "x": 1527,
+        "y": 1273,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00041.png": {
+      "frame": {
+        "x": 3,
+        "y": 1535,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00042.png": {
+      "frame": {
+        "x": 257,
+        "y": 1534,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "plum_00043.png": {
+      "frame": {
+        "x": 511,
+        "y": 1532,
+        "w": 248,
+        "h": 248
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 248,
+        "h": 248
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
+  "meta": {
+    "app": "http://github.com/odrick/free-tex-packer-core",
+    "version": "0.3.4",
+    "image": "plum_animation.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1779,
+      "h": 1786
+    },
+    "scale": 1
+  }
+}

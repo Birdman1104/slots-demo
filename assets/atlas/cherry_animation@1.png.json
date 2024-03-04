@@ -1,0 +1,1071 @@
+{
+  "frames": {
+    "cherry_00016.png": {
+      "frame": {
+        "x": 3,
+        "y": 3,
+        "w": 260,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 12,
+        "w": 260,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00039.png": {
+      "frame": {
+        "x": 3,
+        "y": 247,
+        "w": 260,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 12,
+        "w": 260,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00005.png": {
+      "frame": {
+        "x": 269,
+        "y": 3,
+        "w": 238,
+        "h": 258
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 3,
+        "w": 238,
+        "h": 258
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00015.png": {
+      "frame": {
+        "x": 3,
+        "y": 491,
+        "w": 256,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 12,
+        "w": 256,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00017.png": {
+      "frame": {
+        "x": 265,
+        "y": 491,
+        "w": 256,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 12,
+        "w": 256,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00028.png": {
+      "frame": {
+        "x": 527,
+        "y": 3,
+        "w": 238,
+        "h": 255
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 0,
+        "w": 238,
+        "h": 255
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00038.png": {
+      "frame": {
+        "x": 3,
+        "y": 735,
+        "w": 255,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 12,
+        "w": 255,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00004.png": {
+      "frame": {
+        "x": 527,
+        "y": 264,
+        "w": 238,
+        "h": 253
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 5,
+        "w": 238,
+        "h": 253
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00040.png": {
+      "frame": {
+        "x": 264,
+        "y": 735,
+        "w": 253,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 12,
+        "w": 253,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00006.png": {
+      "frame": {
+        "x": 527,
+        "y": 523,
+        "w": 238,
+        "h": 252
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 6,
+        "w": 238,
+        "h": 252
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00018.png": {
+      "frame": {
+        "x": 771,
+        "y": 3,
+        "w": 251,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 12,
+        "w": 251,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00014.png": {
+      "frame": {
+        "x": 771,
+        "y": 247,
+        "w": 250,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 7,
+        "y": 12,
+        "w": 250,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00037.png": {
+      "frame": {
+        "x": 771,
+        "y": 491,
+        "w": 250,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 7,
+        "y": 12,
+        "w": 250,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00027.png": {
+      "frame": {
+        "x": 3,
+        "y": 979,
+        "w": 238,
+        "h": 249
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 3,
+        "w": 238,
+        "h": 249
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00029.png": {
+      "frame": {
+        "x": 247,
+        "y": 979,
+        "w": 238,
+        "h": 249
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 3,
+        "w": 238,
+        "h": 249
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00003.png": {
+      "frame": {
+        "x": 491,
+        "y": 979,
+        "w": 238,
+        "h": 247
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 7,
+        "w": 238,
+        "h": 247
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00041.png": {
+      "frame": {
+        "x": 771,
+        "y": 735,
+        "w": 247,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 12,
+        "w": 247,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00007.png": {
+      "frame": {
+        "x": 735,
+        "y": 979,
+        "w": 238,
+        "h": 246
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 8,
+        "w": 238,
+        "h": 246
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00013.png": {
+      "frame": {
+        "x": 1028,
+        "y": 3,
+        "w": 246,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 9,
+        "y": 12,
+        "w": 246,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00019.png": {
+      "frame": {
+        "x": 1027,
+        "y": 247,
+        "w": 246,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 11,
+        "y": 12,
+        "w": 246,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00036.png": {
+      "frame": {
+        "x": 1027,
+        "y": 491,
+        "w": 245,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 10,
+        "y": 12,
+        "w": 245,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00026.png": {
+      "frame": {
+        "x": 979,
+        "y": 979,
+        "w": 238,
+        "h": 244
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 6,
+        "w": 238,
+        "h": 244
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00030.png": {
+      "frame": {
+        "x": 3,
+        "y": 1234,
+        "w": 238,
+        "h": 244
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 6,
+        "w": 238,
+        "h": 244
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00020.png": {
+      "frame": {
+        "x": 1024,
+        "y": 735,
+        "w": 243,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 12,
+        "w": 243,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00042.png": {
+      "frame": {
+        "x": 247,
+        "y": 1234,
+        "w": 243,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 12,
+        "w": 243,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00025.png": {
+      "frame": {
+        "x": 496,
+        "y": 1232,
+        "w": 238,
+        "h": 242
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 8,
+        "w": 238,
+        "h": 242
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00002.png": {
+      "frame": {
+        "x": 740,
+        "y": 1231,
+        "w": 238,
+        "h": 241
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 10,
+        "w": 238,
+        "h": 241
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00012.png": {
+      "frame": {
+        "x": 984,
+        "y": 1229,
+        "w": 241,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 11,
+        "y": 12,
+        "w": 241,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00021.png": {
+      "frame": {
+        "x": 1280,
+        "y": 3,
+        "w": 241,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 12,
+        "w": 241,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00031.png": {
+      "frame": {
+        "x": 1223,
+        "y": 979,
+        "w": 238,
+        "h": 241
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 9,
+        "w": 238,
+        "h": 241
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00035.png": {
+      "frame": {
+        "x": 1273,
+        "y": 735,
+        "w": 241,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12,
+        "y": 12,
+        "w": 241,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00043.png": {
+      "frame": {
+        "x": 1278,
+        "y": 491,
+        "w": 241,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 10,
+        "y": 12,
+        "w": 241,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00008.png": {
+      "frame": {
+        "x": 1231,
+        "y": 1226,
+        "w": 238,
+        "h": 240
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 11,
+        "w": 238,
+        "h": 240
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00022.png": {
+      "frame": {
+        "x": 1279,
+        "y": 247,
+        "w": 239,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 12,
+        "w": 239,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00024.png": {
+      "frame": {
+        "x": 3,
+        "y": 1484,
+        "w": 238,
+        "h": 239
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 11,
+        "w": 238,
+        "h": 239
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00000.png": {
+      "frame": {
+        "x": 247,
+        "y": 1480,
+        "w": 238,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 12,
+        "w": 238,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00001.png": {
+      "frame": {
+        "x": 491,
+        "y": 1480,
+        "w": 238,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 12,
+        "w": 238,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00009.png": {
+      "frame": {
+        "x": 735,
+        "y": 1480,
+        "w": 238,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 12,
+        "w": 238,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00010.png": {
+      "frame": {
+        "x": 979,
+        "y": 1478,
+        "w": 238,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 12,
+        "w": 238,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00011.png": {
+      "frame": {
+        "x": 1223,
+        "y": 1473,
+        "w": 238,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 12,
+        "w": 238,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00023.png": {
+      "frame": {
+        "x": 1524,
+        "y": 247,
+        "w": 238,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 12,
+        "w": 238,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00032.png": {
+      "frame": {
+        "x": 1527,
+        "y": 3,
+        "w": 238,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 12,
+        "w": 238,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00033.png": {
+      "frame": {
+        "x": 1467,
+        "y": 979,
+        "w": 238,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 12,
+        "w": 238,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "cherry_00034.png": {
+      "frame": {
+        "x": 1520,
+        "y": 735,
+        "w": 238,
+        "h": 238
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 12,
+        "w": 238,
+        "h": 238
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
+  "meta": {
+    "app": "http://github.com/odrick/free-tex-packer-core",
+    "version": "0.3.4",
+    "image": "cherry_animation.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1768,
+      "h": 1726
+    },
+    "scale": 1
+  }
+}

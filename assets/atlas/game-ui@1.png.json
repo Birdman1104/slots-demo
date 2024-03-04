@@ -1,0 +1,39 @@
+{
+  "frames": {
+    "you_win.png": {
+      "frame": {
+        "x": 3,
+        "y": 3,
+        "w": 999,
+        "h": 572
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 469,
+        "y": 298,
+        "w": 999,
+        "h": 572
+      },
+      "sourceSize": {
+        "w": 1920,
+        "h": 1080
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
+  "meta": {
+    "app": "http://github.com/odrick/free-tex-packer-core",
+    "version": "0.3.4",
+    "image": "game-ui.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1005,
+      "h": 578
+    },
+    "scale": 1
+  }
+}

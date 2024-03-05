@@ -4,6 +4,7 @@ export const atlases: { name: string; json: string; png: string }[] = [
         json: 'assets/atlas/banana_animation@1.png.json',
         png: 'assets/atlas/banana_animation.png',
     },
+    { name: 'buttons', json: 'assets/atlas/buttons@1.png.json', png: 'assets/atlas/buttons.png' },
     {
         name: 'cherry_animation',
         json: 'assets/atlas/cherry_animation@1.png.json',

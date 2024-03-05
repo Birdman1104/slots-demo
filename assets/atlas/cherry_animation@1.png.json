@@ -74,12 +74,12 @@
     },
     "cherry_00015.png": {
       "frame": {
-        "x": 3,
-        "y": 491,
+        "x": 269,
+        "y": 267,
         "w": 256,
         "h": 238
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": true,
       "spriteSourceSize": {
         "x": 4,
@@ -98,7 +98,7 @@
     },
     "cherry_00017.png": {
       "frame": {
-        "x": 265,
+        "x": 3,
         "y": 491,
         "w": 256,
         "h": 238
@@ -122,7 +122,7 @@
     },
     "cherry_00028.png": {
       "frame": {
-        "x": 527,
+        "x": 513,
         "y": 3,
         "w": 238,
         "h": 255
@@ -146,12 +146,12 @@
     },
     "cherry_00038.png": {
       "frame": {
-        "x": 3,
-        "y": 735,
+        "x": 513,
+        "y": 264,
         "w": 255,
         "h": 238
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": true,
       "spriteSourceSize": {
         "x": 4,
@@ -170,8 +170,8 @@
     },
     "cherry_00004.png": {
       "frame": {
-        "x": 527,
-        "y": 264,
+        "x": 513,
+        "y": 525,
         "w": 238,
         "h": 253
       },
@@ -194,7 +194,7 @@
     },
     "cherry_00040.png": {
       "frame": {
-        "x": 264,
+        "x": 3,
         "y": 735,
         "w": 253,
         "h": 238
@@ -218,8 +218,8 @@
     },
     "cherry_00006.png": {
       "frame": {
-        "x": 527,
-        "y": 523,
+        "x": 265,
+        "y": 529,
         "w": 238,
         "h": 252
       },
@@ -242,12 +242,12 @@
     },
     "cherry_00018.png": {
       "frame": {
-        "x": 771,
+        "x": 757,
         "y": 3,
         "w": 251,
         "h": 238
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": true,
       "spriteSourceSize": {
         "x": 8,
@@ -266,12 +266,12 @@
     },
     "cherry_00014.png": {
       "frame": {
-        "x": 771,
-        "y": 247,
+        "x": 757,
+        "y": 260,
         "w": 250,
         "h": 238
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": true,
       "spriteSourceSize": {
         "x": 7,
@@ -290,12 +290,12 @@
     },
     "cherry_00037.png": {
       "frame": {
-        "x": 771,
-        "y": 491,
+        "x": 757,
+        "y": 516,
         "w": 250,
         "h": 238
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": true,
       "spriteSourceSize": {
         "x": 7,
@@ -314,8 +314,8 @@
     },
     "cherry_00027.png": {
       "frame": {
-        "x": 3,
-        "y": 979,
+        "x": 757,
+        "y": 772,
         "w": 238,
         "h": 249
       },
@@ -338,12 +338,12 @@
     },
     "cherry_00029.png": {
       "frame": {
-        "x": 247,
+        "x": 3,
         "y": 979,
         "w": 238,
         "h": 249
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": true,
       "spriteSourceSize": {
         "x": 13,
@@ -362,12 +362,12 @@
     },
     "cherry_00003.png": {
       "frame": {
-        "x": 491,
+        "x": 258,
         "y": 979,
         "w": 238,
         "h": 247
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": true,
       "spriteSourceSize": {
         "x": 13,
@@ -386,12 +386,12 @@
     },
     "cherry_00041.png": {
       "frame": {
-        "x": 771,
-        "y": 735,
+        "x": 511,
+        "y": 784,
         "w": 247,
         "h": 238
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": true,
       "spriteSourceSize": {
         "x": 6,
@@ -410,8 +410,8 @@
     },
     "cherry_00007.png": {
       "frame": {
-        "x": 735,
-        "y": 979,
+        "x": 1001,
+        "y": 3,
         "w": 238,
         "h": 246
       },
@@ -434,12 +434,12 @@
     },
     "cherry_00013.png": {
       "frame": {
-        "x": 1028,
-        "y": 3,
+        "x": 1001,
+        "y": 255,
         "w": 246,
         "h": 238
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": true,
       "spriteSourceSize": {
         "x": 9,
@@ -458,12 +458,12 @@
     },
     "cherry_00019.png": {
       "frame": {
-        "x": 1027,
-        "y": 247,
+        "x": 1001,
+        "y": 507,
         "w": 246,
         "h": 238
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": true,
       "spriteSourceSize": {
         "x": 11,
@@ -482,12 +482,12 @@
     },
     "cherry_00036.png": {
       "frame": {
-        "x": 1027,
-        "y": 491,
+        "x": 1001,
+        "y": 759,
         "w": 245,
         "h": 238
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": true,
       "spriteSourceSize": {
         "x": 10,
@@ -506,8 +506,8 @@
     },
     "cherry_00026.png": {
       "frame": {
-        "x": 979,
-        "y": 979,
+        "x": 1001,
+        "y": 1010,
         "w": 238,
         "h": 244
       },
@@ -531,11 +531,11 @@
     "cherry_00030.png": {
       "frame": {
         "x": 3,
-        "y": 1234,
+        "y": 1223,
         "w": 238,
         "h": 244
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": true,
       "spriteSourceSize": {
         "x": 13,
@@ -554,8 +554,8 @@
     },
     "cherry_00020.png": {
       "frame": {
-        "x": 1024,
-        "y": 735,
+        "x": 253,
+        "y": 1223,
         "w": 243,
         "h": 238
       },
@@ -578,8 +578,8 @@
     },
     "cherry_00042.png": {
       "frame": {
-        "x": 247,
-        "y": 1234,
+        "x": 502,
+        "y": 1223,
         "w": 243,
         "h": 238
       },
@@ -602,8 +602,8 @@
     },
     "cherry_00025.png": {
       "frame": {
-        "x": 496,
-        "y": 1232,
+        "x": 755,
+        "y": 1027,
         "w": 238,
         "h": 242
       },
@@ -626,8 +626,8 @@
     },
     "cherry_00002.png": {
       "frame": {
-        "x": 740,
-        "y": 1231,
+        "x": 1245,
+        "y": 3,
         "w": 238,
         "h": 241
       },
@@ -650,12 +650,12 @@
     },
     "cherry_00012.png": {
       "frame": {
-        "x": 984,
-        "y": 1229,
+        "x": 1245,
+        "y": 250,
         "w": 241,
         "h": 238
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": true,
       "spriteSourceSize": {
         "x": 11,
@@ -674,12 +674,12 @@
     },
     "cherry_00021.png": {
       "frame": {
-        "x": 1280,
-        "y": 3,
+        "x": 1245,
+        "y": 497,
         "w": 241,
         "h": 238
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": true,
       "spriteSourceSize": {
         "x": 13,
@@ -698,8 +698,8 @@
     },
     "cherry_00031.png": {
       "frame": {
-        "x": 1223,
-        "y": 979,
+        "x": 1245,
+        "y": 744,
         "w": 238,
         "h": 241
       },
@@ -722,12 +722,12 @@
     },
     "cherry_00035.png": {
       "frame": {
-        "x": 1273,
-        "y": 735,
+        "x": 1245,
+        "y": 991,
         "w": 241,
         "h": 238
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": true,
       "spriteSourceSize": {
         "x": 12,
@@ -746,12 +746,12 @@
     },
     "cherry_00043.png": {
       "frame": {
-        "x": 1278,
-        "y": 491,
+        "x": 1245,
+        "y": 1238,
         "w": 241,
         "h": 238
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": true,
       "spriteSourceSize": {
         "x": 10,
@@ -770,12 +770,12 @@
     },
     "cherry_00008.png": {
       "frame": {
-        "x": 1231,
-        "y": 1226,
+        "x": 999,
+        "y": 1260,
         "w": 238,
         "h": 240
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": true,
       "spriteSourceSize": {
         "x": 13,
@@ -794,8 +794,8 @@
     },
     "cherry_00022.png": {
       "frame": {
-        "x": 1279,
-        "y": 247,
+        "x": 3,
+        "y": 1467,
         "w": 239,
         "h": 238
       },
@@ -818,12 +818,12 @@
     },
     "cherry_00024.png": {
       "frame": {
-        "x": 3,
-        "y": 1484,
+        "x": 248,
+        "y": 1467,
         "w": 238,
         "h": 239
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": true,
       "spriteSourceSize": {
         "x": 13,
@@ -842,8 +842,8 @@
     },
     "cherry_00000.png": {
       "frame": {
-        "x": 247,
-        "y": 1480,
+        "x": 493,
+        "y": 1467,
         "w": 238,
         "h": 238
       },
@@ -866,8 +866,8 @@
     },
     "cherry_00001.png": {
       "frame": {
-        "x": 491,
-        "y": 1480,
+        "x": 737,
+        "y": 1467,
         "w": 238,
         "h": 238
       },
@@ -890,8 +890,8 @@
     },
     "cherry_00009.png": {
       "frame": {
-        "x": 735,
-        "y": 1480,
+        "x": 1489,
+        "y": 3,
         "w": 238,
         "h": 238
       },
@@ -914,8 +914,8 @@
     },
     "cherry_00010.png": {
       "frame": {
-        "x": 979,
-        "y": 1478,
+        "x": 1489,
+        "y": 247,
         "w": 238,
         "h": 238
       },
@@ -938,8 +938,8 @@
     },
     "cherry_00011.png": {
       "frame": {
-        "x": 1223,
-        "y": 1473,
+        "x": 1489,
+        "y": 491,
         "w": 238,
         "h": 238
       },
@@ -962,8 +962,8 @@
     },
     "cherry_00023.png": {
       "frame": {
-        "x": 1524,
-        "y": 247,
+        "x": 1489,
+        "y": 735,
         "w": 238,
         "h": 238
       },
@@ -986,8 +986,8 @@
     },
     "cherry_00032.png": {
       "frame": {
-        "x": 1527,
-        "y": 3,
+        "x": 1489,
+        "y": 979,
         "w": 238,
         "h": 238
       },
@@ -1010,8 +1010,8 @@
     },
     "cherry_00033.png": {
       "frame": {
-        "x": 1467,
-        "y": 979,
+        "x": 1489,
+        "y": 1223,
         "w": 238,
         "h": 238
       },
@@ -1034,8 +1034,8 @@
     },
     "cherry_00034.png": {
       "frame": {
-        "x": 1520,
-        "y": 735,
+        "x": 1489,
+        "y": 1467,
         "w": 238,
         "h": 238
       },
@@ -1063,8 +1063,8 @@
     "image": "cherry_animation.png",
     "format": "RGBA8888",
     "size": {
-      "w": 1768,
-      "h": 1726
+      "w": 1730,
+      "h": 1708
     },
     "scale": 1
   }

@@ -16,6 +16,10 @@ const getUIGridLandscapeConfig = () => {
                 bounds: { x: 0, y: 0.85, width: 1, height: 0.15 },
             },
             {
+                name: 'top_bar',
+                bounds: { x: 0, y: 0, width: 1, height: 0.15 },
+            },
+            {
                 name: 'player_info',
                 bounds: { x: 0.5, y: 0.85, width: 0.5, height: 0.15 },
             },
@@ -30,6 +34,10 @@ const getUIGridPortraitConfig = () => {
         // debug: { color: 0xd950ff },
         bounds,
         cells: [
+            {
+                name: 'top_bar',
+                bounds: { x: 0, y: 0, width: 1, height: 0.15 },
+            },
             {
                 name: 'bottom_bar',
                 bounds: { x: 0, y: 0.85, width: 1, height: 0.15 },

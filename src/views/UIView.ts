@@ -1,14 +1,13 @@
 import { ICellConfig, PixiGrid } from '@armathai/pixi-grid';
 import { getUIGridConfig } from '../configs/gridConfigs/UIViewGC';
-import { BalanceView } from './ui/BalanceView';
-import { BetControllerView } from './ui/BetControllerView';
 import { BottomBar } from './ui/BottomBar';
+import { TopBar } from './ui/TopBar';
 
 export class UIView extends PixiGrid {
-    private controller: BetControllerView;
-    private balance: BalanceView;
     private bottomBar: BottomBar;
-    constructor() {
+    private topBar: TopBar;
+
+    public constructor() {
         super();
         this.build();
     }
@@ -22,17 +21,17 @@ export class UIView extends PixiGrid {
     }
 
     private build(): void {
-        this.buildController();
-        this.buildBalance();
+        this.buildBottomBar();
+        this.buildTopBar();
     }
 
-    private buildController(): void {
+    private buildBottomBar(): void {
         this.bottomBar = new BottomBar();
         this.setChild('bottom_bar', this.bottomBar);
     }
 
-    private buildBalance(): void {
-        this.balance = new BalanceView();
-        this.setChild('player_info', this.balance);
+    private buildTopBar(): void {
+        this.topBar = new TopBar();
+        this.setChild('top_bar', this.topBar);
     }
 }

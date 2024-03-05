@@ -50,12 +50,12 @@
     },
     "watermelon_blur.png": {
       "frame": {
-        "x": 264,
-        "y": 271,
+        "x": 3,
+        "y": 272,
         "w": 255,
         "h": 262
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": true,
       "spriteSourceSize": {
         "x": 5,
@@ -74,8 +74,8 @@
     },
     "lemon.png": {
       "frame": {
-        "x": 3,
-        "y": 272,
+        "x": 271,
+        "y": 271,
         "w": 255,
         "h": 256
       },
@@ -122,8 +122,8 @@
     },
     "orange.png": {
       "frame": {
-        "x": 525,
-        "y": 265,
+        "x": 3,
+        "y": 533,
         "w": 255,
         "h": 255
       },
@@ -146,8 +146,8 @@
     },
     "plum_blur.png": {
       "frame": {
-        "x": 3,
-        "y": 539,
+        "x": 532,
+        "y": 265,
         "w": 248,
         "h": 255
       },
@@ -170,12 +170,12 @@
     },
     "banana.png": {
       "frame": {
-        "x": 525,
-        "y": 526,
+        "x": 264,
+        "y": 533,
         "w": 249,
         "h": 234
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": true,
       "spriteSourceSize": {
         "x": 8,
@@ -194,12 +194,12 @@
     },
     "banana_blur.png": {
       "frame": {
-        "x": 257,
-        "y": 539,
+        "x": 532,
+        "y": 526,
         "w": 249,
         "h": 242
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": true,
       "spriteSourceSize": {
         "x": 8,
@@ -291,7 +291,7 @@
     "grapes.png": {
       "frame": {
         "x": 3,
-        "y": 800,
+        "y": 794,
         "w": 242,
         "h": 242
       },
@@ -315,7 +315,7 @@
     "cherry.png": {
       "frame": {
         "x": 251,
-        "y": 800,
+        "y": 794,
         "w": 238,
         "h": 238
       },
@@ -344,7 +344,7 @@
     "format": "RGBA8888",
     "size": {
       "w": 1031,
-      "h": 1045
+      "h": 1039
     },
     "scale": 1
   }

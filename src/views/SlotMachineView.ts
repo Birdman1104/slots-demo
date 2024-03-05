@@ -168,7 +168,7 @@ export class SlotMachineView extends Container {
         }
     }
 
-    private showWinnings() {
+    private showWinnings(): void {
         if (this.result.totalWin === 0) {
             lego.event.emit(SlotMachineViewEvents.WinningsShowComplete);
             return;

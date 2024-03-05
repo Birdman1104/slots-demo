@@ -98,12 +98,12 @@
     },
     "spin_btn_disable.png": {
       "frame": {
-        "x": 305,
-        "y": 3,
+        "x": 220,
+        "y": 107,
         "w": 180,
         "h": 72
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
@@ -123,11 +123,11 @@
     "spin_btn_down.png": {
       "frame": {
         "x": 305,
-        "y": 81,
+        "y": 3,
         "w": 180,
         "h": 70
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": true,
       "spriteSourceSize": {
         "x": 0,
@@ -146,8 +146,8 @@
     },
     "spin_btn_up.png": {
       "frame": {
-        "x": 198,
-        "y": 272,
+        "x": 3,
+        "y": 352,
         "w": 179,
         "h": 72
       },
@@ -170,12 +170,12 @@
     },
     "controls_bg.png": {
       "frame": {
-        "x": 220,
-        "y": 107,
+        "x": 188,
+        "y": 352,
         "w": 72,
         "h": 122
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": true,
       "spriteSourceSize": {
         "x": 0,
@@ -194,12 +194,12 @@
     },
     "bet_minus_btn_disable.png": {
       "frame": {
-        "x": 298,
-        "y": 157,
+        "x": 198,
+        "y": 293,
         "w": 51,
         "h": 68
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
@@ -218,12 +218,12 @@
     },
     "bet_minus_btn_up.png": {
       "frame": {
-        "x": 355,
-        "y": 157,
+        "x": 272,
+        "y": 293,
         "w": 51,
         "h": 68
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
@@ -242,8 +242,8 @@
     },
     "bet_plus_btn_disable.png": {
       "frame": {
-        "x": 412,
-        "y": 157,
+        "x": 316,
+        "y": 350,
         "w": 51,
         "h": 68
       },
@@ -266,12 +266,12 @@
     },
     "bet_plus_btn_up.png": {
       "frame": {
-        "x": 383,
-        "y": 231,
+        "x": 298,
+        "y": 189,
         "w": 51,
         "h": 68
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
@@ -290,8 +290,8 @@
     },
     "bet_minus_btn_down.png": {
       "frame": {
-        "x": 3,
-        "y": 352,
+        "x": 381,
+        "y": 3,
         "w": 49,
         "h": 66
       },
@@ -314,8 +314,8 @@
     },
     "bet_plus_btn_down.png": {
       "frame": {
-        "x": 58,
-        "y": 352,
+        "x": 381,
+        "y": 75,
         "w": 49,
         "h": 66
       },
@@ -338,8 +338,8 @@
     },
     "glowing_tile.png": {
       "frame": {
-        "x": 206,
-        "y": 235,
+        "x": 346,
+        "y": 246,
         "w": 64,
         "h": 19
       },
@@ -362,8 +362,8 @@
     },
     "balance_bg.png": {
       "frame": {
-        "x": 113,
-        "y": 352,
+        "x": 373,
+        "y": 271,
         "w": 56,
         "h": 54
       },
@@ -386,12 +386,12 @@
     },
     "glowing_end.png": {
       "frame": {
-        "x": 469,
-        "y": 157,
+        "x": 346,
+        "y": 271,
         "w": 10,
         "h": 19
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
@@ -410,12 +410,12 @@
     },
     "glowing_start.png": {
       "frame": {
-        "x": 469,
-        "y": 182,
+        "x": 346,
+        "y": 287,
         "w": 10,
         "h": 19
       },
-      "rotated": false,
+      "rotated": true,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
@@ -439,8 +439,8 @@
     "image": "ui.png",
     "format": "RGBA8888",
     "size": {
-      "w": 488,
-      "h": 421
+      "w": 433,
+      "h": 427
     },
     "scale": 1
   }

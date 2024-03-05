@@ -74,6 +74,7 @@ type ButtonStates = {
 
 type ButtonStateConfig = {
     image: string;
+    nineSliceConfig?: NineSliceConfig;
     tint?: number;
     textConfig?: TextConfig;
 };
@@ -88,4 +89,13 @@ type TextConfig = {
     style: TextStyle;
     x: number;
     y: number;
+};
+
+type NineSliceConfig = {
+    l: number;
+    r: number;
+    t: number;
+    b: number;
+    width: number;
+    height: number;
 };

@@ -2,19 +2,16 @@ export const getPlusButtonConfig = (): ButtonConfig => {
     return {
         states: {
             up: {
-                image: 'bet_plus_btn_up.png',
+                image: 'plus_button_up.png',
             },
             down: {
-                image: 'bet_plus_btn_down.png',
-                tint: 0x00ff00,
+                image: 'plus_button_down.png',
             },
             over: {
-                image: 'bet_plus_btn_up.png',
-                tint: 0x0000ff,
+                image: 'plus_button_up.png',
             },
             disabled: {
-                image: 'bet_plus_btn_disable.png',
-                tint: 0xff0000,
+                image: 'plus_button_disabled.png',
             },
         },
     };
@@ -24,19 +21,16 @@ export const getMinusButtonConfig = (): ButtonConfig => {
     return {
         states: {
             up: {
-                image: 'bet_minus_btn_up.png',
+                image: 'minus_button_up.png',
             },
             down: {
-                image: 'bet_minus_btn_down.png',
-                tint: 0x00ff00,
+                image: 'minus_button_down.png',
             },
             over: {
-                image: 'bet_minus_btn_up.png',
-                tint: 0x0000ff,
+                image: 'minus_button_up.png',
             },
             disabled: {
-                image: 'bet_minus_btn_disable.png',
-                tint: 0xff0000,
+                image: 'minus_button_disabled.png',
             },
         },
     };

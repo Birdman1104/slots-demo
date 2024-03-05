@@ -1,8 +1,8 @@
-import { Container, Rectangle, Sprite, Text } from 'pixi.js';
+import { Container, NineSlicePlane, Rectangle, Sprite, Text, Texture } from 'pixi.js';
 import { ButtonStateNames } from '../enums/Enums';
 
 export class ButtonState extends Container {
-    private bkg: Sprite;
+    private bkg: Sprite | NineSlicePlane;
     private text?: Text;
 
     public constructor(private buttonStateConfig: ButtonStateConfig, public name: ButtonStateNames) {
@@ -21,14 +21,32 @@ export class ButtonState extends Container {
     }
 
     private build(): void {
-        const { image, tint, textConfig } = this.buttonStateConfig;
-        this.buildBkg(image, tint);
+        const { textConfig, nineSliceConfig } = this.buttonStateConfig;
+
+        if (nineSliceConfig) {
+            this.buildNineSlice();
+        } else {
+            this.buildBkg();
+        }
         if (textConfig) this.buildText(textConfig);
     }
 
-    private buildBkg(image: string, tint: number | undefined): void {
+    private buildBkg(): void {
+        const { image, tint = undefined } = this.buttonStateConfig;
         this.bkg = Sprite.from(image);
         this.bkg.anchor.set(0.5);
+        if (tint) this.bkg.tint = tint;
+        this.addChild(this.bkg);
+    }
+
+    private buildNineSlice(): void {
+        const { image, nineSliceConfig, tint = undefined } = this.buttonStateConfig;
+        const { l, t, r, b, width, height } = nineSliceConfig as NineSliceConfig;
+
+        this.bkg = new NineSlicePlane(Texture.from(image), l, t, r, b);
+        this.bkg.width = width;
+        this.bkg.height = height;
+        this.bkg.position.set(-width / 2, -height / 2);
         if (tint) this.bkg.tint = tint;
         this.addChild(this.bkg);
     }

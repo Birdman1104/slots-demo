@@ -9,27 +9,37 @@ const textConfig = {
     y: 0,
 };
 
+const nineSliceConfig: NineSliceConfig = {
+    l: 33,
+    r: 33,
+    t: 42,
+    b: 43,
+    width: 192,
+    height: 128,
+};
+
 export const getSpinButtonConfig = (): ButtonConfig => {
     return {
         states: {
             up: {
-                image: 'spin_btn_up.png',
+                image: 'base_button_up.png',
+                nineSliceConfig,
                 textConfig,
             },
             down: {
-                image: 'spin_btn_down.png',
+                image: 'base_button_down.png',
+                nineSliceConfig,
                 textConfig,
-                tint: 0x00ff00,
             },
             over: {
-                image: 'spin_btn_up.png',
+                image: 'base_button_up.png',
+                nineSliceConfig,
                 textConfig,
-                tint: 0x0000ff,
             },
             disabled: {
-                image: 'spin_btn_disable.png',
+                image: 'base_button_disabled.png',
+                nineSliceConfig,
                 textConfig,
-                tint: 0xff0000,
             },
         },
     };

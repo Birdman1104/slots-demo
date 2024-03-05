@@ -50,6 +50,10 @@ export class PlayerModel extends ObservableModel {
         this._bet = BETS[index - 1];
     }
 
+    public setMaxBet(): void {
+        this._bet = BETS[BETS.length - 1];
+    }
+
     public setPlayerInfo(playerInfo: any): void {
         this._bet = playerInfo.bet;
         this._balance = playerInfo.balance;

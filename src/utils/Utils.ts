@@ -1,3 +1,5 @@
+import { NineSlicePlane, Texture } from 'pixi.js';
+
 export const lp = (l, p) => {
     const { clientWidth: w, clientHeight: h } = document.body;
     return w > h ? l : p;
@@ -95,4 +97,15 @@ export const extendConfig = (config: any): any => {
     config.offset = { x: offset.x || 0, y: offset.y || 0 };
 
     return config;
+};
+
+export const getNineSlice = (image: string, nineSliceConfig: NineSliceConfig, tint?: number): NineSlicePlane => {
+    const { l, t, r, b, width, height } = nineSliceConfig as NineSliceConfig;
+
+    const nineSlice = new NineSlicePlane(Texture.from(image), l, t, r, b);
+    nineSlice.width = width;
+    nineSlice.height = height;
+    nineSlice.position.set(-width / 2, -height / 2);
+    if (tint) nineSlice.tint = tint;
+    return nineSlice;
 };

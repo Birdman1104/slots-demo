@@ -12,12 +12,12 @@ const getUIGridLandscapeConfig = () => {
         bounds,
         cells: [
             {
-                name: 'controller',
-                bounds: { x: 0, y: 0.8, width: 0.5, height: 0.2 },
+                name: 'bottom_bar',
+                bounds: { x: 0, y: 0.85, width: 1, height: 0.15 },
             },
             {
                 name: 'player_info',
-                bounds: { x: 0.5, y: 0.8, width: 0.5, height: 0.2 },
+                bounds: { x: 0.5, y: 0.85, width: 0.5, height: 0.15 },
             },
         ],
     };
@@ -31,12 +31,12 @@ const getUIGridPortraitConfig = () => {
         bounds,
         cells: [
             {
-                name: 'controller',
-                bounds: { x: 0, y: 0.8, width: 0.5, height: 0.2 },
+                name: 'bottom_bar',
+                bounds: { x: 0, y: 0.85, width: 1, height: 0.15 },
             },
             {
                 name: 'player_info',
-                bounds: { x: 0.5, y: 0.8, width: 0.5, height: 0.2 },
+                bounds: { x: 0.5, y: 0.85, width: 0.5, height: 0.15 },
             },
         ],
     };

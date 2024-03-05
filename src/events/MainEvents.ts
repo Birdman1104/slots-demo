@@ -26,4 +26,5 @@ export const UIEvents = {
     SpinButtonClick: 'UIEventsSpinButtonClick',
     PlusButtonClick: 'UIEventsPlusButtonClick',
     MinusButtonClick: 'UIEventsMinusButtonClick',
+    MaxBetButtonClick: 'UIEventsMaxBetButtonClick',
 };

@@ -11,6 +11,8 @@ export class Button extends Container {
     };
     protected activeState: ButtonStateNames;
     private canClick: boolean;
+    private isClicked: boolean;
+    private _y: number;
 
     public constructor(private buttonConfig: ButtonConfig) {
         super();
@@ -120,13 +122,22 @@ export class Button extends Container {
     }
 
     private onPointerDown(): void {
+        this.isClicked = true;
         this.emit(ButtonEvents.Down);
         this.setActiveState(ButtonStateNames.Down);
+        if (this.buttonConfig.downPosition) {
+            this._y = this.y;
+            this.y += this.buttonConfig.downPosition;
+        }
     }
 
     private onPointerUp(): void {
         this.emit(ButtonEvents.Up);
         !this.isDisabled && this.setActiveState(ButtonStateNames.Up);
+        if (this.buttonConfig.downPosition) {
+            this.y = this._y;
+        }
+        this.isClicked = false;
     }
 
     private onPointerOver(): void {
@@ -137,5 +148,9 @@ export class Button extends Container {
     private onPointerOut(): void {
         this.setActiveState(ButtonStateNames.Up);
         this.emit(ButtonEvents.Out);
+        if (this.buttonConfig.downPosition && this.isClicked) {
+            this.y = this._y;
+        }
+        this.isClicked = false;
     }
 }

@@ -48,8 +48,6 @@ export class SlotMachineModel extends ObservableModel {
     }
 
     set state(value) {
-        console.warn('********', SlotMachineState[value]);
-
         this._state = value;
     }
 

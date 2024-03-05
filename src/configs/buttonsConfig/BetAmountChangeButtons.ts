@@ -14,6 +14,7 @@ export const getPlusButtonConfig = (): ButtonConfig => {
                 image: 'plus_button_disabled.png',
             },
         },
+        downPosition: 5,
     };
 };
 
@@ -33,5 +34,6 @@ export const getMinusButtonConfig = (): ButtonConfig => {
                 image: 'minus_button_disabled.png',
             },
         },
+        downPosition: 5,
     };
 };

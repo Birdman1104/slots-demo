@@ -6,7 +6,7 @@ import { LoaderView } from './views/LoaderView';
 import { UIView } from './views/UIView';
 
 class PixiStage extends Container {
-    private bgView: BackgroundView;
+    private backgroundView: BackgroundView;
     private gameView: GameView;
     private uiView: UIView;
     private foregroundView: ForegroundView;
@@ -24,7 +24,7 @@ class PixiStage extends Container {
     }
 
     public resize(): void {
-        this.bgView?.rebuild();
+        this.backgroundView?.rebuild();
         this.gameView?.rebuild();
         this.uiView?.rebuild();
         this.foregroundView?.rebuild();
@@ -35,6 +35,8 @@ class PixiStage extends Container {
         this.loaderView?.destroy();
         this.loaderView = null;
 
+        this.backgroundView = new BackgroundView();
+        this.addChild(this.backgroundView);
         this.gameView = new GameView();
         this.addChild(this.gameView);
         this.uiView = new UIView();

@@ -63,6 +63,7 @@ type WinningItemsCount = {
 type ButtonConfig = {
     states: ButtonStates;
     hitArea?: ButtonHitAreaConfig;
+    downPosition?: number;
 };
 
 type ButtonStates = {

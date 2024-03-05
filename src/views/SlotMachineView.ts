@@ -13,7 +13,7 @@ import { SlotForeground } from './SlotForeground';
 
 export class SlotMachineView extends Container {
     private bg: SlotBackground;
-    private _reels: ReelView[];
+    private reels: ReelView[];
     private reelsContainer: Container;
     private reelsMask: Graphics;
     private result: SpinResult;
@@ -36,16 +36,12 @@ export class SlotMachineView extends Container {
         // this.addChild(gr);
     }
 
-    get reels() {
-        return this._reels;
-    }
-
     public getBounds(skipUpdate?: boolean | undefined, rect?: Rectangle | undefined): Rectangle {
-        return new Rectangle(0, 0, 1920, 1080);
+        return new Rectangle(0, 0, 1920, 747);
     }
 
     public getReelByUUID(uuid: string): ReelView {
-        return this._reels.find((reel) => reel.uuid === uuid) as ReelView;
+        return this.reels.find((reel) => reel.uuid === uuid) as ReelView;
     }
 
     private build(): void {
@@ -73,7 +69,7 @@ export class SlotMachineView extends Container {
     private buildReels(): void {
         const { reels } = this.config;
         this.reelsContainer = new Container();
-        this._reels = reels.map((model, i) => {
+        this.reels = reels.map((model, i) => {
             const reel = new ReelView(model);
             reel.on(ReelViewEvents.OldElementsDropComplete, this.onReelOldElementsDropComplete, this);
             reel.on(ReelViewEvents.NewElementsDropComplete, this.onReelNewElementsDropComplete, this);
@@ -81,8 +77,10 @@ export class SlotMachineView extends Container {
             this.reelsContainer.addChild(reel);
             return reel;
         });
-        this.reelsContainer.x = 290;
-        this.reelsContainer.y = 105;
+        this.reelsContainer.x = 315;
+        this.reelsContainer.y = 0;
+        this.reelsContainer.scale.set(0.95);
+
         this.addChild(this.reelsContainer);
 
         this.reelsMask = new Graphics();
@@ -131,12 +129,12 @@ export class SlotMachineView extends Container {
     }
 
     private onReelsUpdate(newReels: any, b, c): void {
-        if (this._reels.length !== 0) {
-            this._reels.forEach((r) => r.destroy());
-            this._reels = [];
+        if (this.reels.length !== 0) {
+            this.reels.forEach((r) => r.destroy());
+            this.reels = [];
         }
 
-        this._reels = newReels.map((model, i) => {
+        this.reels = newReels.map((model, i) => {
             const reel = new ReelView(model);
             reel.position.set(this.reelsContainer.width + (i !== 0 ? OFFSET_X : 0), 0);
             this.reelsContainer.addChild(reel);

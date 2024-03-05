@@ -8,7 +8,7 @@ export class SlotBackground extends Container {
     }
 
     private build(): void {
-        this.staticBkg = Sprite.from('main_background.jpg');
+        this.staticBkg = Sprite.from('slot_bkg.png');
         this.addChild(this.staticBkg);
     }
 }

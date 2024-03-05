@@ -1,12 +1,12 @@
 import { lego } from '@armathai/lego';
 import { Container, Sprite, Text } from 'pixi.js';
-import { getMinusButtonConfig, getPlusButtonConfig } from '../configs/buttonsConfig/BetAmountChangeButtons';
-import { getSpinButtonConfig } from '../configs/buttonsConfig/SpinButtonConfig';
-import { ButtonEvents } from '../enums/Enums';
-import { UIEvents } from '../events/MainEvents';
-import { PlayerModelEvents, SlotMachineModelEvents } from '../events/ModelEvents';
-import { SlotMachineState } from '../models/SlotMachineModel';
-import { Button } from '../utils/Button';
+import { getMinusButtonConfig, getPlusButtonConfig } from '../../configs/buttonsConfig/BetAmountChangeButtons';
+import { getSpinButtonConfig } from '../../configs/buttonsConfig/SpinButtonConfig';
+import { ButtonEvents } from '../../enums/Enums';
+import { UIEvents } from '../../events/MainEvents';
+import { PlayerModelEvents, SlotMachineModelEvents } from '../../events/ModelEvents';
+import { SlotMachineState } from '../../models/SlotMachineModel';
+import { Button } from '../../utils/Button';
 
 export class BetControllerView extends Container {
     private plusButton: Button;

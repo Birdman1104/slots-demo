@@ -1,5 +1,6 @@
-import { Container, NineSlicePlane, Rectangle, Sprite, Text, Texture } from 'pixi.js';
+import { Container, NineSlicePlane, Rectangle, Sprite, Text } from 'pixi.js';
 import { ButtonStateNames } from '../enums/Enums';
+import { getNineSlice } from './Utils';
 
 export class ButtonState extends Container {
     private bkg: Sprite | NineSlicePlane;
@@ -41,13 +42,10 @@ export class ButtonState extends Container {
 
     private buildNineSlice(): void {
         const { image, nineSliceConfig, tint = undefined } = this.buttonStateConfig;
-        const { l, t, r, b, width, height } = nineSliceConfig as NineSliceConfig;
+        const { width, height } = nineSliceConfig as NineSliceConfig;
 
-        this.bkg = new NineSlicePlane(Texture.from(image), l, t, r, b);
-        this.bkg.width = width;
-        this.bkg.height = height;
+        this.bkg = getNineSlice(image, nineSliceConfig as NineSliceConfig, tint);
         this.bkg.position.set(-width / 2, -height / 2);
-        if (tint) this.bkg.tint = tint;
         this.addChild(this.bkg);
     }
 

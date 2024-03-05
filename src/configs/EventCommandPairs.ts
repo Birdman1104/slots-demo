@@ -49,6 +49,10 @@ const minusButtonClickCommand = (): void => {
     Head.playerModel?.decreaseBet();
 };
 
+const maxBetButtonClickCommand = (): void => {
+    Head.playerModel?.setMaxBet();
+};
+
 const slotMachineOldElementsDropCompleteCommand = (): void => {
     Head.gameModel?.slotMachine?.setState(SlotMachineState.WaitingForResult);
 };
@@ -91,6 +95,10 @@ const eventCommandPairs = Object.freeze([
     {
         event: UIEvents.MinusButtonClick,
         command: minusButtonClickCommand,
+    },
+    {
+        event: UIEvents.MaxBetButtonClick,
+        command: maxBetButtonClickCommand,
     },
     {
         event: SlotMachineViewEvents.OldElementsDropComplete,

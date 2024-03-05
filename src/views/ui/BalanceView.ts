@@ -1,8 +1,8 @@
 import { lego } from '@armathai/lego';
 import { Container, Sprite, Text } from 'pixi.js';
-import { DEFAULT_FONT } from '../Config';
-import { SlotMachineViewEvents } from '../events/MainEvents';
-import { PlayerModelEvents } from '../events/ModelEvents';
+import { DEFAULT_FONT } from '../../Config';
+import { SlotMachineViewEvents } from '../../events/MainEvents';
+import { PlayerModelEvents } from '../../events/ModelEvents';
 
 export class BalanceView extends Container {
     private tempBalance = 0;

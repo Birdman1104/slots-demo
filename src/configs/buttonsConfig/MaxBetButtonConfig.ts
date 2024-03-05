@@ -1,11 +1,12 @@
 import { DEFAULT_FONT } from '../../Config';
 
 const textConfig = {
-    text: 'SPIN',
+    text: 'MAX\nBET',
     style: {
         fontFamily: DEFAULT_FONT,
         fontSize: 36,
-        fill: '#f8df6f',
+        fill: '#454545',
+        align: 'center',
     },
     x: 0,
     y: 0,
@@ -20,26 +21,26 @@ const nineSliceConfig: NineSliceConfig = {
     height: 128,
 };
 
-export const getSpinButtonConfig = (): ButtonConfig => {
+export const getMaxBetButtonConfig = (): ButtonConfig => {
     return {
         states: {
             up: {
-                image: 'green_button_up.png',
+                image: 'base_button_up.png',
                 nineSliceConfig,
                 textConfig,
             },
             down: {
-                image: 'green_button_down.png',
+                image: 'base_button_down.png',
                 nineSliceConfig,
                 textConfig,
             },
             over: {
-                image: 'green_button_up.png',
+                image: 'base_button_up.png',
                 nineSliceConfig,
                 textConfig,
             },
             disabled: {
-                image: 'green_button_disabled.png',
+                image: 'base_button_disabled.png',
                 nineSliceConfig,
                 textConfig,
             },
